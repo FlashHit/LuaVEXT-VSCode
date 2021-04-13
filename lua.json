@@ -1,0 +1,4059 @@
+{
+	"Create Class": {
+		"prefix": "Create Class",
+		"body": [
+		   	"class '$TM_FILENAME_BASE'",
+		   	"",
+		   	"function $TM_FILENAME_BASE:__init()",
+		   	"	",
+			"end",
+			"",
+			"if g_$TM_FILENAME_BASE == nil then",
+			"	g_$TM_FILENAME_BASE = $TM_FILENAME_BASE()",
+			"end",
+			""
+		],
+	   "description": "Create a class structure"
+   },
+   	"Engine:Message": {
+		"prefix": "Engine:Message",
+		"body": [
+		"Events:Subscribe('Engine:Message', function(p_Message)",
+		"	local s_MessageCategory",
+		"	local s_MessageType",
+		"	for l_Category, l_Value in pairs(MessageCategory) do",
+		"		if l_Value == p_Message.category then",
+		"			s_MessageCategory = l_Category",
+		"		end",
+		"	end",
+		"	for l_Type, l_Value in pairs(MessageType) do",
+		"		if v == p_Message.type then",
+		"			s_MessageType = l_Type",
+		"		end",
+		"	end",
+		"	print(s_MessageCategory .. ' | ' .. s_MessageType)",
+		"end)"
+		],
+		"description": "Event for Engine:Message"
+	},
+	"Class Engine:Message": {
+		"prefix": "Engine:Message",
+		"body": [
+		"Events:Subscribe('Engine:Message', self, self.OnEngineMessage)",
+		"",
+		"function $TM_FILENAME_BASE:OnEngineMessage(p_Message)" ,
+		"	local s_MessageCategory",
+		"	local s_MessageType,"
+		"	for l_Category, l_Value in pairs(MessageCategory) do",
+		"		if l_Value == p_Message.category then",
+		"			s_MessageCategory = l_Category",
+		"		end",
+		"	end",
+		"	for l_Type, l_Value in pairs(MessageType) do",
+		"		if v == p_Message.type then",
+		"			s_MessageType = l_Type",
+		"		end",
+		"	end",
+		"	print(s_MessageCategory .. ' | ' .. s_MessageType)",
+		"end"
+		],
+	"description": "Event for Engine:Message"
+	},
+	"Engine:Update": {
+	 	"prefix": "Engine:Update",
+	 	"body": [
+			"Events:Subscribe('Engine:Update', function(p_DeltaTime, p_SimulationDeltaTime)",
+			"	",
+			"end)"
+	 	],
+		"description": "Event for Engine:Update"
+	},
+	"Class Engine:Update": {
+	 	"prefix": "Engine:Update",
+	 	"body": [
+			"Events:Subscribe('Engine:Update', self, self.OnEngineUpdate)",
+			"",
+			"function $TM_FILENAME_BASE:OnEngineUpdate(p_DeltaTime, p_SimulationDeltaTime)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Event for Engine:Update"
+	},
+	"Extension:Loaded": {
+	 	"prefix": "Extension:Loaded",
+	 	"body": [
+			"Events:Subscribe('Extension:Loaded', function()",
+			"	",
+			"end)"
+	 	],
+		"description": "Event for Extension:Loaded"
+	},
+	"Class Extension:Loaded": {
+	 	"prefix": "Extension:Loaded",
+	 	"body": [
+			"Events:Subscribe('Extension:Loaded', self, self.OnExtensionLoaded)",
+			"",
+			"function $TM_FILENAME_BASE:OnExtensionLoaded()" ,
+			"	",
+			"end"
+	 	],
+		"description": "Event for Extension:Loaded"
+	},
+	"Extension:Unloading": {
+	 	"prefix": "Extension:Unloading",
+	 	"body": [
+			"Events:Subscribe('Extension:Unloading', function()",
+			"	",
+			"end)"
+	 	],
+		"description": "Event for Extension:Unloading"
+	},
+	"Class Extension:Unloaded": {
+	 	"prefix": "Extension:Unloading",
+	 	"body": [
+			"Events:Subscribe('Extension:Unloading', self, self.OnExtensionUnloading)",
+			"",
+			"function $TM_FILENAME_BASE:OnExtensionUnloading()" ,
+			"	",
+			"end"
+	 	],
+		"description": "Event for Extension:Unloading"
+	},
+	"GunSway:Update": {
+	 	"prefix": "GunSway:Update",
+	 	"body": [
+			"Events:Subscribe('GunSway:Update', function(p_GunSway, p_Weapon, p_WeaponFiring, p_DeltaTime)",
+			"	",
+			"end)"
+	 	],
+		"description": "Event for GunSway:Update"
+	},
+	"Class GunSway:Update": {
+	 	"prefix": "GunSway:Update",
+	 	"body": [
+			"Events:Subscribe('GunSway:Update', self, self.OnGunSwayUpdate)",
+			"",
+			"function $TM_FILENAME_BASE:OnGunSwayUpdate(p_GunSway, p_Weapon, p_WeaponFiring, p_DeltaTime)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Event for GunSway:Update"
+	},
+	"GunSway:UpdateRecoil": {
+	 	"prefix": "GunSway:UpdateRecoil",
+	 	"body": [
+			"Events:Subscribe('GunSway:UpdateRecoil', function(p_GunSway, p_Weapon, p_WeaponFiring, p_DeltaTime)",
+			"	",
+			"end)"
+	 	],
+		"description": "Event for GunSway:UpdateRecoil"
+	},
+	"Class GunSway:UpdateRecoil": {
+	 	"prefix": "GunSway:UpdateRecoil",
+	 	"body": [
+			"Events:Subscribe('GunSway:UpdateRecoil', self, self.OnGunSwayUpdateRecoil)",
+			"",
+			"function $TM_FILENAME_BASE:OnGunSwayUpdateRecoil(p_GunSway, p_Weapon, p_WeaponFiring, p_DeltaTime)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Event for Level:Destroy"
+	},
+	"Level:Destroy": {
+	 	"prefix": "Level:Destroy",
+	 	"body": [
+			"Events:Subscribe('Level:Destroy', function()",
+			"	",
+			"end)"
+	 	],
+		"description": "Event for Level:Destroy"
+	},
+	"Class Level:Destroy": {
+	 	"prefix": "Level:Destroy",
+	 	"body": [
+			"Events:Subscribe('Level:Destroy', self, self.OnLevelDestroy)",
+			"",
+			"function $TM_FILENAME_BASE:OnLevelDestroy()" ,
+			"	",
+			"end"
+	 	],
+		"description": "Event for Level:Destroy"
+	},
+	"Level:LoadResources": {
+	 	"prefix": "Level:LoadResources",
+	 	"body": [
+			"Events:Subscribe('Level:LoadResources', function(p_LevelName, p_GameMode, p_IsDedicatedServer)",
+			"	",
+			"end)"
+	 	],
+		"description": "Event for Level:LoadResources"
+	},
+	"Class Level:LoadResources": {
+	 	"prefix": "Level:LoadResources",
+	 	"body": [
+			"Events:Subscribe('Level:LoadResources', self, self.OnLevelLoadResources)",
+			"",
+			"function $TM_FILENAME_BASE:OnLevelLoadResources(p_LevelName, p_GameMode, p_IsDedicatedServer)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Event for Level:LoadResources"
+	},
+	"Level:RegisterEntityResources": {
+	 	"prefix": "Level:RegisterEntityResources",
+	 	"body": [
+			"Events:Subscribe('Level:RegisterEntityResources', function(p_LevelData)",
+			"	",
+			"end)"
+	 	],
+		"description": "Event for Level:RegisterEntityResources"
+	},
+	"Class Level:RegisterEntityResources": {
+	 	"prefix": "Level:RegisterEntityResources",
+	 	"body": [
+			"Events:Subscribe('Level:RegisterEntityResources', self, self.OnLevelRegisterEntityResources)",
+			"",
+			"function $TM_FILENAME_BASE:OnLevelRegisterEntityResources(p_LevelData)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Event for Level:RegisterEntityResources"
+	},
+	"Partition:Loaded": {
+	 	"prefix": "Partition:Loaded",
+	 	"body": [
+			"Events:Subscribe('Partition:Loaded', function(p_Partition)",
+			"	for _, l_Instance in pairs(p_Partition.instances) do",
+			"		",
+			"	end",
+			"end)"
+	 	],
+		"description": "Event for Partition:Loaded"
+	},
+	"Class Partition:Loaded": {
+	 	"prefix": "Partition:Loaded",
+	 	"body": [
+			"Events:Subscribe('Partition:Loaded', self, self.OnPartitionLoaded)",
+			"",
+			"function $TM_FILENAME_BASE:OnPartitionLoaded(p_Partition)" ,
+			"	for _, l_Instance in pairs(p_Partition.instances) do",
+			"		",
+			"	end",
+			"end"
+	 	],
+		"description": "Event for Partition:Loaded"
+	},
+	"UpdateManager:Update": {
+	 	"prefix": "UpdateManager:Update",
+	 	"body": [
+			"Events:Subscribe('UpdateManager:Update', function(p_DeltaTime, p_UpdatePass)",
+			"	",
+			"end)"
+	 	],
+		"description": "Event for UpdateManager:Update"
+	},
+	"Class UpdateManager:Update": {
+	 	"prefix": "UpdateManager:Update",
+	 	"body": [
+			"Events:Subscribe('UpdateManager:Update', self, self.OnUpdateManagerUpdate)",
+			"",
+			"function $TM_FILENAME_BASE:OnUpdateManagerUpdate(p_DeltaTime, p_UpdatePass)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Event for UpdateManager:Update"
+	},
+	"WeaponFiring:Create": {
+	 	"prefix": "WeaponFiring:Create",
+	 	"body": [
+			"Events:Subscribe('WeaponFiring:Create', function(p_WeaponFiring)",
+			"	",
+			"end)"
+	 	],
+		"description": "Event for WeaponFiring:Create"
+	},
+	"Class WeaponFiring:Create": {
+	 	"prefix": "WeaponFiring:Create",
+	 	"body": [
+			"Events:Subscribe('WeaponFiring:Create', self, self.OnWeaponFiringCreate)",
+			"",
+			"function $TM_FILENAME_BASE:OnWeaponFiringCreate(p_WeaponFiring)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Event for WeaponFiring:Create"
+	},
+	"WeaponFiring:Update": {
+	 	"prefix": "WeaponFiring:Update",
+	 	"body": [
+			"Events:Subscribe('WeaponFiring:Update', function(p_WeaponFiring)",
+			"	",
+			"end)"
+	 	],
+		"description": "Event for WeaponFiring:Update"
+	},
+	"Class WeaponFiring:Update": {
+	 	"prefix": "WeaponFiring:Update",
+	 	"body": [
+			"Events:Subscribe('WeaponFiring:Update', self, self.OnWeaponFiringUpdate)",
+			"",
+			"function $TM_FILENAME_BASE:OnWeaponFiringUpdate(p_WeaponFiring)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Event for WeaponFiring:Update"
+	},
+	"Client:PostFrameUpdate": {
+	 	"prefix": "Client:PostFrameUpdate",
+	 	"body": [
+			"Events:Subscribe('Client:PostFrameUpdate', function(p_DeltaTime)",
+			"	",
+			"end)"
+	 	],
+		"description": "Client Event for Client:PostFrameUpdate"
+	},
+	"Class Client:PostFrameUpdate": {
+	 	"prefix": "Client:PostFrameUpdate",
+	 	"body": [
+			"Events:Subscribe('Client:PostFrameUpdate', self, self.OnClientPostFrameUpdate)",
+			"",
+			"function $TM_FILENAME_BASE:OnClientPostFrameUpdate(p_DeltaTime)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Client Event for Client:PostFrameUpdate"
+	},
+	"Client:UpdateInput": {
+	 	"prefix": "Client:UpdateInput",
+	 	"body": [
+			"Events:Subscribe('Client:UpdateInput', function(p_DeltaTime)",
+			"	",
+			"end)"
+	 	],
+		"description": "Client Event for Client:UpdateInput"
+	},
+	"Class Client:UpdateInput": {
+	 	"prefix": "Client:UpdateInput",
+	 	"body": [
+			"Events:Subscribe('Client:UpdateInput', self, self.OnClientUpdateInput)",
+			"",
+			"function $TM_FILENAME_BASE:OnClientUpdateInput(p_DeltaTime)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Client Event for Client:UpdateInput"
+	},
+	"FPSCamera:Update": {
+	 	"prefix": "FPSCamera:Update",
+	 	"body": [
+			"Events:Subscribe('FPSCamera:Update', function(p_DeltaTime)",
+			"	",
+			"end)"
+	 	],
+		"description": "Client Event for FPSCamera:Update"
+	},
+	"Class FPSCamera:Update": {
+	 	"prefix": "FPSCamera:Update",
+	 	"body": [
+			"Events:Subscribe('FPSCamera:Update', self, self.OnFPSCameraUpdate)",
+			"",
+			"function $TM_FILENAME_BASE:OnFPSCameraUpdate(p_DeltaTime)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Client Event for FPSCamera:Update"
+	},
+	"FreeCam:PostFrameUpdate": {
+	 	"prefix": "FreeCam:PostFrameUpdate",
+	 	"body": [
+			"Events:Subscribe('FreeCam:PostFrameUpdate', function(p_DeltaTime)",
+			"	",
+			"end)"
+	 	],
+		"description": "Client Event for FreeCam:PostFrameUpdate"
+	},
+	"Class FreeCam:PostFrameUpdate": {
+	 	"prefix": "FreeCam:PostFrameUpdate",
+	 	"body": [
+			"Events:Subscribe('FreeCam:PostFrameUpdate', self, self.OnFreeCamPostFrameUpdate)",
+			"",
+			"function $TM_FILENAME_BASE:OnFreeCamPostFrameUpdate(p_DeltaTime)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Client Event for FreeCam:PostFrameUpdate"
+	},
+	"Level:Finalized": {
+	 	"prefix": "Level:Finalized",
+	 	"body": [
+			"Events:Subscribe('Level:Finalized', function(p_LevelName, p_GameMode)",
+			"	",
+			"end)"
+	 	],
+		"description": "Client Event for Level:Finalized"
+	},
+	"Class Level:Finalized": {
+	 	"prefix": "Level:Finalized",
+	 	"body": [
+			"Events:Subscribe('Level:Finalized', self, self.OnLevelFinalized)",
+			"",
+			"function $TM_FILENAME_BASE:OnLevelFinalized(p_LevelName, p_GameMode)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Client Event for Level:Finalized"
+	},
+	"Level:Loaded(Client)": {
+	 	"prefix": "Level:Loaded(Client)",
+	 	"body": [
+			"Events:Subscribe('Level:Loaded', function(p_LevelName, p_GameMode)",
+			"	",
+			"end)"
+	 	],
+		"description": "Client Event for Level:Loaded"
+	},
+	"Class Level:Loaded(Client)": {
+	 	"prefix": "Level:Loaded(Client)",
+	 	"body": [
+			"Events:Subscribe('Level:Loaded', self, self.OnLevelLoaded)",
+			"",
+			"function $TM_FILENAME_BASE:OnLevelLoaded(p_LevelName, p_GameMode)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Client Event for Level:Loaded"
+	},
+	"Player:Connected": {
+	 	"prefix": "Player:Connected",
+	 	"body": [
+			"Events:Subscribe('Player:Connected', function(p_LevelName, p_GameMode)",
+			"	",
+			"end)"
+	 	],
+		"description": "Client Event for Player:Connected"
+	},
+	"Class Player:Connected": {
+	 	"prefix": "Player:Connected",
+	 	"body": [
+			"Events:Subscribe('Player:Connected', self, self.OnPlayerConnected)",
+			"",
+			"function $TM_FILENAME_BASE:OnPlayerConnected(p_LevelName, p_GameMode)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Client Event for Player:Connected"
+	},
+	"Player:Deleted": {
+	 	"prefix": "Player:Deleted",
+	 	"body": [
+			"Events:Subscribe('Player:Deleted', function(p_LevelName, p_GameMode)",
+			"	",
+			"end)"
+	 	],
+		"description": "Client Event for Player:Deleted"
+	},
+	"Class Player:Deleted": {
+	 	"prefix": "Player:Deleted",
+	 	"body": [
+			"Events:Subscribe('Player:Deleted', self, self.OnPlayerDeleted)",
+			"",
+			"function $TM_FILENAME_BASE:OnPlayerDeleted(p_LevelName, p_GameMode)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Client Event for Player:Deleted"
+	},
+	"Player:Killed(Client)": {
+	 	"prefix": "Player:Killed(Client)",
+	 	"body": [
+			"Events:Subscribe('Player:Killed', function(p_Player)",
+			"	",
+			"end)"
+	 	],
+		"description": "Client Event for Player:Killed"
+	},
+	"Class Player:Killed(Client)": {
+	 	"prefix": "Player:Killed(Client)",
+	 	"body": [
+			"Events:Subscribe('Player:Killed', self, self.OnPlayerKilled)",
+			"",
+			"function $TM_FILENAME_BASE:OnPlayerKilled(p_Player)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Client Event for Player:Killed"
+	},
+	"Player:Respawn": {
+	 	"prefix": "Player:Respawn",
+	 	"body": [
+			"Events:Subscribe('Player:Respawn', function(p_Player)",
+			"	",
+			"end)"
+	 	],
+		"description": "Event for Player:Respawn"
+	},
+	"Class Player:Respawn": {
+	 	"prefix": "Player:Respawn",
+	 	"body": [
+			"Events:Subscribe('Player:Respawn', self, self.OnPlayerRespawn)",
+			"",
+			"function $TM_FILENAME_BASE:OnPlayerRespawn(p_Player)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Event for Player:Respawn"
+	},
+	"Player:SetSquadLoader": {
+	 	"prefix": "Player:SetSquadLoader",
+	 	"body": [
+			"Events:Subscribe('Player:SetSquadLoader', function(p_Player)",
+			"	",
+			"end)"
+	 	],
+		"description": "Event for Player:SetSquadLoader"
+	},
+	"Class Player:SetSquadLoader": {
+	 	"prefix": "Player:SetSquadLoader",
+	 	"body": [
+			"Events:Subscribe('Player:SetSquadLoader', self, self.OnPlayerSetSquadLoader)",
+			"",
+			"function $TM_FILENAME_BASE:OnPlayerSetSquadLoader(p_Player)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Event for Player:SetSquadLoader"
+	},
+	"Player:SquadChange": {
+	 	"prefix": "Player:SquadChange",
+	 	"body": [
+			"Events:Subscribe('Player:SquadChange', function(p_Player, p_SquadId)",
+			"	",
+			"end)"
+	 	],
+		"description": "Event for Player:SquadChange"
+	},
+	"Class Player:SquadChange": {
+	 	"prefix": "Player:SquadChange",
+	 	"body": [
+			"Events:Subscribe('Player:SquadChange', self, self.OnPlayerSquadChange)",
+			"",
+			"function $TM_FILENAME_BASE:OnPlayerSquadChange(p_Player, p_SquadId)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Event for Player:SquadChange"
+	},
+	"Player:TeamChange": {
+	 	"prefix": "Player:TeamChange",
+	 	"body": [
+			"Events:Subscribe('Player:TeamChange', function(p_Player, p_TeamId, p_SquadId)",
+			"	",
+			"end)"
+	 	],
+		"description": "Event for Player:TeamChange"
+	},
+	"Class Player:TeamChange": {
+	 	"prefix": "Player:TeamChange",
+	 	"body": [
+			"Events:Subscribe('Player:TeamChange', self, self.OnPlayerTeamChange)",
+			"",
+			"function $TM_FILENAME_BASE:OnPlayerTeamChange(p_Player, p_TeamId, p_SquadId)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Event for Player:TeamChange"
+	},
+	"Player:UpdateInput": {
+	 	"prefix": "Player:UpdateInput",
+	 	"body": [
+			"Events:Subscribe('Player:UpdateInput', function(p_Player)",
+			"	",
+			"end)"
+	 	],
+		"description": "Event for Player:UpdateInput"
+	},
+	"Class Player:UpdateInput": {
+	 	"prefix": "Player:UpdateInput",
+	 	"body": [
+			"Events:Subscribe('Player:UpdateInput', self, self.OnPlayerUpdateInput)",
+			"",
+			"function $TM_FILENAME_BASE:OnPlayerUpdateInput(p_Player)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Event for Player:UpdateInput"
+	},
+	"Soldier:HealthAction": {
+	 	"prefix": "Soldier:HealthAction",
+	 	"body": [
+			"Events:Subscribe('Soldier:HealthAction', function(p_Soldier, p_Action)",
+			"	",
+			"end)"
+	 	],
+		"description": "Event for Soldier:HealthAction"
+	},
+	"Class Soldier:HealthAction": {
+	 	"prefix": "Soldier:HealthAction",
+	 	"body": [
+			"Events:Subscribe('Soldier:HealthAction', self, self.OnSoldierHealthAction)",
+			"",
+			"function $TM_FILENAME_BASE:OnSoldierHealthAction(p_Soldier, p_Action)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Event for Soldier:HealthAction"
+	},
+	"Soldier:Spawn": {
+	 	"prefix": "Soldier:Spawn",
+	 	"body": [
+			"Events:Subscribe('Soldier:Spawn', function(p_Soldier)",
+			"	",
+			"end)"
+	 	],
+		"description": "Client Event for Soldier:Spawn"
+	},
+	"Class Soldier:Spawn": {
+	 	"prefix": "Soldier:Spawn",
+	 	"body": [
+			"Events:Subscribe('Soldier:Spawn', self, self.OnSoldierSpawn)",
+			"",
+			"function $TM_FILENAME_BASE:OnSoldierSpawn(p_Soldier)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Client Event for Soldier:Spawn"
+	},
+	"UI:DrawHud": {
+	 	"prefix": "UI:DrawHud",
+	 	"body": [
+			"Events:Subscribe('UI:DrawHud', function()",
+			"	",
+			"end)"
+	 	],
+		"description": "Client Event for UI:DrawHud"
+	},
+	"Class UI:DrawHud": {
+	 	"prefix": "UI:DrawHud",
+	 	"body": [
+			"Events:Subscribe('UI:DrawHud', self, self.OnUIDrawHud)",
+			"",
+			"function $TM_FILENAME_BASE:OnUIDrawHud()" ,
+			"	",
+			"end"
+	 	],
+		"description": "Client Event for UI:DrawHud"
+	},
+	"VE:StateAdded": {
+	 	"prefix": "VE:StateAdded",
+	 	"body": [
+			"Events:Subscribe('VE:StateAdded', function(p_State)",
+			"	",
+			"end)"
+	 	],
+		"description": "Client Event for VE:StateAdded"
+	},
+	"Class VE:StateAdded": {
+	 	"prefix": "VE:StateAdded",
+	 	"body": [
+			"Events:Subscribe('VE:StateAdded', self, self.OnVEStateAdded)",
+			"",
+			"function $TM_FILENAME_BASE:OnVEStateAdded(p_State)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Client Event for VE:StateAdded"
+	},
+	"VE:StateRemoved": {
+	 	"prefix": "VE:StateRemoved",
+	 	"body": [
+			"Events:Subscribe('VE:StateRemoved', function(p_State)",
+			"	",
+			"end)"
+	 	],
+		"description": "Client Event for VE:StateRemoved"
+	},
+	"Class VE:StateRemoved": {
+	 	"prefix": "VE:StateRemoved",
+	 	"body": [
+			"Events:Subscribe('VE:StateRemoved', self, self.OnVEStateRemoved)",
+			"",
+			"function $TM_FILENAME_BASE:OnVEStateRemoved(p_State)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Client Event for VE:StateRemoved"
+	},
+	"VE:StatesCleared": {
+	 	"prefix": "VE:StatesCleared",
+	 	"body": [
+			"Events:Subscribe('VE:StatesCleared', function()",
+			"	",
+			"end)"
+	 	],
+		"description": "Client Event for VE:StatesCleared"
+	},
+	"Class VE:StatesCleared": {
+	 	"prefix": "VE:StatesCleared",
+	 	"body": [
+			"Events:Subscribe('VE:StatesCleared', self, self.OnVEStatesCleared)",
+			"",
+			"function $TM_FILENAME_BASE:OnVEStatesCleared()" ,
+			"	",
+			"end"
+	 	],
+		"description": "Client Event for VE:StatesCleared"
+	},
+	"VU:Spec:PostUpdate": {
+	 	"prefix": "VU:Spec:PostUpdate",
+	 	"body": [
+			"Events:Subscribe('VU:Spec:PostUpdate', function(p_DeltaTime)",
+			"	",
+			"end)"
+	 	],
+		"description": "Client Event for VU:Spec:PostUpdate"
+	},
+	"Class VU:Spec:PostUpdate": {
+	 	"prefix": "VU:Spec:PostUpdate",
+	 	"body": [
+			"Events:Subscribe('VU:Spec:PostUpdate', self, self.OnVUSpecPostUpdate)",
+			"",
+			"function $TM_FILENAME_BASE:OnVUSpecPostUpdate(p_DeltaTime)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Client Event for VU:Spec:PostUpdate"
+	},
+	"VU:Spec:PreUpdate": {
+	 	"prefix": "VU:Spec:PreUpdate",
+	 	"body": [
+			"Events:Subscribe('VU:Spec:PreUpdate', function(p_DeltaTime)",
+			"	",
+			"end)"
+	 	],
+		"description": "Client Event for VU:Spec:PreUpdate"
+	},
+	"Class VU:Spec:PreUpdate": {
+	 	"prefix": "VU:Spec:PreUpdate",
+	 	"body": [
+			"Events:Subscribe('VU:Spec:PreUpdate', self, self.OnVUSpecPreUpdate)",
+			"",
+			"function $TM_FILENAME_BASE:OnVUSpecPreUpdate(p_DeltaTime)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Client Event for VU:Spec:PreUpdate"
+	},
+	"CapturePoint:Captured": {
+	 	"prefix": "CapturePoint:Captured",
+	 	"body": [
+			"Events:Subscribe('CapturePoint:Captured', function(p_CapturePoint)",
+			"	",
+			"end)"
+	 	],
+		"description": "Server Event for CapturePoint:Captured"
+	},
+	"Class CapturePoint:Captured": {
+	 	"prefix": "CapturePoint:Captured",
+	 	"body": [
+			"Events:Subscribe('CapturePoint:Captured', self, self.OnCapturePointCaptured)",
+			"",
+			"function $TM_FILENAME_BASE:OnCapturePointCaptured(p_CapturePoint)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Server Event for CapturePoint:Captured"
+	},
+	"CapturePoint:Lost": {
+	 	"prefix": "CapturePoint:Lost",
+	 	"body": [
+			"Events:Subscribe('CapturePoint:Lost', function(p_CapturePoint)",
+			"	",
+			"end)"
+	 	],
+		"description": "Server Event for CapturePoint:Lost"
+	},
+	"Class CapturePoint:Lost": {
+	 	"prefix": "CapturePoint:Lost",
+	 	"body": [
+			"Events:Subscribe('CapturePoint:Lost', self, self.OnCapturePointLost)",
+			"",
+			"function $TM_FILENAME_BASE:OnCapturePointLost(p_CapturePoint)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Server Event for CapturePoint:Lost"
+	},
+	"Engine:Init": {
+	 	"prefix": "Engine:Init",
+	 	"body": [
+			"Events:Subscribe('Engine:Init', function()",
+			"	",
+			"end)"
+	 	],
+		"description": "Server Event for Engine:Init"
+	},
+	"Class Engine:Init": {
+	 	"prefix": "Engine:Init",
+	 	"body": [
+			"Events:Subscribe('Engine:Init', self, self.OnEngineInit)",
+			"",
+			"function $TM_FILENAME_BASE:OnEngineInit()" ,
+			"	",
+			"end"
+	 	],
+		"description": "Server Event for Engine:Init"
+	},
+	"Level:Loaded(Server)": {
+	 	"prefix": "Level:Loaded(Server)",
+	 	"body": [
+			"Events:Subscribe('Level:Loaded', function(p_LevelName, p_GameMode, p_Round, p_RoundsPerMap)",
+			"	",
+			"end)"
+	 	],
+		"description": "Server Event for Level:Loaded"
+	},
+	"Class Level:Loaded(Server)": {
+	 	"prefix": "Level:Loaded(Server)",
+	 	"body": [
+			"Events:Subscribe('Level:Loaded', self, self.OnLevelLoaded)",
+			"",
+			"function $TM_FILENAME_BASE:OnLevelLoaded(p_LevelName, p_GameMode, p_Round, p_RoundsPerMap)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Server Event for Level:Loaded"
+	},
+	"Player:Authenticated": {
+	 	"prefix": "Player:Authenticated",
+	 	"body": [
+			"Events:Subscribe('Player:Authenticated', function(p_Player)",
+			"	",
+			"end)"
+	 	],
+		"description": "Server Event for Player:Authenticated"
+	},
+	"Class Player:Authenticated": {
+	 	"prefix": "Player:Authenticated",
+	 	"body": [
+			"Events:Subscribe('Player:Authenticated', self, self.OnPlayerAuthenticated)",
+			"",
+			"function $TM_FILENAME_BASE:OnPlayerAuthenticated(p_Player)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Server Event for Player:Authenticated"
+	},
+	"Player:ChangingWeapon": {
+	 	"prefix": "Player:ChangingWeapon",
+	 	"body": [
+			"Events:Subscribe('Player:ChangingWeapon', function(p_Player)",
+			"	",
+			"end)"
+	 	],
+		"description": "Server Event for Player:ChangingWeapon"
+	},
+	"Class Player:ChangingWeapon": {
+	 	"prefix": "Player:ChangingWeapon",
+	 	"body": [
+			"Events:Subscribe('Player:ChangingWeapon', self, self.OnPlayerChangingWeapon)",
+			"",
+			"function $TM_FILENAME_BASE:OnPlayerChangingWeapon(p_Player)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Server Event for Player:ChangingWeapon"
+	},
+	"Player:Chat": {
+	 	"prefix": "Player:Chat",
+	 	"body": [
+			"Events:Subscribe('Player:Chat', function(p_Player, p_RecipientMask, p_Message)",
+			"	",
+			"end)"
+	 	],
+		"description": "Server Event for Player:Chat"
+	},
+	"Class Player:Chat": {
+	 	"prefix": "Player:Chat",
+	 	"body": [
+			"Events:Subscribe('Player:Chat', self, self.OnPlayerChat)",
+			"",
+			"function $TM_FILENAME_BASE:OnPlayerChat(p_Player, p_RecipientMask, p_Message)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Server Event for Player:Chat"
+	},
+	"Player:Created": {
+	 	"prefix": "Player:Created",
+	 	"body": [
+			"Events:Subscribe('Player:Created', function(p_Player)",
+			"	",
+			"end)"
+	 	],
+		"description": "Server Event for Player:Created"
+	},
+	"Class Player:Created": {
+	 	"prefix": "Player:Created",
+	 	"body": [
+			"Events:Subscribe('Player:Created', self, self.OnPlayerCreated)",
+			"",
+			"function $TM_FILENAME_BASE:OnPlayerCreated(p_Player)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Server Event for Player:Created"
+	},
+	"Player:Destroyed": {
+	 	"prefix": "Player:Destroyed",
+	 	"body": [
+			"Events:Subscribe('Player:Destroyed', function(p_Player)",
+			"	",
+			"end)"
+	 	],
+		"description": "Server Event for Player:Destroyed"
+	},
+	"Class Player:Destroyed": {
+	 	"prefix": "Player:Destroyed",
+	 	"body": [
+			"Events:Subscribe('Player:Destroyed', self, self.OnPlayerDestroyed)",
+			"",
+			"function $TM_FILENAME_BASE:OnPlayerDestroyed(p_Player)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Server Event for Player:Destroyed"
+	},
+	"Player:EnteredCapturePoint": {
+	 	"prefix": "Player:EnteredCapturePoint",
+	 	"body": [
+			"Events:Subscribe('Player:EnteredCapturePoint', function(p_Player, p_CapturePoint)",
+			"	",
+			"end)"
+	 	],
+		"description": "Server Event for Player:EnteredCapturePoint"
+	},
+	"Class Player:EnteredCapturePoint": {
+	 	"prefix": "Player:EnteredCapturePoint",
+	 	"body": [
+			"Events:Subscribe('Player:EnteredCapturePoint', self, self.OnPlayerEnteredCapturePoint)",
+			"",
+			"function $TM_FILENAME_BASE:OnPlayerEnteredCapturePoint(p_Player, p_CapturePoint)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Server Event for Player:EnteredCapturePoint"
+	},
+	"Player:ExitedCapturePoint": {
+	 	"prefix": "Player:ExitedCapturePoint",
+	 	"body": [
+			"Events:Subscribe('Player:ExitedCapturePoint', function(p_Player, p_CapturePoint)",
+			"	",
+			"end)"
+	 	],
+		"description": "Server Event for Player:ExitedCapturePoint"
+	},
+	"Class Player:ExitedCapturePoint": {
+	 	"prefix": "Player:ExitedCapturePoint",
+	 	"body": [
+			"Events:Subscribe('Player:ExitedCapturePoint', self, self.OnPlayerExitedCapturePoint)",
+			"",
+			"function $TM_FILENAME_BASE:OnPlayerExitedCapturePoint(p_Player, p_CapturePoint)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Server Event for Player:ExitedCapturePoint"
+	},
+	"Player:InstantSuicide": {
+	 	"prefix": "Player:InstantSuicide",
+	 	"body": [
+			"Events:Subscribe('Player:InstantSuicide', function(p_Player)",
+			"	",
+			"end)"
+	 	],
+		"description": "Server Event for Player:InstantSuicide"
+	},
+	"Class Player:InstantSuicide": {
+	 	"prefix": "Player:InstantSuicide",
+	 	"body": [
+			"Events:Subscribe('Player:InstantSuicide', self, self.OnPlayerInstantSuicide)",
+			"",
+			"function $TM_FILENAME_BASE:OnPlayerInstantSuicide(p_Player)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Server Event for Player:InstantSuicide"
+	},
+	"Player:Joining": {
+	 	"prefix": "Player:Joining",
+	 	"body": [
+			"Events:Subscribe('Player:Joining', function(p_Name, p_PlayerGuid, p_IpAddress, p_AccountGuid)",
+			"	",
+			"end)"
+	 	],
+		"description": "Server Event for Player:Joining"
+	},
+	"Class Player:Joining": {
+	 	"prefix": "Player:Joining",
+	 	"body": [
+			"Events:Subscribe('Player:Joining', self, self.OnPlayerJoining)",
+			"",
+			"function $TM_FILENAME_BASE:OnPlayerJoining(p_Name, p_PlayerGuid, p_IpAddress, p_AccountGuid)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Server Event for Player:Joining"
+	},
+	"Player:KickedFromSquad": {
+	 	"prefix": "Player:KickedFromSquad",
+	 	"body": [
+			"Events:Subscribe('Player:KickedFromSquad', function(p_Player, p_SquadId)",
+			"	",
+			"end)"
+	 	],
+		"description": "Server Event for Player:KickedFromSquad"
+	},
+	"Class Player:KickedFromSquad": {
+	 	"prefix": "Player:KickedFromSquad",
+	 	"body": [
+			"Events:Subscribe('Player:KickedFromSquad', self, self.OnPlayerKickedFromSquad)",
+			"",
+			"function $TM_FILENAME_BASE:OnPlayerKickedFromSquad(p_Player, p_SquadId)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Server Event for Player:KickedFromSquad"
+	},
+	"Player:Killed(Server)": {
+	 	"prefix": "Player:Killed(Server)",
+	 	"body": [
+			"Events:Subscribe('Player:Killed', function(p_Player, p_Inflictor, p_Position, p_Weapon, p_IsRoadKill, p_IsHeadShot)",
+			"	",
+			"end)"
+	 	],
+		"description": "Server Event for Player:Killed"
+	},
+	"Class Player:Killed(Server)": {
+	 	"prefix": "Player:Killed(Server)",
+	 	"body": [
+			"Events:Subscribe('Player:Killed', self, self.OnPlayerKilled)",
+			"",
+			"function $TM_FILENAME_BASE:OnPlayerKilled(p_Player, p_Inflictor, p_Position, p_Weapon, p_IsRoadKill, p_IsHeadShot)" ,
+			"	",
+			"end"
+	 	],
+		"description": "Server Event for Player:Killed"
+	},
+	"Player:KitPickup": {
+		"prefix": "Player:KitPickup",
+		"body": [
+		   "Events:Subscribe('Player:KitPickup', function(p_Player, p_NewCustomization)",
+		   "	",
+		   "end)"
+		],
+	   "description": "Server Event for Player:KitPickup"
+   	},
+   	"Class Player:KitPickup": {
+		"prefix": "Player:KitPickup",
+		"body": [
+		   "Events:Subscribe('Player:KitPickup', self, self.OnPlayerKitPickup)",
+		   "",
+		   "function $TM_FILENAME_BASE:OnPlayerKitPickup(p_Player, p_NewCustomization)" ,
+		   "	",
+		   "end"
+		],
+	   "description": "Server Event for Player:KitPickup"
+   	},
+   	"Player:Left": {
+	   "prefix": "Player:Left",
+	   "body": [
+		  "Events:Subscribe('Player:Left', function(p_Player)",
+		  "	",
+		  "end)"
+	   ],
+	  "description": "Server Event for Player:Left"
+ 	},
+  	"Class Player:Left": {
+	   "prefix": "Player:Left",
+	   "body": [
+		  "Events:Subscribe('Player:Left', self, self.OnPlayerLeft)",
+		  "",
+		  "function $TM_FILENAME_BASE:OnPlayerLeft(p_Player)" ,
+		  "	",
+		  "end"
+	   ],
+	  "description": "Server Event for Player:Left"
+  	},
+  	"Player:ManDownRevived": {
+	  	"prefix": "Player:ManDownRevived",
+	  	"body": [
+		 	"Events:Subscribe('Player:ManDownRevived', function(p_Player, p_Reviver, p_IsAdrenalineRevive)",
+		 	"	",
+		 	"end)"
+	  	],
+	 	"description": "Server Event for Player:ManDownRevived"
+ 	},
+ 	"Class Player:ManDownRevived": {
+	  	"prefix": "Player:ManDownRevived",
+	  	"body": [
+		 	"Events:Subscribe('Player:ManDownRevived', self, self.OnPlayerManDownRevived)",
+		 	"",
+		 	"function $TM_FILENAME_BASE:OnPlayerManDownRevived(p_Player, p_Reviver, p_IsAdrenalineRevive)" ,
+		 	"	",
+		 	"end"
+	  	],
+	 	"description": "Server Event for Player:ManDownRevived"
+ 	},
+	 "Player:Reload": {
+		 "prefix": "Player:Reload",
+		 "body": [
+			"Events:Subscribe('Player:Reload', function(p_Player, p_WeaponName, p_Position)",
+			"	",
+			"end)"
+		 ],
+		"description": "Server Event for Player:Reload"
+	},
+	"Class Player:Reload": {
+		 "prefix": "Player:Reload",
+		 "body": [
+			"Events:Subscribe('Player:Reload', self, self.OnPlayerReload)",
+			"",
+			"function $TM_FILENAME_BASE:OnPlayerReload(p_Player, p_WeaponName, p_Position)" ,
+			"	",
+			"end"
+		 ],
+		"description": "Server Event for Player:Reload"
+	},
+	"Player:Resupply": {
+		"prefix": "Player:Resupply",
+		"body": [
+		   "Events:Subscribe('Player:Resupply', function(p_Player, p_GivenMagsCount, p_Supplier)",
+		   "	",
+		   "end)"
+		],
+	   "description": "Server Event for Player:Resupply"
+   	},
+   	"Class Player:Resupply": {
+		"prefix": "Player:Resupply",
+		"body": [
+		   "Events:Subscribe('Player:Resupply', self, self.OnPlayerResupply)",
+		   "",
+		   "function $TM_FILENAME_BASE:OnPlayerResupply(p_Player, p_GivenMagsCount, p_Supplier)" ,
+		   "	",
+		   "end"
+		],
+	   "description": "Server Event for Player:Resupply"
+   	},
+   	"Player:ReviveAccepted": {
+	   	"prefix": "Player:ReviveAccepted",
+	   	"body": [
+		  	"Events:Subscribe('Player:ReviveAccepted', function(p_Player, p_Reviver)",
+		  	"	",
+		 	"end)"
+	  	],
+	  	"description": "Server Event for Player:ReviveAccepted"
+  	},
+  	"Class Player:ReviveAccepted": {
+	   	"prefix": "Player:ReviveAccepted",
+	   	"body": [
+		  	"Events:Subscribe('Player:ReviveAccepted', self, self.OnPlayerReviveAccepted)",
+		  	"",
+		  	"function $TM_FILENAME_BASE:OnPlayerReviveAccepted(p_Player, p_Reviver)" ,
+		  	"	",
+		  	"end"
+	   	],
+	  	"description": "Server Event for Player:ReviveAccepted"
+  	},
+  	"Player:ReviveRefused": {
+	  	"prefix": "Player:ReviveRefused",
+	  	"body": [
+		 	"Events:Subscribe('Player:ReviveRefused', function(p_Player)",
+		 	"	",
+		 	"end)"
+	  	],
+	 	"description": "Server Event for Player:ReviveRefused"
+ 	},
+ 	"Class Player:ReviveRefused": {
+	  	"prefix": "Player:ReviveRefused",
+	  	"body": [
+		 	"Events:Subscribe('Player:ReviveRefused', self, self.OnPlayerReviveRefused)",
+		 	"",
+		 	"function $TM_FILENAME_BASE:OnPlayerReviveRefused(p_Player)" ,
+		 	"	",
+		 	"end"
+	  	],
+	 	"description": "Server Event for Player:ReviveRefused"
+ 	},
+	 "Player:SetSquad": {
+		 "prefix": "Player:SetSquad",
+		 "body": [
+			"Events:Subscribe('Player:SetSquad', function(p_Player, p_SquadId)",
+			"	",
+			"end)"
+		 ],
+		"description": "Server Event for Player:SetSquad"
+	},
+	"Class Player:SetSquad": {
+		 "prefix": "Player:SetSquad",
+		 "body": [
+			"Events:Subscribe('Player:SetSquad', self, self.OnPlayerSetSquad)",
+			"",
+			"function $TM_FILENAME_BASE:OnPlayerSetSquad(p_Player, p_SquadId)" ,
+			"	",
+			"end"
+		 ],
+		"description": "Server Event for Player:SetSquad"
+	},
+	"Player:SpawnAtVehicle": {
+		"prefix": "Player:SpawnAtVehicle",
+		"body": [
+		   "Events:Subscribe('Player:SpawnAtVehicle', function(p_Player, p_Vehicle)",
+		   "	",
+		   "end)"
+		],
+	   "description": "Server Event for Player:SpawnAtVehicle"
+   	},
+   	"Class Player:SpawnAtVehicle": {
+		"prefix": "Player:SpawnAtVehicle",
+		"body": [
+		   "Events:Subscribe('Player:SpawnAtVehicle', self, self.OnPlayerSpawnAtVehicle)",
+		   "",
+		   "function $TM_FILENAME_BASE:OnPlayerSpawnAtVehicle(p_Player, p_Vehicle)" ,
+		   "	",
+		   "end"
+		],
+	   	"description": "Server Event for Player:SpawnAtVehicle"
+   	},
+	"Player:SpawnOnPlayer": {
+		"prefix": "Player:SpawnOnPlayer",
+		"body": [
+			"Events:Subscribe('Player:SpawnOnPlayer', function(p_Player, p_PlayerToSpawnOn)",
+			"	",
+			"end)"
+		],
+		"description": "Server Event for Player:SpawnOnPlayer"
+		},
+	"Class Player:SpawnOnPlayer": {
+		"prefix": "Player:SpawnOnPlayer",
+		"body": [
+			"Events:Subscribe('Player:SpawnOnPlayer', self, self.OnPlayerSpawnOnPlayer)",
+			"",
+			"function $TM_FILENAME_BASE:OnPlayerSpawnOnPlayer(p_Player, p_PlayerToSpawnOn)" ,
+			"	",
+			"end"
+		],
+		"description": "Server Event for Player:SpawnOnPlayer"
+	},
+	"Player:SpawnOnSelectedSpawnPoint": {
+		"prefix": "Player:SpawnOnSelectedSpawnPoint",
+		"body": [
+			"Events:Subscribe('Player:SpawnOnSelectedSpawnPoint', function(p_Player)",
+			"	",
+			"end)"
+		],
+		"description": "Server Event for Player:SpawnOnSelectedSpawnPoint"
+		},
+	"Class Player:SpawnOnSelectedSpawnPoint": {
+		"prefix": "Player:SpawnOnSelectedSpawnPoint",
+		"body": [
+			"Events:Subscribe('Player:SpawnOnSelectedSpawnPoint', self, self.OnPlayerSpawnOnSelectedSpawnPoint)",
+			"",
+			"function $TM_FILENAME_BASE:OnPlayerSpawnOnSelectedSpawnPoint(p_Player)" ,
+			"	",
+			"end"
+		],
+		"description": "Server Event for Player:SpawnOnSelectedSpawnPoint"
+	},
+	"Player:SuppressedEnemy": {
+		"prefix": "Player:SuppressedEnemy",
+		"body": [
+			"Events:Subscribe('Player:SuppressedEnemy', function(p_Player, p_Enemy)",
+			"	",
+			"end)"
+		],
+		"description": "Server Event for Player:SuppressedEnemy"
+		},
+	"Class Player:SuppressedEnemy": {
+		"prefix": "Player:SuppressedEnemy",
+		"body": [
+			"Events:Subscribe('Player:SuppressedEnemy', self, self.OnPlayerSuppressedEnemy)",
+			"",
+			"function $TM_FILENAME_BASE:OnPlayerSuppressedEnemy(p_Player, p_Enemy)" ,
+			"	",
+			"end"
+		],
+		"description": "Server Event for Player:SuppressedEnemy"
+	},
+	"Player:Update": {
+		"prefix": "Player:Update",
+		"body": [
+			"Events:Subscribe('Player:Update', function(p_Player, p_DeltaTime)",
+			"	",
+			"end)"
+		],
+		"description": "Server Event for Player:Update"
+		},
+	"Class Player:Update": {
+		"prefix": "Player:Update",
+		"body": [
+			"Events:Subscribe('Player:Update', self, self.OnPlayerUpdate)",
+			"",
+			"function $TM_FILENAME_BASE:OnPlayerUpdate(p_Player, p_DeltaTime)" ,
+			"	",
+			"end"
+		],
+		"description": "Server Event for Player:Update"
+	},
+	"Server:RoundOver": {
+		"prefix": "Server:RoundOver",
+		"body": [
+			"Events:Subscribe('Server:RoundOver', function(p_RoundTime, p_WinningTeam)",
+			"	",
+			"end)"
+		],
+		"description": "Server Event for Server:RoundOver"
+		},
+	"Class Server:RoundOver": {
+		"prefix": "Server:RoundOver",
+		"body": [
+			"Events:Subscribe('Server:RoundOver', self, self.OnServerRoundOver)",
+			"",
+			"function $TM_FILENAME_BASE:OnServerRoundOver(p_RoundTime, p_WinningTeam)" ,
+			"	",
+			"end"
+		],
+		"description": "Server Event for Server:RoundOver"
+	},
+	"Server:RoundReset": {
+		"prefix": "Server:RoundReset",
+		"body": [
+			"Events:Subscribe('Server:RoundReset', function()",
+			"	",
+			"end)"
+		],
+		"description": "Server Event for Server:RoundReset"
+		},
+	"Class Server:RoundReset": {
+		"prefix": "Server:RoundReset",
+		"body": [
+			"Events:Subscribe('Server:RoundReset', self, self.OnServerRoundReset)",
+			"",
+			"function $TM_FILENAME_BASE:OnServerRoundReset()" ,
+			"	",
+			"end"
+		],
+		"description": "Server Event for Server:RoundReset"
+	},
+	"Soldier:ManDown": {
+		"prefix": "Soldier:ManDown",
+		"body": [
+			"Events:Subscribe('Soldier:ManDown', function(p_Soldier, p_Inflictor)",
+			"	",
+			"end)"
+		],
+		"description": "Server Event for Soldier:ManDown"
+		},
+	"Class Soldier:ManDown": {
+		"prefix": "Soldier:ManDown",
+		"body": [
+			"Events:Subscribe('Soldier:ManDown', self, self.OnSoldierManDown)",
+			"",
+			"function $TM_FILENAME_BASE:OnSoldierManDown(p_Soldier, p_Inflictor)" ,
+			"	",
+			"end"
+		],
+		"description": "Server Event for Soldier:ManDown"
+	},
+	"Soldier:PrePhysicsUpdate": {
+		"prefix": "Soldier:PrePhysicsUpdate",
+		"body": [
+			"Events:Subscribe('Soldier:PrePhysicsUpdate', function(p_Soldier, p_DeltaTime)",
+			"	",
+			"end)"
+		],
+		"description": "Server Event for Soldier:PrePhysicsUpdate"
+		},
+	"Class Soldier:PrePhysicsUpdate": {
+		"prefix": "Soldier:PrePhysicsUpdate",
+		"body": [
+			"Events:Subscribe('Soldier:PrePhysicsUpdate', self, self.OnSoldierPrePhysicsUpdate)",
+			"",
+			"function $TM_FILENAME_BASE:OnSoldierPrePhysicsUpdate(p_Soldier, p_DeltaTime)" ,
+			"	",
+			"end"
+		],
+		"description": "Server Event for Soldier:PrePhysicsUpdate"
+	},
+	"Vehicle:Damage": {
+		"prefix": "Vehicle:Damage",
+		"body": [
+			"Events:Subscribe('Vehicle:Damage', function(p_Vehicle, p_Damage, p_Info)",
+			"	",
+			"end)"
+		],
+		"description": "Server Event for Vehicle:Damage"
+		},
+	"Class Vehicle:Damage": {
+		"prefix": "Vehicle:Damage",
+		"body": [
+			"Events:Subscribe('Vehicle:Damage', self, self.OnVehicleDamage)",
+			"",
+			"function $TM_FILENAME_BASE:OnVehicleDamage(p_Vehicle, p_Damage, p_Info)" ,
+			"	",
+			"end"
+		],
+		"description": "Server Event for Vehicle:Damage"
+	},
+	"Vehicle:Destroyed": {
+		"prefix": "Vehicle:Destroyed",
+		"body": [
+			"Events:Subscribe('Vehicle:Destroyed', function(p_Vehicle, p_VehiclePoints, p_HotTeam)",
+			"	",
+			"end)"
+		],
+		"description": "Server Event for Vehicle:Destroyed"
+		},
+	"Class Vehicle:Destroyed": {
+		"prefix": "Vehicle:Destroyed",
+		"body": [
+			"Events:Subscribe('Vehicle:Destroyed', self, self.OnVehicleDestroyed)",
+			"",
+			"function $TM_FILENAME_BASE:OnVehicleDestroyed(p_Vehicle, p_VehiclePoints, p_HotTeam)" ,
+			"	",
+			"end"
+		],
+		"description": "Server Event for Vehicle:Destroyed"
+	},
+	"Vehicle:Disabled": {
+		"prefix": "Vehicle:Disabled",
+		"body": [
+			"Events:Subscribe('Vehicle:Disabled', function(p_Vehicle)",
+			"	",
+			"end)"
+		],
+		"description": "Server Event for Vehicle:Disabled"
+		},
+	"Class Vehicle:Disabled": {
+		"prefix": "Vehicle:Disabled",
+		"body": [
+			"Events:Subscribe('Vehicle:Disabled', self, self.OnVehicleDisabled)",
+			"",
+			"function $TM_FILENAME_BASE:OnVehicleDisabled(p_Vehicle)" ,
+			"	",
+			"end"
+		],
+		"description": "Server Event for Vehicle:Disabled"
+	},
+	"Vehicle:Enter": {
+		"prefix": "Vehicle:Enter",
+		"body": [
+			"Events:Subscribe('Vehicle:Enter', function(p_Vehicle, p_Player)",
+			"	",
+			"end)"
+		],
+		"description": "Server Event for Vehicle:Enter"
+		},
+	"Class Vehicle:Enter": {
+		"prefix": "Vehicle:Enter",
+		"body": [
+			"Events:Subscribe('Vehicle:Enter', self, self.OnVehicleEnter)",
+			"",
+			"function $TM_FILENAME_BASE:OnVehicleEnter(p_Vehicle, p_Player)" ,
+			"	",
+			"end"
+		],
+		"description": "Server Event for Vehicle:Enter"
+	},
+	"Vehicle:Exit": {
+		"prefix": "Vehicle:Exit",
+		"body": [
+			"Events:Subscribe('Vehicle:Exit', function(p_Vehicle, p_Player)",
+			"	",
+			"end)"
+		],
+		"description": "Server Event for Vehicle:Exit"
+		},
+	"Class Vehicle:Exit": {
+		"prefix": "Vehicle:Exit",
+		"body": [
+			"Events:Subscribe('Vehicle:Exit', self, self.OnVehicleExit)",
+			"",
+			"function $TM_FILENAME_BASE:OnVehicleExit(p_Vehicle, p_Player)" ,
+			"	",
+			"end"
+		],
+		"description": "Server Event for Vehicle:Exit"
+	},
+	"Vehicle:SpawnDone": {
+		"prefix": "Vehicle:SpawnDone",
+		"body": [
+			"Events:Subscribe('Vehicle:SpawnDone', function(p_Vehicle)",
+			"	",
+			"end)"
+		],
+		"description": "Server Event for Vehicle:SpawnDone"
+		},
+	"Class Vehicle:SpawnDone": {
+		"prefix": "Vehicle:SpawnDone",
+		"body": [
+			"Events:Subscribe('Vehicle:SpawnDone', self, self.OnVehicleSpawnDone)",
+			"",
+			"function $TM_FILENAME_BASE:OnVehicleSpawnDone(p_Vehicle)" ,
+			"	",
+			"end"
+		],
+		"description": "Server Event for Vehicle:SpawnDone"
+	},
+	"Vehicle:Unspawn": {
+		"prefix": "Vehicle:Unspawn",
+		"body": [
+			"Events:Subscribe('Vehicle:Unspawn', function(p_Vehicle)",
+			"	",
+			"end)"
+		],
+		"description": "Server Event for Vehicle:Unspawn"
+		},
+	"Class Vehicle:Unspawn": {
+		"prefix": "Vehicle:Unspawn",
+		"body": [
+			"Events:Subscribe('Vehicle:Unspawn', self, self.OnVehicleUnspawn)",
+			"",
+			"function $TM_FILENAME_BASE:OnVehicleUnspawn(p_Vehicle)" ,
+			"	",
+			"end"
+		],
+		"description": "Server Event for Vehicle:Unspawn"
+	},
+	"Entity:ShouldCollideWith": {
+		"prefix": "Entity:ShouldCollideWith",
+		"body": [
+			"Hooks:Install('Entity:ShouldCollideWith', 1, function(p_HookCtx, p_Entity, p_ShouldCollideWith)",
+			"	",
+			"end)"
+		],
+		"description": "Hook for Entity:ShouldCollideWith"
+		},
+	"Class Entity:ShouldCollideWith": {
+		"prefix": "Entity:ShouldCollideWith",
+		"body": [
+			"Hooks:Install('Entity:ShouldCollideWith', 1, self, self.OnEntityShouldCollideWith)",
+			"",
+			"function $TM_FILENAME_BASE:OnEntityShouldCollideWith(p_HookCtx, p_Entity, p_ShouldCollideWith)" ,
+			"	",
+			"end"
+		],
+		"description": "Hook for Entity:ShouldCollideWith"
+	},
+	"ResourceManager:LoadBundles": {
+		"prefix": "ResourceManager:LoadBundles",
+		"body": [
+			"Hooks:Install('ResourceManager:LoadBundles', 1, function(p_HookCtx, p_Bundles, p_Compartment)",
+			"	",
+			"end)"
+		],
+		"description": "Hook for ResourceManager:LoadBundles"
+		},
+	"Class ResourceManager:LoadBundles": {
+		"prefix": "ResourceManager:LoadBundles",
+		"body": [
+			"Hooks:Install('ResourceManager:LoadBundles', 1, self, self.OnResourceManagerLoadBundles)",
+			"",
+			"function $TM_FILENAME_BASE:OnResourceManagerLoadBundles(p_HookCtx, p_Bundles, p_Compartment)" ,
+			"	",
+			"end"
+		],
+		"description": "Hook for ResourceManager:LoadBundles"
+	},
+	"Terrain:Load": {
+		"prefix": "Terrain:Load",
+		"body": [
+			"Hooks:Install('Terrain:Load', 1, function(p_HookCtx, p_AssetName)",
+			"	",
+			"end)"
+		],
+		"description": "Hook for Terrain:Load"
+		},
+	"Class Terrain:Load": {
+		"prefix": "Terrain:Load",
+		"body": [
+			"Hooks:Install('Terrain:Load', 1, self, self.OnTerrainLoad)",
+			"",
+			"function $TM_FILENAME_BASE:OnTerrainLoad(p_HookCtx, p_AssetName)" ,
+			"	",
+			"end"
+		],
+		"description": "Hook for Terrain:Load"
+	},
+	"VisualTerrain:Load": {
+		"prefix": "VisualTerrain:Load",
+		"body": [
+			"Hooks:Install('VisualTerrain:Load', 1, function(p_HookCtx, p_AssetName)",
+			"	",
+			"end)"
+		],
+		"description": "Hook for VisualTerrain:Load"
+		},
+	"Class VisualTerrain:Load": {
+		"prefix": "VisualTerrain:Load",
+		"body": [
+			"Hooks:Install('VisualTerrain:Load', 1, self, self.OnVisualTerrainLoad)",
+			"",
+			"function $TM_FILENAME_BASE:OnVisualTerrainLoad(p_HookCtx, p_AssetName)" ,
+			"	",
+			"end"
+		],
+		"description": "Hook for VisualTerrain:Load"
+	},
+	"BulletEntity:Collision(Client)": {
+		"prefix": "BulletEntity:Collision(Client)",
+		"body": [
+			"Hooks:Install('BulletEntity:Collision', 1, function(p_HookCtx, p_Entity, p_Hit, p_Shooter)",
+			"	",
+			"end)"
+		],
+		"description": "Client Hook for BulletEntity:Collision"
+		},
+	"Class BulletEntity:Collision(Client)": {
+		"prefix": "BulletEntity:Collision(Client)",
+		"body": [
+			"Hooks:Install('BulletEntity:Collision', 1, self, self.OnBulletEntityCollision)",
+			"",
+			"function $TM_FILENAME_BASE:OnBulletEntityCollision(p_HookCtx, p_Entity, p_Hit, p_Shooter)" ,
+			"	",
+			"end"
+		],
+		"description": "Client Hook for BulletEntity:Collision"
+	},
+	"Client:UpdateClientGameViewTransform": {
+		"prefix": "Client:UpdateClientGameViewTransform",
+		"body": [
+			"Hooks:Install('Client:UpdateClientGameViewTransform', 1, function(p_HookCtx, p_Transform)",
+			"	",
+			"end)"
+		],
+		"description": "Client Hook for Client:UpdateClientGameViewTransform"
+		},
+	"Class Client:UpdateClientGameViewTransform": {
+		"prefix": "Client:UpdateClientGameViewTransform",
+		"body": [
+			"Hooks:Install('Client:UpdateClientGameViewTransform', 1, self, self.OnClientUpdateClientGameViewTransform)",
+			"",
+			"function $TM_FILENAME_BASE:OnClientUpdateClientGameViewTransform(p_HookCtx, p_Transform)" ,
+			"	",
+			"end"
+		],
+		"description": "Client Hook for Client:UpdateClientGameViewTransform"
+	},
+	"Client:UpdateFirstPersonTransform": {
+		"prefix": "Client:UpdateFirstPersonTransform",
+		"body": [
+			"Hooks:Install('Client:UpdateFirstPersonTransform', 1, function(p_HookCtx, p_Transform)",
+			"	",
+			"end)"
+		],
+		"description": "Client Hook for Client:UpdateFirstPersonTransform"
+		},
+	"Class Client:UpdateFirstPersonTransform": {
+		"prefix": "Client:UpdateFirstPersonTransform",
+		"body": [
+			"Hooks:Install('Client:UpdateFirstPersonTransform', 1, self, self.OnClientUpdateFirstPersonTransform)",
+			"",
+			"function $TM_FILENAME_BASE:OnClientUpdateFirstPersonTransform(p_HookCtx, p_Transform)" ,
+			"	",
+			"end"
+		],
+		"description": "Client Hook for Client:UpdateFirstPersonTransform"
+	},
+	"ClientChatManager:IncomingMessage": {
+		"prefix": "ClientChatManager:IncomingMessage",
+		"body": [
+			"Hooks:Install('ClientChatManager:IncomingMessage', 1, function(p_HookCtx, p_Message, p_PlayerId, p_RecipientMask, p_ChannelId, p_IsSenderDead)",
+			"	",
+			"end)"
+		],
+		"description": "Client Hook for ClientChatManager:IncomingMessage"
+		},
+	"Class ClientChatManager:IncomingMessage": {
+		"prefix": "ClientChatManager:IncomingMessage",
+		"body": [
+			"Hooks:Install('ClientChatManager:IncomingMessage', 1, self, self.OnClientChatManagerIncomingMessage)",
+			"",
+			"function $TM_FILENAME_BASE:OnClientChatManagerIncomingMessage(p_HookCtx, p_Message, p_PlayerId, p_RecipientMask, p_ChannelId, p_IsSenderDead)" ,
+			"	",
+			"end"
+		],
+		"description": "Client Hook for ClientChatManager:IncomingMessage"
+	},
+	"EntityFactory:Create": {
+		"prefix": "EntityFactory:Create",
+		"body": [
+			"Hooks:Install('EntityFactory:Create', 1, function(p_HookCtx, p_EntityData, p_Transform)",
+			"	",
+			"end)"
+		],
+		"description": "Hook for EntityFactory:Create"
+		},
+	"Class EntityFactory:Create": {
+		"prefix": "EntityFactory:Create",
+		"body": [
+			"Hooks:Install('EntityFactory:Create', 1, self, self.OnEntityFactoryCreate)",
+			"",
+			"function $TM_FILENAME_BASE:OnEntityFactoryCreate(p_HookCtx, p_EntityData, p_Transform)" ,
+			"	",
+			"end"
+		],
+		"description": "Hook for EntityFactory:Create"
+	},
+	"EntityFactory:CreateFromBlueprint": {
+		"prefix": "EntityFactory:CreateFromBlueprint",
+		"body": [
+			"Hooks:Install('EntityFactory:CreateFromBlueprint', 1, function(p_HookCtx, p_Blueprint, p_Transform, p_Variation, p_ParentRepresentative)",
+			"	",
+			"end)"
+		],
+		"description": "Hook for EntityFactory:CreateFromBlueprint"
+		},
+	"Class EntityFactory:CreateFromBlueprint": {
+		"prefix": "EntityFactory:CreateFromBlueprint",
+		"body": [
+			"Hooks:Install('EntityFactory:CreateFromBlueprint', 1, self, self.OnEntityFactoryCreateFromBlueprint)",
+			"",
+			"function $TM_FILENAME_BASE:OnEntityFactoryCreateFromBlueprint(p_HookCtx, p_Blueprint, p_Transform, p_Variation, p_ParentRepresentative)" ,
+			"	",
+			"end"
+		],
+		"description": "Hook for EntityFactory:CreateFromBlueprint"
+	},
+	"Input:PreUpdate": {
+		"prefix": "Input:PreUpdate",
+		"body": [
+			"Hooks:Install('Input:PreUpdate', 1, function(p_HookCtx, p_Cache, p_DeltaTime)",
+			"	",
+			"end)"
+		],
+		"description": "Client Hook for Input:PreUpdate"
+		},
+	"Class Input:PreUpdate": {
+		"prefix": "Input:PreUpdate",
+		"body": [
+			"Hooks:Install('Input:PreUpdate', 1, self, self.OnInputPreUpdate)",
+			"",
+			"function $TM_FILENAME_BASE:OnInputPreUpdate(p_HookCtx, p_Cache, p_DeltaTime)" ,
+			"	",
+			"end"
+		],
+		"description": "Client Hook for Input:PreUpdate"
+	},
+	"UI:CreateAction": {
+		"prefix": "UI:CreateAction",
+		"body": [
+			"Hooks:Install('UI:CreateAction', 1, function(p_HookCtx, p_Action)",
+			"	",
+			"end)"
+		],
+		"description": "Client Hook for UI:CreateAction"
+		},
+	"Class UI:CreateAction": {
+		"prefix": "UI:CreateAction",
+		"body": [
+			"Hooks:Install('UI:CreateAction', 1, self, self.OnUICreateAction)",
+			"",
+			"function $TM_FILENAME_BASE:OnUICreateAction(p_HookCtx, p_Action)" ,
+			"	",
+			"end"
+		],
+		"description": "Client Hook for UI:CreateAction"
+	},
+	"UI:CreateChatMessage": {
+		"prefix": "UI:CreateChatMessage",
+		"body": [
+			"Hooks:Install('UI:CreateChatMessage', 1, function(p_HookCtx, p_Message, p_ChannelId, p_PlayerId, p_RecipientMask, p_IsSenderDead)",
+			"	",
+			"end)"
+		],
+		"description": "Client Hook for UI:CreateChatMessage"
+		},
+	"Class UI:CreateChatMessage": {
+		"prefix": "UI:CreateChatMessage",
+		"body": [
+			"Hooks:Install('UI:CreateChatMessage', 1, self, self.OnUICreateChatMessage)",
+			"",
+			"function $TM_FILENAME_BASE:OnUICreateChatMessage(p_HookCtx, p_Message, p_ChannelId, p_PlayerId, p_RecipientMask, p_IsSenderDead)" ,
+			"	",
+			"end"
+		],
+		"description": "Client Hook for UI:CreateChatMessage"
+	},
+	"UI:CreateKillMessage": {
+		"prefix": "UI:CreateKillMessage",
+		"body": [
+			"Hooks:Install('UI:CreateKillMessage', 1, function(p_HookCtx)",
+			"	",
+			"end)"
+		],
+		"description": "Client Hook for UI:CreateKillMessage"
+		},
+	"Class UI:CreateKillMessage": {
+		"prefix": "UI:CreateKillMessage",
+		"body": [
+			"Hooks:Install('UI:CreateKillMessage', 1, self, self.OnUICreateKillMessage)",
+			"",
+			"function $TM_FILENAME_BASE:OnUICreateKillMessage(p_HookCtx)" ,
+			"	",
+			"end"
+		],
+		"description": "Client Hook for UI:CreateKillMessage"
+	},
+	"UI:DrawEnemyNametag": {
+		"prefix": "UI:DrawEnemyNametag",
+		"body": [
+			"Hooks:Install('UI:DrawEnemyNametag', 1, function(p_HookCtx)",
+			"	",
+			"end)"
+		],
+		"description": "Client Hook for UI:DrawEnemyNametag"
+		},
+	"Class UI:DrawEnemyNametag": {
+		"prefix": "UI:DrawEnemyNametag",
+		"body": [
+			"Hooks:Install('UI:DrawEnemyNametag', 1, self, self.OnUIDrawEnemyNametag)",
+			"",
+			"function $TM_FILENAME_BASE:OnUIDrawEnemyNametag(p_HookCtx)" ,
+			"	",
+			"end"
+		],
+		"description": "Client Hook for UI:DrawEnemyNametag"
+	},
+	"UI:DrawFriendlyNametag": {
+		"prefix": "UI:DrawFriendlyNametag",
+		"body": [
+			"Hooks:Install('UI:DrawFriendlyNametag', 1, function(p_HookCtx)",
+			"	",
+			"end)"
+		],
+		"description": "Client Hook for UI:DrawFriendlyNametag"
+		},
+	"Class UI:DrawFriendlyNametag": {
+		"prefix": "UI:DrawFriendlyNametag",
+		"body": [
+			"Hooks:Install('UI:DrawFriendlyNametag', 1, self, self.OnUIDrawFriendlyNametag)",
+			"",
+			"function $TM_FILENAME_BASE:OnUIDrawFriendlyNametag(p_HookCtx)" ,
+			"	",
+			"end"
+		],
+		"description": "Client Hook for UI:DrawFriendlyNametag"
+	},
+	"UI:DrawMoreNametags": {
+		"prefix": "UI:DrawMoreNametags",
+		"body": [
+			"Hooks:Install('UI:DrawMoreNametags', 1, function(p_HookCtx)",
+			"	",
+			"end)"
+		],
+		"description": "Client Hook for UI:DrawMoreNametags"
+		},
+	"Class UI:DrawMoreNametags": {
+		"prefix": "UI:DrawMoreNametags",
+		"body": [
+			"Hooks:Install('UI:DrawMoreNametags', 1, self, self.OnUIDrawMoreNametags)",
+			"",
+			"function $TM_FILENAME_BASE:OnUIDrawMoreNametags(p_HookCtx)" ,
+			"	",
+			"end"
+		],
+		"description": "Client Hook for UI:DrawMoreNametags"
+	},
+	"UI:DrawNametags": {
+		"prefix": "UI:DrawNametags",
+		"body": [
+			"Hooks:Install('UI:DrawNametags', 1, function(p_HookCtx)",
+			"	",
+			"end)"
+		],
+		"description": "Client Hook for UI:DrawNametags"
+		},
+	"Class UI:DrawNametags": {
+		"prefix": "UI:DrawNametags",
+		"body": [
+			"Hooks:Install('UI:DrawNametags', 1, self, self.OnUIDrawNametags)",
+			"",
+			"function $TM_FILENAME_BASE:OnUIDrawNametags(p_HookCtx)" ,
+			"	",
+			"end"
+		],
+		"description": "Client Hook for UI:DrawNametags"
+	},
+	"UI:DrawSquadNametag": {
+		"prefix": "UI:DrawSquadNametag",
+		"body": [
+			"Hooks:Install('UI:DrawSquadNametag', 1, function(p_HookCtx)",
+			"	",
+			"end)"
+		],
+		"description": "Client Hook for UI:DrawSquadNametag"
+		},
+	"Class UI:DrawSquadNametag": {
+		"prefix": "UI:DrawSquadNametag",
+		"body": [
+			"Hooks:Install('UI:DrawSquadNametag', 1, self, self.OnUIDrawSquadNametag)",
+			"",
+			"function $TM_FILENAME_BASE:OnUIDrawSquadNametag(p_HookCtx)" ,
+			"	",
+			"end"
+		],
+		"description": "Client Hook for UI:DrawSquadNametag"
+	},
+	"UI:EnableCursorMode": {
+		"prefix": "UI:EnableCursorMode",
+		"body": [
+			"Hooks:Install('UI:EnableCursorMode', 1, function(p_HookCtx, p_Enable, p_Cursor)",
+			"	",
+			"end)"
+		],
+		"description": "Client Hook for UI:EnableCursorMode"
+		},
+	"Class UI:EnableCursorMode": {
+		"prefix": "UI:EnableCursorMode",
+		"body": [
+			"Hooks:Install('UI:EnableCursorMode', 1, self, self.OnUIEnableCursorMode)",
+			"",
+			"function $TM_FILENAME_BASE:OnUIEnableCursorMode(p_HookCtx, p_Enable, p_Cursor)" ,
+			"	",
+			"end"
+		],
+		"description": "Client Hook for UI:EnableCursorMode"
+	},
+	"UI:InputConceptEvent": {
+		"prefix": "UI:InputConceptEvent",
+		"body": [
+			"Hooks:Install('UI:InputConceptEvent', 1, function(p_HookCtx, p_EventType, p_Action)",
+			"	",
+			"end)"
+		],
+		"description": "Client Hook for UI:InputConceptEvent"
+		},
+	"Class UI:InputConceptEvent": {
+		"prefix": "UI:InputConceptEvent",
+		"body": [
+			"Hooks:Install('UI:InputConceptEvent', 1, self, self.OnUIInputConceptEvent)",
+			"",
+			"function $TM_FILENAME_BASE:OnUIInputConceptEvent(p_HookCtx, p_EventType, p_Action)" ,
+			"	",
+			"end"
+		],
+		"description": "Client Hook for UI:InputConceptEvent"
+	},
+	"UI:NametagsShouldUpdate": {
+		"prefix": "UI:NametagsShouldUpdate",
+		"body": [
+			"Hooks:Install('UI:NametagsShouldUpdate', 1, function(p_HookCtx)",
+			"	",
+			"end)"
+		],
+		"description": "Client Hook for UI:NametagsShouldUpdate"
+		},
+	"Class UI:NametagsShouldUpdate": {
+		"prefix": "UI:NametagsShouldUpdate",
+		"body": [
+			"Hooks:Install('UI:NametagsShouldUpdate', 1, self, self.OnUINametagsShouldUpdate)",
+			"",
+			"function $TM_FILENAME_BASE:OnUINametagsShouldUpdate(p_HookCtx)" ,
+			"	",
+			"end"
+		],
+		"description": "Client Hook for UI:NametagsShouldUpdate"
+	},
+	"UI:PushScreen": {
+		"prefix": "UI:PushScreen",
+		"body": [
+			"Hooks:Install('UI:PushScreen', 1, function(p_HookCtx, p_Screen, p_Priority, p_ParentGraph, p_StateNodeGuid)",
+			"	",
+			"end)"
+		],
+		"description": "Client Hook for UI:PushScreen"
+		},
+	"Class UI:PushScreen": {
+		"prefix": "UI:PushScreen",
+		"body": [
+			"Hooks:Install('UI:PushScreen', 1, self, self.OnUIPushScreen)",
+			"",
+			"function $TM_FILENAME_BASE:OnUIPushScreen(p_HookCtx, p_Screen, p_Priority, p_ParentGraph, p_StateNodeGuid)" ,
+			"	",
+			"end"
+		],
+		"description": "Client Hook for UI:PushScreen"
+	},
+	"UI:RenderMinimap": {
+		"prefix": "UI:RenderMinimap",
+		"body": [
+			"Hooks:Install('UI:RenderMinimap', 1, function(p_HookCtx)",
+			"	",
+			"end)"
+		],
+		"description": "Client Hook for UI:RenderMinimap"
+		},
+	"Class UI:RenderMinimap": {
+		"prefix": "UI:RenderMinimap",
+		"body": [
+			"Hooks:Install('UI:RenderMinimap', 1, self, self.OnUIRenderMinimap)",
+			"",
+			"function $TM_FILENAME_BASE:OnUIRenderMinimap(p_HookCtx)" ,
+			"	",
+			"end"
+		],
+		"description": "Client Hook for UI:RenderMinimap"
+	},
+	"UI:UpdateNametagIcons": {
+		"prefix": "UI:UpdateNametagIcons",
+		"body": [
+			"Hooks:Install('UI:UpdateNametagIcons', 1, function(p_HookCtx)",
+			"	",
+			"end)"
+		],
+		"description": "Client Hook for UI:UpdateNametagIcons"
+		},
+	"Class UI:UpdateNametagIcons": {
+		"prefix": "UI:UpdateNametagIcons",
+		"body": [
+			"Hooks:Install('UI:UpdateNametagIcons', 1, self, self.OnUIUpdateNametagIcons)",
+			"",
+			"function $TM_FILENAME_BASE:OnUIUpdateNametagIcons(p_HookCtx)" ,
+			"	",
+			"end"
+		],
+		"description": "Client Hook for UI:UpdateNametagIcons"
+	},
+	"BulletEntity:Collision(Server)": {
+		"prefix": "BulletEntity:Collision(Server)",
+		"body": [
+			"Hooks:Install('BulletEntity:Collision', 1, function(p_HookCtx, p_Entity, p_Hit, p_GiverInfo)",
+			"	",
+			"end)"
+		],
+		"description": "Server Hook for BulletEntity:Collision"
+		},
+	"Class BulletEntity:Collision(Server)": {
+		"prefix": "BulletEntity:Collision(Server)",
+		"body": [
+			"Hooks:Install('BulletEntity:Collision', 1, self, self.OnBulletEntityCollision)",
+			"",
+			"function $TM_FILENAME_BASE:OnBulletEntityCollision(p_HookCtx, p_Entity, p_Hit, p_GiverInfo)" ,
+			"	",
+			"end"
+		],
+		"description": "Server Hook for BulletEntity:Collision"
+	},
+	"Player:FindBestSquad": {
+		"prefix": "Player:FindBestSquad",
+		"body": [
+			"Hooks:Install('Player:FindBestSquad', 1, function(p_HookCtx, p_Player)",
+			"	",
+			"end)"
+		],
+		"description": "Server Hook for Player:FindBestSquad"
+		},
+	"Class Player:FindBestSquad": {
+		"prefix": "Player:FindBestSquad",
+		"body": [
+			"Hooks:Install('Player:FindBestSquad', 1, self, self.OnPlayerFindBestSquad)",
+			"",
+			"function $TM_FILENAME_BASE:OnPlayerFindBestSquad(p_HookCtx, p_Player)" ,
+			"	",
+			"end"
+		],
+		"description": "Server Hook for Player:FindBestSquad"
+	},
+	"Player:RequestJoin": {
+		"prefix": "Player:RequestJoin",
+		"body": [
+			"Hooks:Install('Player:RequestJoin', 1, function(p_HookCtx, p_JoinMode, p_AccountGuid, p_PlayerGuid, p_PlayerName)",
+			"	",
+			"end)"
+		],
+		"description": "Server Hook for Player:RequestJoin"
+		},
+	"Class Player:RequestJoin": {
+		"prefix": "Player:RequestJoin",
+		"body": [
+			"Hooks:Install('Player:RequestJoin', 1, self, self.OnPlayerRequestJoin)",
+			"",
+			"function $TM_FILENAME_BASE:OnPlayerRequestJoin(p_HookCtx, p_JoinMode, p_AccountGuid, p_PlayerGuid, p_PlayerName)" ,
+			"	",
+			"end"
+		],
+		"description": "Server Hook for Player:RequestJoin"
+	},
+	"Player:SelectTeam": {
+		"prefix": "Player:SelectTeam",
+		"body": [
+			"Hooks:Install('Player:SelectTeam', 1, function(p_HookCtx, p_Player, p_Team)",
+			"	",
+			"end)"
+		],
+		"description": "Server Hook for Player:SelectTeam"
+		},
+	"Class Player:SelectTeam": {
+		"prefix": "Player:SelectTeam",
+		"body": [
+			"Hooks:Install('Player:SelectTeam', 1, self, self.OnPlayerSelectTeam)",
+			"",
+			"function $TM_FILENAME_BASE:OnPlayerSelectTeam(p_HookCtx, p_Player, p_Team)" ,
+			"	",
+			"end"
+		],
+		"description": "Server Hook for Player:SelectTeam"
+	},
+	"Server:SuppressEnemies": {
+		"prefix": "Server:SuppressEnemies",
+		"body": [
+			"Hooks:Install('Server:SuppressEnemies', 1, function(p_HookCtx, p_SuppressionModifier)",
+			"	",
+			"end)"
+		],
+		"description": "Server Hook for Server:SuppressEnemies"
+		},
+	"Class Server:SuppressEnemies": {
+		"prefix": "Server:SuppressEnemies",
+		"body": [
+			"Hooks:Install('Server:SuppressEnemies', 1, self, self.OnServerSuppressEnemies)",
+			"",
+			"function $TM_FILENAME_BASE:OnServerSuppressEnemies(p_HookCtx, p_SuppressionModifier)" ,
+			"	",
+			"end"
+		],
+		"description": "Server Hook for Server:SuppressEnemies"
+	},
+	"Soldier:Damage": {
+		"prefix": "Soldier:Damage",
+		"body": [
+			"Hooks:Install('Soldier:Damage', 1, function(p_HookCtx, p_Soldier, p_Info, p_GiverInfo)",
+			"	",
+			"end)"
+		],
+		"description": "Server Hook for Soldier:Damage"
+		},
+	"Class Soldier:Damage": {
+		"prefix": "Soldier:Damage",
+		"body": [
+			"Hooks:Install('Soldier:Damage', 1, self, self.OnSoldierDamage)",
+			"",
+			"function $TM_FILENAME_BASE:OnSoldierDamage(p_HookCtx, p_Soldier, p_Info, p_GiverInfo)" ,
+			"	",
+			"end"
+		],
+		"description": "Server Hook for Soldier:Damage"
+	},
+
+	// structure this
+	"EntityManager:GetIterator": {
+		"prefix": "EntityManager:GetIterator",
+		"body": [
+			"local s_EntityIterator = EntityManager:GetIterator('')",
+			"local s_Entity = s_EntityIterator:Next()",
+			"while s_Entity do" ,
+			"	s_Entity = Entity(s_Entity)",
+			"	-- Do stuff here."
+			"	s_Entity = s_EntityIterator:Next()",
+			"end"
+		],
+		"description": "EntityManager:GetIterator Template"
+	},
+	"EntityManager:CreateEntity(entityData: DataContainer, transform: LinearTransform)": {
+		"prefix": "EntityManager:CreateEntity",
+		"body": [
+			"EntityManager:CreateEntity(${1:entityData: DataContainer}, ${2:transform: LinearTransform})"
+		],
+		"description": "EntityManager:CreateEntity"
+	},
+	"EntityManager:CreateEntity(entityData: DataContainer, params: EntityCreationParams)": {
+		"prefix": "EntityManager:CreateEntity",
+		"body": [
+			"EntityManager:CreateEntity(${1:entityData: DataContainer}, ${2:params: EntityCreationParams})"
+		],
+		"description": "EntityManager:CreateEntity"
+	},
+	"EntityManager:CreateEntitiesFromBlueprint(blueprint: DataContainer, transform: LinearTransform)": {
+		"prefix": "EntityManager:CreateEntitiesFromBlueprint",
+		"body": [
+			"EntityManager:CreateEntitiesFromBlueprint(${1:blueprint: DataContainer}, ${2:transform: LinearTransform})"
+		],
+		"description": "EntityManager:CreateEntitiesFromBlueprint"
+	},
+	"EntityManager:CreateEntitiesFromBlueprint(blueprint: DataContainer, params: EntityCreationParams)": {
+		"prefix": "EntityManager:CreateEntitiesFromBlueprint",
+		"body": [
+			"EntityManager:CreateEntitiesFromBlueprint(${1:blueprint: DataContainer}, ${2:params: EntityCreationParams})"
+		],
+		"description": "EntityManager:CreateEntitiesFromBlueprint"
+	},
+	"EntityManager:TraverseAllEntities": {
+		"prefix": "EntityManager:TraverseAllEntities",
+		"body": [
+			"EntityManager:TraverseAllEntities(function(p_Entity)",
+			"	",
+			"end)"
+		],
+		"description": "EntityManager:TraverseAllEntities"
+	},
+	"Class EntityManager:TraverseAllEntities": {
+		"prefix": "EntityManager:TraverseAllEntities",
+		"body": [
+			"EntityManager:TraverseAllEntities(self, self.OnTraverseAllEntities)",
+			"",
+			"function $TM_FILENAME_BASE:OnTraverseAllEntities(p_Entity)",
+			"	",
+			"end"
+		],
+		"description": "EntityManager:TraverseAllEntities"
+	},
+	"ResourceManager:RegisterInstanceLoadHandler": {
+		"prefix": "ResourceManager:RegisterInstanceLoadHandler",
+		"body": [
+			"ResourceManager:RegisterInstanceLoadHandler(Guid('${1:partitionGuid: Guid}'), Guid('${2:instanceGuid: Guid}'), function(p_Instance)",
+			"	${3}",
+			"end)"
+		],
+		"description": "ResourceManager:RegisterInstanceLoadHandler"
+	},
+	"Class ResourceManager:RegisterInstanceLoadHandler": {
+		"prefix": "ResourceManager:RegisterInstanceLoadHandler",
+		"body": [
+			"ResourceManager:RegisterInstanceLoadHandler(Guid('${1:partitionGuid: Guid}'), Guid('${2:instanceGuid: Guid}'), self, self.${3:OnInstanceLoaded})",
+			"",
+			"function $TM_FILENAME_BASE:${3:OnInstanceLoaded}(p_Instance)",
+			"	${4}",
+			"end"
+		],
+		"description": "ResourceManager:RegisterInstanceLoadHandler"
+	},
+	"ResourceManager:RegisterInstanceLoadHandlerOnce": {
+		"prefix": "ResourceManager:RegisterInstanceLoadHandlerOnce",
+		"body": [
+			"ResourceManager:RegisterInstanceLoadHandlerOnce(Guid('${1:partitionGuid: Guid}'), Guid('${2:instanceGuid: Guid}'), function(p_Instance)",
+			"	${3}",
+			"end)"
+		],
+		"description": "ResourceManager:RegisterInstanceLoadHandlerOnce"
+	},
+	"Class ResourceManager:RegisterInstanceLoadHandlerOnce": {
+		"prefix": "ResourceManager:RegisterInstanceLoadHandlerOnce",
+		"body": [
+			"ResourceManager:RegisterInstanceLoadHandlerOnce(Guid('${1:partitionGuid: Guid}'), Guid('${2:instanceGuid: Guid}'), self, self.${3:OnInstanceLoadedOnce})",
+			"",
+			"function $TM_FILENAME_BASE:${3:OnInstanceLoadedOnce}(p_Instance)",
+			"	${4}",
+			"end"
+		],
+		"description": "ResourceManager:RegisterInstanceLoadHandlerOnce"
+	},
+
+	// normal autocomplete
+	"Events:Subscribe(eventName: string, callback: callable)": {
+		"prefix": "Events:Subscribe",
+		"body": [
+			"Events:Subscribe(${1|'','CapturePoint:Captured','CapturePoint:Lost','Client:PostFrameUpdate','Client:UpdateInput','Engine:Init','Engine:Message','Engine:Update','Extension:Loaded','Extension:Unloading','FPSCamera:Update','FreeCam:PostFrameUpdate','GunSway:Update','GunSway:UpdateRecoil','Level:Destroy','Level:Finalized','Level:Loaded','Level:LoadingInfo','Level:LoadResources','Level:RegisterEntityResources','Partition:Loaded','Player:Authenticated','Player:ChangingWeapon','Player:Chat','Player:Connected','Player:Created','Player:Deleted','Player:Destroyed','Player:EnteredCapturePoint','Player:ExitedCapturePoint','Player:InstantSuicide','Player:Joining','Player:KickedFromSquad','Player:Killed','Player:KitPickup','Player:Left','Player:ManDownRevived','Player:Reload','Player:Respawn','Player:Resupply','Player:ReviveAccepted','Player:ReviveRefused','Player:SetSquad','Player:SetSquadLeader','Player:SpawnAtVehicle','Player:SpawnOnPlayer','Player:SpawnOnSelectedSpawnPoint','Player:SquadChange','Player:SuppressedEnemy','Player:TeamChange','Player:Update','Player:UpdateInput','Server:RoundOver','Server:RoundReset','Soldier:HealthAction','Soldier:ManDown','Soldier:PrePhysicsUpdate','Soldier:Spawn','UI:DrawHud','UpdateManager:Update','Vehicle:Damage','Vehicle:Destroyed','Vehicle:Disabled','Vehicle:Enter','Vehicle:Exit','Vehicle:SpawnDone','Vehicle:Unspawn','VE:StateAdded','VE:StateRemoved','VE:StatesCleared','VU:Spec:PostUpdate','VU:Spec:PreUpdate','WeaponFiring:Create','WeaponFiring:Update'|}, ${2:callback: callable})"
+		],
+		"description": "Events:Subscribe"
+	},
+	"Events:Subscribe(eventName: string, context: any, callback: callable)": {
+		"prefix": "Events:Subscribe",
+		"body": [
+			"Events:Subscribe(${1|'','CapturePoint:Captured','CapturePoint:Lost','Client:PostFrameUpdate','Client:UpdateInput','Engine:Init','Engine:Message','Engine:Update','Extension:Loaded','Extension:Unloading','FPSCamera:Update','FreeCam:PostFrameUpdate','GunSway:Update','GunSway:UpdateRecoil','Level:Destroy','Level:Finalized','Level:Loaded','Level:LoadingInfo','Level:LoadResources','Level:RegisterEntityResources','Partition:Loaded','Player:Authenticated','Player:ChangingWeapon','Player:Chat','Player:Connected','Player:Created','Player:Deleted','Player:Destroyed','Player:EnteredCapturePoint','Player:ExitedCapturePoint','Player:InstantSuicide','Player:Joining','Player:KickedFromSquad','Player:Killed','Player:KitPickup','Player:Left','Player:ManDownRevived','Player:Reload','Player:Respawn','Player:Resupply','Player:ReviveAccepted','Player:ReviveRefused','Player:SetSquad','Player:SetSquadLeader','Player:SpawnAtVehicle','Player:SpawnOnPlayer','Player:SpawnOnSelectedSpawnPoint','Player:SquadChange','Player:SuppressedEnemy','Player:TeamChange','Player:Update','Player:UpdateInput','Server:RoundOver','Server:RoundReset','Soldier:HealthAction','Soldier:ManDown','Soldier:PrePhysicsUpdate','Soldier:Spawn','UI:DrawHud','UpdateManager:Update','Vehicle:Damage','Vehicle:Destroyed','Vehicle:Disabled','Vehicle:Enter','Vehicle:Exit','Vehicle:SpawnDone','Vehicle:Unspawn','VE:StateAdded','VE:StateRemoved','VE:StatesCleared','VU:Spec:PostUpdate','VU:Spec:PreUpdate','WeaponFiring:Create','WeaponFiring:Update'|}, ${2:context: any}, ${3:callback: callable})"
+		],
+		"description": "Events:Subscribe"
+	},
+	"Events:Dispatch(eventName: string, …args: any)": {
+		"prefix": "Events:Dispatch",
+		"body": [
+			"Events:Dispatch(${1:eventName: string}, ${2:…args: any})"
+		],
+		"description": "Events:Dispatch"
+	},
+	"Events:DispatchLocal(eventName: string, …args: any)": {
+		"prefix": "Events:DispatchLocal",
+		"body": [
+			"Events:DispatchLocal(${1:eventName: string}, ${2:…args: any})"
+		],
+		"description": "Events:DispatchLocal"
+	},
+	"Events:Unsubscribe(eventName: string)": {
+		"prefix": "Events:Unsubscribe",
+		"body": [
+			"Events:Unsubscribe(${1:eventName: string})"
+		],
+		"description": "Events:Unsubscribe"
+	},
+	"Hooks:Install(hookName: string, priority: int, callback: callable)": {
+		"prefix": "Hooks:Install",
+		"body": [
+			"Hooks:Install(${1|'','BulletEntity:Collision','Client:UpdateClientGameViewTransform','Client:UpdateFirstPersonTransform','ClientChatManager:IncomingMessage','EntityFactory:Create','EntityFactory:CreateFromBlueprint','Entity:ShouldCollideWith','Input:PreUpdate','Player:FindBestSquad','Player:RequestJoin','Player:SelectTeam','ResourceManager:LoadBundles','Server:SuppressEnemies','Soldier:Damage','Terrain:Load','UI:CreateAction','UI:CreateChatMessage','UI:CreateKillMessage','UI:DrawEnemyNametag','UI:DrawFriendlyNametag','UI:DrawMoreNametags','UI:DrawNametags','UI:DrawSquadNametag','UI:EnableCursorMode','UI:EnableTypingMode','UI:InputConceptEvent','UI:NametagsShouldUpdate','UI:PushScreen','UI:RenderMinimap','UI:UpdateNametagIcons','VisualTerrain:Load'|}, ${2:priority: int}, ${3:callback: callable})"
+		],
+		"description": "Hooks:Install"
+	},
+	"Hooks:Install(hookName: string, priority: int, context: any, callback: callable)": {
+		"prefix": "Hooks:Install",
+		"body": [
+			"Hooks:Install(${1|'','BulletEntity:Collision','Client:UpdateClientGameViewTransform','Client:UpdateFirstPersonTransform','ClientChatManager:IncomingMessage','EntityFactory:Create','EntityFactory:CreateFromBlueprint','Entity:ShouldCollideWith','Input:PreUpdate','Player:FindBestSquad','Player:RequestJoin','Player:SelectTeam','ResourceManager:LoadBundles','Server:SuppressEnemies','Soldier:Damage','Terrain:Load','UI:CreateAction','UI:CreateChatMessage','UI:CreateKillMessage','UI:DrawEnemyNametag','UI:DrawFriendlyNametag','UI:DrawMoreNametags','UI:DrawNametags','UI:DrawSquadNametag','UI:EnableCursorMode','UI:EnableTypingMode','UI:InputConceptEvent','UI:NametagsShouldUpdate','UI:PushScreen','UI:RenderMinimap','UI:UpdateNametagIcons','VisualTerrain:Load'|}, ${2:priority: int}, ${3:context: any}, ${4:callback: callable})"
+		],
+		"description": "Hooks:Install"
+	},
+	"MathUtils:GetRandom(from: float, to: float)": {
+		"prefix": "MathUtils:GetRandom",
+		"body": [
+			"MathUtils:GetRandom(${1:from: float}, ${2:to: float})"
+		],
+		"description": "MathUtils:GetRandom"
+	},
+	"MathUtils:GetRandomInt(from: int, to: int)": {
+		"prefix": "MathUtils:GetRandomInt",
+		"body": [
+			"MathUtils:GetRandomInt(${1:from: int}, ${2:to: int})"
+		],
+		"description": "MathUtils:GetRandomInt"
+	},
+	"MathUtils:GetYPRFromULF(up: Vec3, left: Vec3, forward: Vec3)": {
+		"prefix": "MathUtils:GetYPRFromULF",
+		"body": [
+			"MathUtils:GetYPRFromULF(${1:up: Vec3}, ${2:left: Vec3}, ${3:forward: Vec3})"
+		],
+		"description": "MathUtils:GetYPRFromULF"
+	},
+	"MathUtils:GetTransformFromYPR(yaw: float, pitch: float, roll: float)": {
+		"prefix": "MathUtils:GetTransformFromYPR",
+		"body": [
+			"MathUtils:GetTransformFromYPR(${1:yaw: float}, ${2:pitch: float}, ${3:roll: float})"
+		],
+		"description": "MathUtils:GetTransformFromYPR"
+	},
+	"MathUtils:Approximately(a: float, b: float)": {
+		"prefix": "MathUtils:Approximately",
+		"body": [
+			"MathUtils:Approximately(${1:a: float}, ${2:b: float})"
+		],
+		"description": "MathUtils:Approximately"
+	},
+	"MathUtils:Clamp(value: float, min: float, max: float)": {
+		"prefix": "MathUtils:Clamp",
+		"body": [
+			"MathUtils:Clamp(${1:value: float}, ${2:min: float}, ${3:max: float})"
+		],
+		"description": "MathUtils:Clamp"
+	},
+	"MathUtils:Round(value: float)": {
+		"prefix": "MathUtils:Round",
+		"body": [
+			"MathUtils:Round(${1:value: float})"
+		],
+		"description": "MathUtils:Round"
+	},
+	"MathUtils:FNVHash(text: string)": {
+		"prefix": "MathUtils:FNVHash",
+		"body": [
+			"MathUtils:FNVHash(${1:text: string})"
+		],
+		"description": "MathUtils:FNVHash"
+	},
+	"MathUtils:Lerp(from: float, to: float, t: float)": {
+		"prefix": "MathUtils:Lerp",
+		"body": [
+			"MathUtils:Lerp(${1:from: float}, ${2:to: float}, ${3:t: float})"
+		],
+		"description": "MathUtils:Lerp"
+	},
+	"MathUtils:RandomGuid()": {
+		"prefix": "MathUtils:RandomGuid()",
+		"body": [
+			"MathUtils:RandomGuid()"
+		],
+		"description": "MathUtils:RandomGuid()"
+	},
+	"Net:GetHTTP(url: string)": {
+		"prefix": "Net:GetHTTP",
+		"body": [
+			"Net:GetHTTP"
+		],
+		"description": "Net:GetHTTP"
+	},
+	"Net:GetHTTP(url: string, options: HttpOptions)": {
+		"prefix": "Net:GetHTTP",
+		"body": [
+			"Net:GetHTTP"
+		],
+		"description": "Net:GetHTTP"
+	},
+	"Net:GetHTTPAsync(url: string, callback: callable)": {
+		"prefix": "Net:GetHTTPAsync",
+		"body": [
+			"Net:GetHTTPAsync"
+		],
+		"description": "Net:GetHTTPAsync"
+	},
+	"Net:GetHTTPAsync(url: string, options: HttpOptions, callback: callable)": {
+		"prefix": "Net:GetHTTPAsync",
+		"body": [
+			"Net:GetHTTPAsync"
+		],
+		"description": "Net:GetHTTPAsync"
+	},
+	"Net:GetHTTPAsync(url: string, context: any, callback: callable)": {
+		"prefix": "Net:GetHTTPAsync",
+		"body": [
+			"Net:GetHTTPAsync"
+		],
+		"description": "Net:GetHTTPAsync"
+	},
+	"Net:GetHTTPAsync(url: string, options: HttpOptions, context: any, callback: callable)": {
+		"prefix": "Net:GetHTTPAsync",
+		"body": [
+			"Net:GetHTTPAsync"
+		],
+		"description": "Net:GetHTTPAsync"
+	},
+	"Net:HeadHTTP(url: string)": {
+		"prefix": "Net:HeadHTTP",
+		"body": [
+			"Net:HeadHTTP"
+		],
+		"description": "Net:HeadHTTP"
+	},
+	"Net:HeadHTTP(url: string, options: HttpOptions)": {
+		"prefix": "Net:HeadHTTP",
+		"body": [
+			"Net:HeadHTTP"
+		],
+		"description": "Net:HeadHTTP"
+	},
+	"Net:HeadHTTPAsync(url: string, callback: callable)": {
+		"prefix": "Net:HeadHTTPAsync",
+		"body": [
+			"Net:HeadHTTPAsync"
+		],
+		"description": "Net:HeadHTTPAsync"
+	},
+	"Net:HeadHTTPAsync(url: string, options: HttpOptions, callback: callable)": {
+		"prefix": "Net:HeadHTTPAsync",
+		"body": [
+			"Net:HeadHTTPAsync"
+		],
+		"description": "Net:HeadHTTPAsync"
+	},
+	"Net:HeadHTTPAsync(url: string, context: any, callback: callable)": {
+		"prefix": "Net:HeadHTTPAsync",
+		"body": [
+			"Net:HeadHTTPAsync"
+		],
+		"description": "Net:HeadHTTPAsync"
+	},
+	"Net:HeadHTTPAsync(uurl: string, options: HttpOptions, context: any, callback: callable)": {
+		"prefix": "Net:HeadHTTPAsync",
+		"body": [
+			"Net:HeadHTTPAsync"
+		],
+		"description": "Net:HeadHTTPAsync"
+	},
+	"Net:PostHTTP(url: string, data: string)": {
+		"prefix": "Net:PostHTTP",
+		"body": [
+			"Net:PostHTTP"
+		],
+		"description": "Net:PostHTTP"
+	},
+	"Net:PostHTTP(url: string, data: string, options: HttpOptions)": {
+		"prefix": "Net:PostHTTP",
+		"body": [
+			"Net:PostHTTP"
+		],
+		"description": "Net:PostHTTP"
+	},
+	"Net:PostHTTPAsync(url: string, data: string, callback: callable)": {
+		"prefix": "Net:PostHTTPAsync",
+		"body": [
+			"Net:PostHTTPAsync"
+		],
+		"description": "Net:PostHTTPAsync"
+	},
+	"Net:PostHTTPAsync(url: string, data: string, options: HttpOptions, callback: callable)": {
+		"prefix": "Net:PostHTTPAsync",
+		"body": [
+			"Net:PostHTTPAsync"
+		],
+		"description": "Net:PostHTTPAsync"
+	},
+	"Net:PostHTTPAsync(url: string, data: string, context: any, callback: callable)": {
+		"prefix": "Net:PostHTTPAsync",
+		"body": [
+			"Net:PostHTTPAsync"
+		],
+		"description": "Net:PostHTTPAsync"
+	},
+	"Net:PostHTTPAsync(url: string, data: string, options: HttpOptions, context: any, callback: callable)": {
+		"prefix": "Net:PostHTTPAsync",
+		"body": [
+			"Net:PostHTTPAsync"
+		],
+		"description": "Net:PostHTTPAsync"
+	},
+	"Net:PutHTTP(url: string, data: string)": {
+		"prefix": "Net:PutHTTP",
+		"body": [
+			"Net:PutHTTP"
+		],
+		"description": "Net:PutHTTP"
+	},
+	"Net:PutHTTP(url: string, data: string, options: HttpOptions)": {
+		"prefix": "Net:PutHTTP",
+		"body": [
+			"Net:PutHTTP"
+		],
+		"description": "Net:PutHTTP"
+	},
+	"Net:PutHTTPAsync(url: string, data: string, callback: callable)": {
+		"prefix": "Net:PutHTTPAsync",
+		"body": [
+			"Net:PutHTTPAsync"
+		],
+		"description": "Net:PutHTTPAsync"
+	},
+	"Net:PutHTTPAsync(url: string, data: string, options: HttpOptions, callback: callable)": {
+		"prefix": "Net:PutHTTPAsync",
+		"body": [
+			"Net:PutHTTPAsync"
+		],
+		"description": "Net:PutHTTPAsync"
+	},
+	"Net:PutHTTPAsync(url: string, data: string, context: any, callback: callable)": {
+		"prefix": "Net:PutHTTPAsync",
+		"body": [
+			"Net:PutHTTPAsync"
+		],
+		"description": "Net:PutHTTPAsync"
+	},
+	"Net:PutHTTPAsync(url: string, data: string, options: HttpOptions, context: any, callback: callable)": {
+		"prefix": "Net:PutHTTPAsync",
+		"body": [
+			"Net:PutHTTPAsync"
+		],
+		"description": "Net:PutHTTPAsync"
+	},
+	"Net:DeleteHTTP(url: string)": {
+		"prefix": "Net:DeleteHTTP",
+		"body": [
+			"Net:DeleteHTTP"
+		],
+		"description": "Net:DeleteHTTP"
+	},
+	"Net:DeleteHTTP(url: string, options: HttpOptions)": {
+		"prefix": "Net:DeleteHTTP",
+		"body": [
+			"Net:DeleteHTTP"
+		],
+		"description": "Net:DeleteHTTP"
+	},
+	"Net:DeleteHTTPAsync(url: string, callback: callable)": {
+		"prefix": "Net:DeleteHTTPAsync",
+		"body": [
+			"Net:DeleteHTTPAsync"
+		],
+		"description": "Net:DeleteHTTPAsync"
+	},
+	"Net:DeleteHTTPAsync(url: string, options: HttpOptions, callback: callable)": {
+		"prefix": "Net:DeleteHTTPAsync",
+		"body": [
+			"Net:DeleteHTTPAsync"
+		],
+		"description": "Net:DeleteHTTPAsync"
+	},
+	"Net:DeleteHTTPAsync(url: string, context: any, callback: callable)": {
+		"prefix": "Net:DeleteHTTPAsync",
+		"body": [
+			"Net:DeleteHTTPAsync"
+		],
+		"description": "Net:DeleteHTTPAsync"
+	},
+	"Net:DeleteHTTPAsync(url: string, options: HttpOptions, context: any, callback: callable)": {
+		"prefix": "Net:DeleteHTTPAsync",
+		"body": [
+			"Net:DeleteHTTPAsync"
+		],
+		"description": "Net:DeleteHTTPAsync"
+	},
+	"Net:OptionsHTTP(url: string)": {
+		"prefix": "Net:OptionsHTTP",
+		"body": [
+			"Net:OptionsHTTP"
+		],
+		"description": "Net:OptionsHTTP"
+	},
+	"Net:OptionsHTTP(url: string, options: HttpOptions)": {
+		"prefix": "Net:OptionsHTTP",
+		"body": [
+			"Net:OptionsHTTP"
+		],
+		"description": "Net:OptionsHTTP"
+	},
+	"Net:OptionsHTTPAsync(url: string, callback: callable)": {
+		"prefix": "Net:OptionsHTTPAsync",
+		"body": [
+			"Net:OptionsHTTPAsync"
+		],
+		"description": "Net:OptionsHTTPAsync"
+	},
+	"Net:OptionsHTTPAsync(url: string, options: HttpOptions, callback: callable)": {
+		"prefix": "Net:OptionsHTTPAsync",
+		"body": [
+			"Net:OptionsHTTPAsync"
+		],
+		"description": "Net:OptionsHTTPAsync"
+	},
+	"Net:OptionsHTTPAsync(url: string, context: any, callback: callable)": {
+		"prefix": "Net:OptionsHTTPAsync",
+		"body": [
+			"Net:OptionsHTTPAsync"
+		],
+		"description": "Net:OptionsHTTPAsync"
+	},
+	"Net:OptionsHTTPAsync(url: string, options: HttpOptions, context: any, callback: callable)": {
+		"prefix": "Net:OptionsHTTPAsync",
+		"body": [
+			"Net:OptionsHTTPAsync"
+		],
+		"description": "Net:OptionsHTTPAsync"
+	},
+	"Net:PatchHTTP(url: string, data: string)": {
+		"prefix": "Net:PatchHTTP",
+		"body": [
+			"Net:PatchHTTP"
+		],
+		"description": "Net:PatchHTTP"
+	},
+	"Net:PatchHTTP(url: string, data: string, options: HttpOptions)": {
+		"prefix": "Net:PatchHTTP",
+		"body": [
+			"Net:PatchHTTP"
+		],
+		"description": "Net:PatchHTTP"
+	},
+	"Net:PatchHTTPAsync(url: string, data: string, callback: callable)": {
+		"prefix": "Net:PatchHTTPAsync",
+		"body": [
+			"Net:PatchHTTPAsync"
+		],
+		"description": "Net:PatchHTTPAsync"
+	},
+	"Net:PatchHTTPAsync(url: string, data: string, options: HttpOptions, callback: callable)": {
+		"prefix": "Net:PatchHTTPAsync",
+		"body": [
+			"Net:PatchHTTPAsync"
+		],
+		"description": "Net:PatchHTTPAsync"
+	},
+	"Net:PatchHTTPAsync(url: string, data: string, context: any, callback: callable)": {
+		"prefix": "Net:PatchHTTPAsync",
+		"body": [
+			"Net:PatchHTTPAsync"
+		],
+		"description": "Net:PatchHTTPAsync"
+	},
+	"Net:PatchHTTPAsync(url: string, data: string, options: HttpOptions, context: any, callback: callable)": {
+		"prefix": "Net:PatchHTTPAsync",
+		"body": [
+			"Net:PatchHTTPAsync"
+		],
+		"description": "Net:PatchHTTPAsync"
+	},
+	"Net:Socket(family: NetSocketFamily, type: NetSocketType)": {
+		"prefix": "Net:Socket",
+		"body": [
+			"Net:Socket(${1:family: NetSocketFamily}, ${2:type: NetSocketType})"
+		],
+		"description": "Net:Socket"
+	},
+	"SharedUtils:Print(data: any)": {
+		"prefix": "SharedUtils:Print",
+		"body": [
+			"SharedUtils:Print(${1:data: any})"
+		],
+		"description": "SharedUtils:Print"
+	},
+	"SharedUtils:GetTime()": {
+		"prefix": "SharedUtils:GetTime()",
+		"body": [
+			"SharedUtils:GetTime()"
+		],
+		"description": "SharedUtils:GetTime()"
+	},
+	"SharedUtils:GetTimeMS()": {
+		"prefix": "SharedUtils:GetTimeMS()",
+		"body": [
+			"SharedUtils:GetTimeMS()"
+		],
+		"description": "SharedUtils:GetTimeMS()"
+	},
+	"SharedUtils:IsClientModule()": {
+		"prefix": "SharedUtils:IsClientModule()",
+		"body": [
+			"SharedUtils:IsClientModule()"
+		],
+		"description": "SharedUtils:IsClientModule()"
+	},
+	"SharedUtils:IsServerModule()": {
+		"prefix": "SharedUtils:IsServerModule()",
+		"body": [
+			"SharedUtils:IsServerModule()"
+		],
+		"description": "SharedUtils:IsServerModule()"
+	},
+	"SharedUtils:SerializeTable(table: table)": {
+		"prefix": "SharedUtils:SerializeTable",
+		"body": [
+			"SharedUtils:SerializeTable(${1:table: table})"
+		],
+		"description": "SharedUtils:SerializeTable"
+	},
+	"SharedUtils:GetContentPackages()": {
+		"prefix": "SharedUtils:GetContentPackages()",
+		"body": [
+			"SharedUtils:GetContentPackages()"
+		],
+		"description": "SharedUtils:GetContentPackages()"
+	},
+	"SharedUtils:GetLevelName()": {
+		"prefix": "SharedUtils:GetLevelName()",
+		"body": [
+			"SharedUtils:GetLevelName()"
+		],
+		"description": "SharedUtils:GetLevelName()"
+	},
+	"SharedUtils:GetCurrentGameMode()": {
+		"prefix": "SharedUtils:GetCurrentGameMode()",
+		"body": [
+			"SharedUtils:GetCurrentGameMode()"
+		],
+		"description": "SharedUtils:GetCurrentGameMode()"
+	},
+	"SharedUtils:GetTickrate()": {
+		"prefix": "SharedUtils:GetTickrate()",
+		"body": [
+			"SharedUtils:GetTickrate()"
+		],
+		"description": "SharedUtils:GetTickrate()"
+	},
+	"ChatManager:SendMessage(message: string)": {
+		"prefix": "ChatManager:SendMessage",
+		"body": [
+			"ChatManager:SendMessage(${1:message: string})"
+		],
+		"description": "ChatManager:SendMessage"
+	},
+	"ChatManager:SendMessage(message: string, toTeam: TeamId)": {
+		"prefix": "ChatManager:SendMessage",
+		"body": [
+			"ChatManager:SendMessage(${1:message: string}, ${2:toTeam: TeamId})"
+		],
+		"description": "ChatManager:SendMessage"
+	},
+	"ChatManager:SendMessage(message: string, toTeam: TeamId, toSquad: SquadId)": {
+		"prefix": "ChatManager:SendMessage",
+		"body": [
+			"ChatManager:SendMessage(${1:message: string}, ${2:toTeam: TeamId}, ${3:toSquad: SquadId})"
+		],
+		"description": "ChatManager:SendMessage"
+	},
+	"ChatManager:SendMessage(message: string, toPlayer: Player)": {
+		"prefix": "ChatManager:SendMessage",
+		"body": [
+			"ChatManager:SendMessage(${1:message: string}, ${2:toPlayer: Player})"
+		],
+		"description": "ChatManager:SendMessage"
+	},
+	"ChatManager:SendMessage(message: string, toPlayers: Player{})": {
+		"prefix": "ChatManager:SendMessage",
+		"body": [
+			"ChatManager:SendMessage(${1:message: string}, ${2:toPlayers: Player})"
+		],
+		"description": "ChatManager:SendMessage"
+	},
+	"ChatManager:Yell(message: string, duration: float)": {
+		"prefix": "ChatManager:Yell",
+		"body": [
+			"ChatManager:Yell(${1:message: string}, ${2:duration: float})"
+		],
+		"description": "ChatManager:Yell"
+	},
+	"ChatManager:Yell(message: string, duration: float, toTeam: TeamId)": {
+		"prefix": "ChatManager:Yell",
+		"body": [
+			"ChatManager:Yell(${1:message: string}, ${2:duration: float}, ${3:toTeam: TeamId})"
+		],
+		"description": "ChatManager:Yell"
+	},
+	"ChatManager:Yell(message: string, duration: float, toTeam: TeamId, toSquad: SquadId)": {
+		"prefix": "ChatManager:Yell",
+		"body": [
+			"ChatManager:Yell(${1:message: string}, ${2:duration: float}, ${3:toTeam: TeamId}, ${4:toSquad: SquadId})"
+		],
+		"description": "ChatManager:Yell"
+	},
+	"ChatManager:Yell(message: string, duration: float, toPlayer: Player)": {
+		"prefix": "ChatManager:Yell",
+		"body": [
+			"ChatManager:Yell(${1:message: string}, ${2:duration: float}, ${3:toPlayer: Player})"
+		],
+		"description": "ChatManager:Yell"
+	},
+	"ChatManager:Yell(message: string, duration: float, toPlayers: Player{})": {
+		"prefix": "ChatManager:Yell",
+		"body": [
+			"ChatManager:Yell(${1:message: string}, ${2:duration: float}, ${3:toPlayers: Player})"
+		],
+		"description": "ChatManager:Yell"
+	},
+	"ClientUtils:GetCameraTransform()": {
+		"prefix": "ClientUtils:GetCameraTransform()",
+		"body": [
+			"ClientUtils:GetCameraTransform()"
+		],
+		"description": "ClientUtils:GetCameraTransform()"
+	},
+	"ClientUtils:WorldToScreen(worldPos: Vec3)": {
+		"prefix": "ClientUtils:WorldToScreen",
+		"body": [
+			"ClientUtils:WorldToScreen(${1:worldPos: Vec3})"
+		],
+		"description": "ClientUtils:WorldToScreen"
+	},
+	"ClientUtils:ScreenToWorld(mousePos: Vec2)": {
+		"prefix": "ClientUtils:ScreenToWorld",
+		"body": [
+			"ClientUtils:ScreenToWorld(${1:mousePos: Vec2})"
+		],
+		"description": "ClientUtils:ScreenToWorld"
+	},
+	"ClientUtils:GetWindowSize()": {
+		"prefix": "ClientUtils:GetWindowSize",
+		"body": [
+			"ClientUtils:GetWindowSize"
+		],
+		"description": "ClientUtils:GetWindowSize"
+	},
+	"ClientUtils:PopScreen(graphAsset: DataContainer, screensToPop: int)": {
+		"prefix": "ClientUtils:PopScreen",
+		"body": [
+			"ClientUtils:PopScreen(${1:graphAsset: DataContainer}, ${2:screensToPop: int})"
+		],
+		"description": "ClientUtils:PopScreen"
+	},
+	"Console:Register(name: string, description: string, callback: callable)": {
+		"prefix": "Console:Register",
+		"body": [
+			"Console:Register(${1:name: string}, ${2:description: string}, ${3:callback: callable})"
+		],
+		"description": "Console:Register"
+	},
+	"Console:Register(name: string, description: string, context: any, callback: callable)": {
+		"prefix": "Console:Register",
+		"body": [
+			"Console:Register(${1:name: string}, ${2:description: string}, ${3:context: any}, ${4:callback: callable})"
+		],
+		"description": "Console:Register"
+	},
+	"Console:Deregister(name: string)": {
+		"prefix": "Console:Deregister",
+		"body": [
+			"Console:Deregister(${1:name: string})"
+		],
+		"description": "Console:Deregister"
+	},
+	"Console:Deregister(command: ConsoleCommand)": {
+		"prefix": "Console:Deregister",
+		"body": [
+			"Console:Deregister(${1:command: ConsoleCommand})"
+		],
+		"description": "Console:Deregister"
+	},
+	"Console:DeregisterAll()": {
+		"prefix": "Console:DeregisterAll()",
+		"body": [
+			"Console:DeregisterAll()"
+		],
+		"description": "Console:DeregisterAll()"
+	},
+	"DebugRenderer:DrawLine(from: Vec3, to: Vec3, colorFrom: Vec4, colorTo: Vec4)": {
+		"prefix": "DebugRenderer:DrawLine",
+		"body": [
+			"DebugRenderer:DrawLine(${1:from: Vec3}, ${2:to: Vec3}, ${3:colorFrom: Vec4}, ${4:colorTo: Vec4})"
+		],
+		"description": "DebugRenderer:DrawLine"
+	},
+	"DebugRenderer:DrawTriangle(pos1: Vec3, pos2: Vec3, pos3: Vec3, color1: Vec4, color2: Vec4, color3: Vec4)": {
+		"prefix": "DebugRenderer:DrawTriangle",
+		"body": [
+			"DebugRenderer:DrawTriangle(${1:pos1: Vec3}, ${2:pos2: Vec3}, ${3:pos3: Vec3}, ${4:color1: Vec4}, ${5:color2: Vec4}, ${6:color3: Vec4})"
+		],
+		"description": "DebugRenderer:DrawTriangle"
+	},
+	"DebugRenderer:DrawSphere(pos: Vec3, radius: float, color: Vec4, renderLines: bool, smallSizeSegmentDecrease: bool)": {
+		"prefix": "DebugRenderer:DrawSphere",
+		"body": [
+			"DebugRenderer:DrawSphere(${1:pos: Vec3}, ${2:radius: float}, ${3:color: Vec4}, ${4:renderLines: bool}, ${5:smallSizeSegmentDecrease: bool})"
+		],
+		"description": "DebugRenderer:DrawSphere"
+	},
+	"DebugRenderer:DrawLine2D(from: Vec2, to: Vec2, color: Vec4)": {
+		"prefix": "DebugRenderer:DrawLine2D",
+		"body": [
+			"DebugRenderer:DrawLine2D(${1:from: Vec2}, ${2:to: Vec2}, ${3:color: Vec4})"
+		],
+		"description": "DebugRenderer:DrawLine2D"
+	},
+	"DebugRenderer:DrawText2D(x: int, y: int, text: string, color: Vec4, scale: float)": {
+		"prefix": "DebugRenderer:DrawText2D",
+		"body": [
+			"DebugRenderer:DrawText2D(${1:x: int}, ${2:y: int}, ${3:text: string}, ${4:scale: float})"
+		],
+		"description": "DebugRenderer:DrawText2D"
+	},
+	"DebugRenderer:DrawVertices(type: DebugGeometryType, vertices: DebugVertex{})": {
+		"prefix": "DebugRenderer:DrawVertices",
+		"body": [
+			"DebugRenderer:DrawVertices(${1:type: DebugGeometryType}, ${2:vertices: DebugVertex})"
+		],
+		"description": "DebugRenderer:DrawVertices"
+	},
+	"DebugRenderer:DrawOBB(aabb: AxisAlignedBox, transform: LinearTransform, color: Vec4)": {
+		"prefix": "DebugRenderer:DrawOBB",
+		"body": [
+			"DebugRenderer:DrawOBB(${1:aabb: AxisAlignedBox}, ${2:transform: LinearTransform}, ${3:color: Vec4})"
+		],
+		"description": "DebugRenderer:DrawOBB"
+	},
+	"EffectManager:PlayEffect(asset: DataContainer, transform: LinearTransform, params: EffectParams, firstPersonEffect: bool)": {
+		"prefix": "EffectManager:PlayEffect",
+		"body": [
+			"EffectManager:PlayEffect(${1:asset: DataContainer}, ${2:transform: LinearTransform}, ${3:params: EffectParams}, ${4:firstPersonEffect: bool})"
+		],
+		"description": "EffectManager:PlayEffect"
+	},
+	"EffectManager:StopEffect(handle: int)": {
+		"prefix": "EffectManager:StopEffect",
+		"body": [
+			"EffectManager:StopEffect(${1:handle: int})"
+		],
+		"description": "EffectManager:StopEffect"
+	},
+	"EffectManager:ResetEffect(handle: int)": {
+		"prefix": "EffectManager:ResetEffect",
+		"body": [
+			"EffectManager:ResetEffect(${1:handle: int})"
+		],
+		"description": "EffectManager:ResetEffect"
+	},
+	"EffectManager:SetEffectParameterBool(handle: int, name: string, value: bool)": {
+		"prefix": "EffectManager:SetEffectParameterBool",
+		"body": [
+			"EffectManager:SetEffectParameterBool(${1:handle: int}, ${2:name: string}, ${3:value: bool})"
+		],
+		"description": "EffectManager:SetEffectParameterBool"
+	},
+	"EffectManager:SetEffectParameterInt(handle: int, name: string, value: int)": {
+		"prefix": "EffectManager:SetEffectParameterInt",
+		"body": [
+			"EffectManager:SetEffectParameterInt(${1:handle: int}, ${2:name: string}, ${3:value: int})"
+		],
+		"description": "EffectManager:SetEffectParameterInt"
+	},
+	"EffectManager:SetEffectParameterFloat(handle: int, name: string, value: float)": {
+		"prefix": "EffectManager:SetEffectParameterFloat",
+		"body": [
+			"EffectManager:SetEffectParameterFloat(${1:handle: int}, ${2:name: string}, ${3:value: float})"
+		],
+		"description": "EffectManager:SetEffectParameterFloat"
+	},
+	"EffectManager:SetEffectTransform(handle: int, transform: LinearTransform)": {
+		"prefix": "EffectManager:SetEffectTransform",
+		"body": [
+			"EffectManager:SetEffectTransform(${1:handle: int}, ${2:transform: LinearTransform})"
+		],
+		"description": "EffectManager:SetEffectTransform"
+	},
+	"EffectManager:IsEffectPlaying(handle: int)": {
+		"prefix": "EffectManager:IsEffectPlaying",
+		"body": [
+			"EffectManager:IsEffectPlaying(${1:handle: int})"
+		],
+		"description": "EffectManager:IsEffectPlaying"
+	},
+	"EffectManager:IsEffectDead(handle: int)": {
+		"prefix": "EffectManager:IsEffectDead",
+		"body": [
+			"EffectManager:IsEffectDead(${1:handle: int})"
+		],
+		"description": "EffectManager:IsEffectDead"
+	},
+	"EffectManager:DisableEffects(disableTimer: float)": {
+		"prefix": "EffectManager:DisableEffects",
+		"body": [
+			"EffectManager:DisableEffects(${1:disableTimer: float})"
+		],
+		"description": "EffectManager:DisableEffects"
+	},
+	"EffectManager:Clear()": {
+		"prefix": "EffectManager:Clear()",
+		"body": [
+			"EffectManager:Clear()"
+		],
+		"description": "EffectManager:Clear()"
+	},
+	"InputManager:GetLevel(concept: InputConceptIdentifiers)": {
+		"prefix": "InputManager:GetLevel",
+		"body": [
+			"InputManager:GetLevel(${1:concept: InputConceptIdentifiers})"
+		],
+		"description": "InputManager:GetLevel"
+	},
+	"InputManager:IsDown(concept: InputConceptIdentifiers)": {
+		"prefix": "InputManager:IsDown",
+		"body": [
+			"InputManager:IsDown(${1:concept: InputConceptIdentifiers})"
+		],
+		"description": "InputManager:IsDown"
+	},
+	"InputManager:WentDown(concept: InputConceptIdentifiers)": {
+		"prefix": "InputManager:IsDown",
+		"body": [
+			"InputManager:IsDown(${1:concept: InputConceptIdentifiers})"
+		],
+		"description": "InputManager:IsDown"
+	},
+	"InputManager:WentUp(concept: InputConceptIdentifiers)": {
+		"prefix": "InputManager:IsDown",
+		"body": [
+			"InputManager:IsDown(${1:concept: InputConceptIdentifiers})"
+		],
+		"description": "InputManager:IsDown"
+	},
+	"InputManager:IsKeyDown(key: InputDeviceKeys)": {
+		"prefix": "InputManager:IsKeyDown",
+		"body": [
+			"InputManager:IsKeyDown(${1:key: InputDeviceKeys})"
+		],
+		"description": "InputManager:IsKeyDown"
+	},
+	"InputManager:WentKeyDown(key: InputDeviceKeys)": {
+		"prefix": "InputManager:WentKeyDown",
+		"body": [
+			"InputManager:WentKeyDown(${1:key: InputDeviceKeys})"
+		],
+		"description": "InputManager:WentKeyDown"
+	},
+	"InputManager:WentKeyUp(key: InputDeviceKeys)": {
+		"prefix": "InputManager:WentKeyUp",
+		"body": [
+			"InputManager:WentKeyUp(${1:key: InputDeviceKeys})"
+		],
+		"description": "InputManager:WentKeyUp"
+	},
+	"InputManager:IsMouseButtonDown(button: InputDeviceMouseButtons)": {
+		"prefix": "InputManager:IsMouseButtonDown",
+		"body": [
+			"InputManager:IsMouseButtonDown(${1:button: InputDeviceMouseButtons})"
+		],
+		"description": "InputManager:IsMouseButtonDown"
+	},
+	"InputManager:WentMouseButtonDown(button: InputDeviceMouseButtons)": {
+		"prefix": "InputManager:WentMouseButtonDown",
+		"body": [
+			"InputManager:WentMouseButtonDown(${1:button: InputDeviceMouseButtons})"
+		],
+		"description": "InputManager:WentMouseButtonDown"
+	},
+	"InputManager:WentMouseButtonUp(button: InputDeviceMouseButtons)": {
+		"prefix": "InputManager:WentMouseButtonUp",
+		"body": [
+			"InputManager:WentMouseButtonUp(${1:button: InputDeviceMouseButtons})"
+		],
+		"description": "InputManager:WentMouseButtonUp"
+	},
+	"InputManager:GetMouseLevel(axes: InputDeviceAxes)": {
+		"prefix": "InputManager:GetMouseLevel",
+		"body": [
+			"InputManager:GetMouseLevel(${1:axes: InputDeviceAxes})"
+		],
+		"description": "InputManager:GetMouseLevel"
+	},
+	"InputManager:GetCursorPosition()": {
+		"prefix": "InputManager:GetCursorPosition()",
+		"body": [
+			"InputManager:GetCursorPosition()"
+		],
+		"description": "InputManager:GetCursorPosition()"
+	},
+	"InputManager:SetCursorPosition(x: int, y: int)": {
+		"prefix": "InputManager:SetCursorPosition",
+		"body": [
+			"InputManager:SetCursorPosition(${1:x: int}, ${2:y: int})"
+		],
+		"description": "InputManager:SetCursorPosition"
+	},
+	"InputManager:IsMouseActive()": {
+		"prefix": "InputManager:IsMouseActive()",
+		"body": [
+			"InputManager:IsMouseActive()"
+		],
+		"description": "InputManager:IsMouseActive()"
+	},
+	"InputManager:GetMouseSensitivity()": {
+		"prefix": "InputManager:GetMouseSensitivity()",
+		"body": [
+			"InputManager:GetMouseSensitivity()"
+		],
+		"description": "InputManager:GetMouseSensitivity()"
+	},
+	"InputManager:SetMouseSensitivity(sensitivity: float)": {
+		"prefix": "InputManager:SetMouseSensitivity",
+		"body": [
+			"InputManager:SetMouseSensitivity(${1:sensitivity: float})"
+		],
+		"description": "InputManager:SetMouseSensitivity"
+	},
+	"NetEvents:Subscribe(eventName: string, callback: callable)": {
+		"prefix": "NetEvents:Subscribe",
+		"body": [
+			"NetEvents:Subscribe(${1:eventName: string}, ${2:callback: callable})"
+		],
+		"description": "NetEvents:Subscribe"
+	},
+	"NetEvents:Subscribe(eventName: string, context: any, callback: callable)": {
+		"prefix": "NetEvents:Subscribe",
+		"body": [
+			"NetEvents:Subscribe(${1:eventName: string}, ${2:context: any}, ${3:callback: callable})"
+		],
+		"description": "NetEvents:Subscribe"
+	},
+	"NetEvents:Send(eventName: string, …args: any)": {
+		"prefix": "NetEvents:Send",
+		"body": [
+			"NetEvents:Send(${1:eventName: string}, ${2:…args: any})"
+		],
+		"description": "NetEvents:Send"
+	},
+	"NetEvents:SendLocal(eventName: string, …args: any)": {
+		"prefix": "NetEvents:SendLocal",
+		"body": [
+			"NetEvents:SendLocal(${1:eventName: string}, ${2:…args: any})"
+		],
+		"description": "NetEvents:SendLocal"
+	},
+	"NetEvents:SendUnreliable(eventName: string, …args: any)": {
+		"prefix": "NetEvents:SendUnreliable",
+		"body": [
+			"NetEvents:SendUnreliable(${1:eventName: string}, ${2:…args: any})"
+		],
+		"description": "NetEvents:SendUnreliable"
+	},
+	"NetEvents:SendUnreliableLocal(eventName: string, …args: any)": {
+		"prefix": "NetEvents:SendUnreliableLocal",
+		"body": [
+			"NetEvents:SendUnreliableLocal(${1:eventName: string}, ${2:…args: any})"
+		],
+		"description": "NetEvents:SendUnreliableLocal"
+	},
+	"NetEvents:SendUnreliableOrdered(eventName: string, …args: any)": {
+		"prefix": "NetEvents:SendUnreliableOrdered",
+		"body": [
+			"NetEvents:SendUnreliableOrdered(${1:eventName: string}, ${2:…args: any})"
+		],
+		"description": "NetEvents:SendUnreliableOrdered"
+	},
+	"NetEvents:SendUnreliableOrderedLocal(eventName: string, …args: any)": {
+		"prefix": "NetEvents:SendUnreliableOrderedLocal",
+		"body": [
+			"NetEvents:SendUnreliableOrderedLocal(${1:eventName: string}, ${2:…args: any})"
+		],
+		"description": "NetEvents:SendUnreliableOrderedLocal"
+	},
+	"NetEvents:Unsubscribe()": {
+		"prefix": "NetEvents:Unsubscribe()",
+		"body": [
+			"NetEvents:Unsubscribe()"
+		],
+		"description": "NetEvents:Unsubscribe()"
+	},
+	"NetEvents:Unsubscribe(eventName: string)": {
+		"prefix": "NetEvents:Unsubscribe()",
+		"body": [
+			"NetEvents:Unsubscribe(${1:eventName: string})"
+		],
+		"description": "NetEvents:Unsubscribe()"
+	},
+	"NetEvents:SendTo(eventName: string, player: Player, …args: any)": {
+		"prefix": "NetEvents:SendTo",
+		"body": [
+			"NetEvents:SendTo(${1:eventName: string}, ${2:player: Player}, ${3:…args: any})"
+		],
+		"description": "NetEvents:SendTo"
+	},
+	"NetEvents:SendToLocal(eventName: string, player: Player, …args: any)": {
+		"prefix": "NetEvents:SendToLocal",
+		"body": [
+			"NetEvents:SendToLocal(${1:eventName: string}, ${2:player: Player}, ${3:…args: any})"
+		],
+		"description": "NetEvents:SendToLocal"
+	},
+	"NetEvents:Broadcast(eventName: string, …args: any)": {
+		"prefix": "NetEvents:Broadcast",
+		"body": [
+			"NetEvents:Broadcast(${1:eventName: string}, ${2:…args: any})"
+		],
+		"description": "NetEvents:Broadcast"
+	},
+	"NetEvents:BroadcastLocal(eventName: string, …args: any)": {
+		"prefix": "NetEvents:BroadcastLocal",
+		"body": [
+			"NetEvents:BroadcastLocal(${1:eventName: string}, ${2:…args: any})"
+		],
+		"description": "NetEvents:BroadcastLocal"
+	},
+	"NetEvents:SendUnreliableTo(eventName: string, player: Player, …args: any)": {
+		"prefix": "NetEvents:SendUnreliableTo",
+		"body": [
+			"NetEvents:SendUnreliableTo(${1:eventName: string}, ${2:player: Player}, ${3:…args: any})"
+		],
+		"description": "NetEvents:SendUnreliableTo"
+	},
+	"NetEvents:SendUnreliableToLocal(eventName: string, player: Player, …args: any)": {
+		"prefix": "NetEvents:SendUnreliableToLocal",
+		"body": [
+			"NetEvents:SendUnreliableToLocal(${1:eventName: string}, ${2:player: Player}, ${3:…args: any})"
+		],
+		"description": "NetEvents:SendUnreliableToLocal"
+	},
+	"NetEvents:BroadcastUnreliable(eventName: string, …args: any)": {
+		"prefix": "NetEvents:BroadcastUnreliable",
+		"body": [
+			"NetEvents:BroadcastUnreliable(${1:eventName: string}, ${2:…args: any})"
+		],
+		"description": "NetEvents:BroadcastUnreliable"
+	},
+	"NetEvents:BroadcastUnreliableLocal(eventName: string, …args: any)": {
+		"prefix": "NetEvents:BroadcastUnreliableLocal",
+		"body": [
+			"NetEvents:BroadcastUnreliableLocal(${1:eventName: string}, ${2:…args: any})"
+		],
+		"description": "NetEvents:BroadcastUnreliableLocal"
+	},
+	"NetEvents:SendUnreliableOrderedTo(eventName: string, player: Player, …args: any)": {
+		"prefix": "NetEvents:SendUnreliableOrderedTo",
+		"body": [
+			"NetEvents:SendUnreliableOrderedTo(${1:eventName: string}, ${2:player: Player}, ${3:…args: any})"
+		],
+		"description": "NetEvents:SendUnreliableOrderedTo"
+	},
+	"NetEvents:SendUnreliableOrderedToLocal(eventName: string, player: Player, …args: any)": {
+		"prefix": "NetEvents:SendUnreliableOrderedToLocal",
+		"body": [
+			"NetEvents:SendUnreliableOrderedToLocal(${1:eventName: string}, ${2:player: Player}, ${3:…args: any})"
+		],
+		"description": "NetEvents:SendUnreliableOrderedToLocal"
+	},
+	"NetEvents:BroadcastUnreliableOrdered(eventName: string, …args: any)": {
+		"prefix": "NetEvents:BroadcastUnreliableOrdered",
+		"body": [
+			"NetEvents:BroadcastUnreliableOrdered(${1:eventName: string}, ${2:…args: any})"
+		],
+		"description": "NetEvents:BroadcastUnreliableOrdered"
+	},
+	"NetEvents:BroadcastUnreliableOrderedLocal(eventName: string, …args: any)": {
+		"prefix": "NetEvents:BroadcastUnreliableOrderedLocal",
+		"body": [
+			"NetEvents:BroadcastUnreliableOrderedLocal(${1:eventName: string}, ${2:…args: any})"
+		],
+		"description": "NetEvents:BroadcastUnreliableOrderedLocal"
+	},
+	"PlayerManager:GetPlayers()": {
+		"prefix": "PlayerManager:GetPlayers()",
+		"body": [
+			"PlayerManager:GetPlayers()"
+		],
+		"description": "PlayerManager:GetPlayers()"
+	},
+	"PlayerManager:GetPlayersByTeam(team: TeamId)": {
+		"prefix": "PlayerManager:GetPlayersByTeam",
+		"body": [
+			"PlayerManager:GetPlayersByTeam(${1:team: TeamId})"
+		],
+		"description": "PlayerManager:GetPlayersByTeam"
+	},
+	"PlayerManager:GetPlayersBySquad(team: TeamId, squad: SquadId)": {
+		"prefix": "PlayerManager:GetPlayersBySquad",
+		"body": [
+			"PlayerManager:GetPlayersBySquad(${1:team: TeamId}, ${2:squad: SquadId})"
+		],
+		"description": "PlayerManager:GetPlayersBySquad"
+	},
+	"PlayerManager:GetPlayerById(id: int)": {
+		"prefix": "PlayerManager:GetPlayerById",
+		"body": [
+			"PlayerManager:GetPlayerById(${1:id: int})"
+		],
+		"description": "PlayerManager:GetPlayerById"
+	},
+	"PlayerManager:GetPlayerByOnlineId(onlineId: int)": {
+		"prefix": "PlayerManager:GetPlayerByOnlineId",
+		"body": [
+			"PlayerManager:GetPlayerByOnlineId(${1:onlineId: int})"
+		],
+		"description": "PlayerManager:GetPlayerByOnlineId"
+	},
+	"PlayerManager:GetPlayerByName(name: string)": {
+		"prefix": "PlayerManager:GetPlayerByName",
+		"body": [
+			"PlayerManager:GetPlayerByName(${1:name: string})"
+		],
+		"description": "PlayerManager:GetPlayerByName"
+	},
+	"PlayerManager:GetPlayersByName(name: string)": {
+		"prefix": "PlayerManager:GetPlayersByName",
+		"body": [
+			"PlayerManager:GetPlayersByName(${1:name: string})"
+		],
+		"description": "PlayerManager:GetPlayersByName"
+	},
+	"PlayerManager:GetPlayerCount()": {
+		"prefix": "PlayerManager:GetPlayerCount()",
+		"body": [
+			"PlayerManager:GetPlayerCount()"
+		],
+		"description": "PlayerManager:GetPlayerCount()"
+	},
+	"PlayerManager:GetLocalPlayer()": {
+		"prefix": "PlayerManager:GetLocalPlayer()",
+		"body": [
+			"PlayerManager:GetLocalPlayer()"
+		],
+		"description": "PlayerManager:GetLocalPlayer()"
+	},
+	"PlayerManager:GetSpectatorCount()": {
+		"prefix": "PlayerManager:GetSpectatorCount()",
+		"body": [
+			"PlayerManager:GetSpectatorCount()"
+		],
+		"description": "PlayerManager:GetSpectatorCount()"
+	},
+	"PlayerManager:GetPlayerByGuid(guid: Guid)": {
+		"prefix": "PlayerManager:GetPlayerByGuid",
+		"body": [
+			"PlayerManager:GetPlayerByGuid(${1:guid: Guid})"
+		],
+		"description": "PlayerManager:GetPlayerByGuid"
+	},
+	"PlayerManager:GetSquadLeader(team: TeamId, squad: SquadId)": {
+		"prefix": "PlayerManager:GetSquadLeader",
+		"body": [
+			"PlayerManager:GetSquadLeader(${1:team: TeamId}, ${2:squad: SquadId})"
+		],
+		"description": "PlayerManager:GetSquadLeader"
+	},
+	"PlayerManager:CreatePlayer(name: string, team: TeamId, squad: SquadId)": {
+		"prefix": "PlayerManager:CreatePlayer",
+		"body": [
+			"PlayerManager:CreatePlayer(${1:name: string}, ${2:team: TeamId}, ${3:squad: SquadId})"
+		],
+		"description": "PlayerManager:CreatePlayer"
+	},
+	"PlayerManager:DeletePlayer(player: Player)": {
+		"prefix": "PlayerManager:DeletePlayer",
+		"body": [
+			"PlayerManager:DeletePlayer(${1:player: Player})"
+		],
+		"description": "PlayerManager:DeletePlayer"
+	},
+	"PlayerManager:SetSpectatorEnabled(enabled: bool)": {
+		"prefix": "PlayerManager:SetSpectatorEnabled",
+		"body": [
+			"PlayerManager:SetSpectatorEnabled(${1:enabled: bool})"
+		],
+		"description": "PlayerManager:SetSpectatorEnabled"
+	},
+	"PlayerManager:IsSpectatorEnabled()": {
+		"prefix": "PlayerManager:IsSpectatorEnabled()",
+		"body": [
+			"PlayerManager:IsSpectatorEnabled()"
+		],
+		"description": "PlayerManager:IsSpectatorEnabled()"
+	},
+	"PlayerManager:FadeInAll(fadeTime: float)": {
+		"prefix": "PlayerManager:FadeInAll",
+		"body": [
+			"PlayerManager:FadeInAll(${1:fadeTime: float})"
+		],
+		"description": "PlayerManager:FadeInAll"
+	},
+	"PlayerManager:FadeOutAll(fadeTime: float)": {
+		"prefix": "PlayerManager:FadeOutAll(${1:fadeTime: float})"
+		"body": [
+			"PlayerManager:FadeOutAll"
+		],
+		"description": "PlayerManager:FadeOutAll"
+	},
+	"RaycastManager:GetEntityInRaycast(distance: float)": {
+		"prefix": "RaycastManager:GetEntityInRaycast",
+		"body": [
+			"RaycastManager:GetEntityInRaycast(${1:distance: float})"
+		],
+		"description": "RaycastManager:GetEntityInRaycast"
+	},
+	"RaycastManager:Raycast(from: Vec3, to: Vec3, flags: RayCastFlags)": {
+		"prefix": "RaycastManager:Raycast",
+		"body": [
+			"RaycastManager:Raycast(${1:from: Vec3}, ${2:to: Vec3}, ${3:flags: RayCastFlags})"
+		],
+		"description": "RaycastManager:Raycast"
+	},
+	"RaycastManager:SpatialRaycast(from: Vec3, to: Vec3, flags: SpatialQueryFlags)": {
+		"prefix": "RaycastManager:SpatialRaycast",
+		"body": [
+			"RaycastManager:SpatialRaycast(${1:from: Vec3}, ${2:to: Vec3}, ${3:flags: SpatialQueryFlags})"
+		],
+		"description": "RaycastManager:SpatialRaycast"
+	},
+	"RaycastManager:DetailedRaycast(from: Vec3, to: Vec3, maxHits: int, materialFlags: MaterialFlags, flags: RayCastFlags)": {
+		"prefix": "RaycastManager:DetailedRaycast",
+		"body": [
+			"RaycastManager:DetailedRaycast(${1:from: Vec3}, ${2:to: Vec3}, ${3:maxHits: int}, ${4:materialFlags: MaterialFlags}, ${5:flags: RayCastFlags})"
+		],
+		"description": "RaycastManager:DetailedRaycast"
+	},
+	"SpectatorManager:GetSpectating()": {
+		"prefix": "SpectatorManager:GetSpectating()",
+		"body": [
+			"SpectatorManager:GetSpectating()"
+		],
+		"description": "SpectatorManager:GetSpectating()"
+	},
+	"SpectatorManager:SetSpectating(spectating: bool)": {
+		"prefix": "SpectatorManager:SetSpectating",
+		"body": [
+			"SpectatorManager:SetSpectating(${1:spectating: bool})"
+		],
+		"description": "SpectatorManager:SetSpectating"
+	},
+	"SpectatorManager:SpectatePlayer(player: Player, firstPerson: bool)": {
+		"prefix": "SpectatorManager:SpectatePlayer",
+		"body": [
+			"SpectatorManager:SpectatePlayer(${1:player: Player}, ${2:firstPerson: bool})"
+		],
+		"description": "SpectatorManager:SpectatePlayer"
+	},
+	"SpectatorManager:GetSpectatedPlayer()": {
+		"prefix": "SpectatorManager:GetSpectatedPlayer()",
+		"body": [
+			"SpectatorManager:GetSpectatedPlayer()"
+		],
+		"description": "SpectatorManager:GetSpectatedPlayer()"
+	},
+	"SpectatorManager:GetCameraMode()": {
+		"prefix": "SpectatorManager:GetCameraMode()",
+		"body": [
+			"SpectatorManager:GetCameraMode()"
+		],
+		"description": "SpectatorManager:GetCameraMode()"
+	},
+	"SpectatorManager:SetCameraMode(mode: SpectatorCameraMode)": {
+		"prefix": "SpectatorManager:SetCameraMode",
+		"body": [
+			"SpectatorManager:SetCameraMode(${1:mode: SpectatorCameraMode})"
+		],
+		"description": "SpectatorManager:SetCameraMode"
+	},
+	"SpectatorManager:GetFreecameraTransform()": {
+		"prefix": "SpectatorManager:GetFreecameraTransform()",
+		"body": [
+			"SpectatorManager:GetFreecameraTransform()"
+		],
+		"description": "SpectatorManager:GetFreecameraTransform()"
+	},
+	"SpectatorManager:SetFreecameraTransform(transform: LinearTransform)": {
+		"prefix": "SpectatorManager:SetFreecameraTransform",
+		"body": [
+			"SpectatorManager:SetFreecameraTransform(${1:transform: LinearTransform})"
+		],
+		"description": "SpectatorManager:SetFreecameraTransform"
+	},
+	"VisualEnvironmentManager:GetStates()": {
+		"prefix": "VisualEnvironmentManager:GetStates()",
+		"body": [
+			"VisualEnvironmentManager:GetStates()"
+		],
+		"description": "VisualEnvironmentManager:GetStates()"
+	},
+	"VisualEnvironmentManager:GetDirty()": {
+		"prefix": "VisualEnvironmentManager:GetDirty()",
+		"body": [
+			"VisualEnvironmentManager:GetDirty()"
+		],
+		"description": "VisualEnvironmentManager:GetDirty()"
+	},
+	"VisualEnvironmentManager:SetDirty(dirty: bool)": {
+		"prefix": "VisualEnvironmentManager:SetDirty",
+		"body": [
+			"VisualEnvironmentManager:SetDirty(${1:dirty: bool})"
+		],
+		"description": "VisualEnvironmentManager:SetDirty"
+	},
+	"VisualEnvironmentManager:GetSunRotationX()": {
+		"prefix": "VisualEnvironmentManager:GetSunRotationX()",
+		"body": [
+			"VisualEnvironmentManager:GetSunRotationX()"
+		],
+		"description": "VisualEnvironmentManager:GetSunRotationX()"
+	},
+	"VisualEnvironmentManager:SetSunRotationX(rotation: float)": {
+		"prefix": "VisualEnvironmentManager:SetSunRotationX",
+		"body": [
+			"VisualEnvironmentManager:SetSunRotationX(${1:rotation: float})"
+		],
+		"description": "VisualEnvironmentManager:SetSunRotationX"
+	},
+	"VisualEnvironmentManager:GetSunRotationY()": {
+		"prefix": "VisualEnvironmentManager:GetSunRotationY()",
+		"body": [
+			"VisualEnvironmentManager:GetSunRotationY()"
+		],
+		"description": "VisualEnvironmentManager:GetSunRotationY()"
+	},
+	"VisualEnvironmentManager:SetSunRotationY(rotation: float)": {
+		"prefix": "VisualEnvironmentManager:SetSunRotationY",
+		"body": [
+			"VisualEnvironmentManager:SetSunRotationY(${1:rotation: float})"
+		],
+		"description": "VisualEnvironmentManager:SetSunRotationY"
+	},
+	"VisualEnvironmentManager:GetSunRotationOffsetX()": {
+		"prefix": "VisualEnvironmentManager:GetSunRotationOffsetX()",
+		"body": [
+			"VisualEnvironmentManager:GetSunRotationOffsetX()"
+		],
+		"description": "VisualEnvironmentManager:GetSunRotationOffsetX()"
+	},
+	"VisualEnvironmentManager:SetSunRotationOffsetX(rotation: float)": {
+		"prefix": "VisualEnvironmentManager:SetSunRotationOffsetX",
+		"body": [
+			"VisualEnvironmentManager:SetSunRotationOffsetX(${1:rotation: float})"
+		],
+		"description": "VisualEnvironmentManager:SetSunRotationOffsetX"
+	},
+	"VisualEnvironmentManager:GetSunRotationOffsetY()": {
+		"prefix": "VisualEnvironmentManager:GetSunRotationOffsetY()",
+		"body": [
+			"VisualEnvironmentManager:GetSunRotationOffsetY()"
+		],
+		"description": "VisualEnvironmentManager:GetSunRotationOffsetY()"
+	},
+	"VisualEnvironmentManager:SetSunRotationOffsetY(rotation: float)": {
+		"prefix": "VisualEnvironmentManager:SetSunRotationOffsetY",
+		"body": [
+			"VisualEnvironmentManager:SetSunRotationOffsetY(${1:rotation: float})"
+		],
+		"description": "VisualEnvironmentManager:SetSunRotationOffsetY"
+	},
+	"VisualEnvironmentManager:AddState(state: VisualEnvironmentState)": {
+		"prefix": "VisualEnvironmentManager:AddState",
+		"body": [
+			"VisualEnvironmentManager:AddState(${1:state: VisualEnvironmentState})"
+		],
+		"description": "VisualEnvironmentManager:AddState"
+	},
+	"VisualEnvironmentManager:RemoveState(state: VisualEnvironmentState)": {
+		"prefix": "VisualEnvironmentManager:RemoveState",
+		"body": [
+			"VisualEnvironmentManager:RemoveState(${1:state: VisualEnvironmentState})"
+		],
+		"description": "VisualEnvironmentManager:RemoveState"
+	},
+	"WebUI:Init()": {
+		"prefix": "WebUI:Init()",
+		"body": [
+			"WebUI:Init()"
+		],
+		"description": "WebUI:Init()"
+	},
+	"WebUI:Show()": {
+		"prefix": "WebUI:Show()",
+		"body": [
+			"WebUI:Show()"
+		],
+		"description": "WebUI:Show()"
+	},
+	"WebUI:Hide()": {
+		"prefix": "WebUI:Hide()",
+		"body": [
+			"WebUI:Hide()"
+		],
+		"description": "WebUI:Hide()"
+	},
+	"WebUI:BringToFront()": {
+		"prefix": "WebUI:BringToFront()",
+		"body": [
+			"WebUI:BringToFront()"
+		],
+		"description": "WebUI:BringToFront()"
+	},
+	"WebUI:SendToBack()": {
+		"prefix": "WebUI:SendToBack()",
+		"body": [
+			"WebUI:SendToBack()"
+		],
+		"description": "WebUI:SendToBack()"
+	},
+	"WebUI:EnableKeyboard()": {
+		"prefix": "WebUI:EnableKeyboard()",
+		"body": [
+			"WebUI:EnableKeyboard()"
+		],
+		"description": "WebUI:EnableKeyboard()"
+	},
+	"WebUI:EnableMouse()": {
+		"prefix": "WebUI:EnableMouse()",
+		"body": [
+			"WebUI:EnableMouse()"
+		],
+		"description": "WebUI:EnableMouse()"
+	},
+	"WebUI:DisableKeyboard()": {
+		"prefix": "WebUI:DisableKeyboard()",
+		"body": [
+			"WebUI:DisableKeyboard()"
+		],
+		"description": "WebUI:DisableKeyboard()"
+	},
+	"WebUI:DisableMouse()": {
+		"prefix": "WebUI:DisableMouse()",
+		"body": [
+			"WebUI:DisableMouse()"
+		],
+		"description": "WebUI:DisableMouse()"
+	},
+	"WebUI:ResetKeyboard()": {
+		"prefix": "WebUI:ResetKeyboard()",
+		"body": [
+			"WebUI:ResetKeyboard()"
+		],
+		"description": "WebUI:ResetKeyboard()"
+	},
+	"WebUI:ResetMouse()": {
+		"prefix": "WebUI:ResetMouse()",
+		"body": [
+			"WebUI:ResetMouse()"
+		],
+		"description": "WebUI:ResetMouse()"
+	},
+	"WebUI:ExecuteJS(script: string)": {
+		"prefix": "WebUI:ExecuteJS",
+		"body": [
+			"WebUI:ExecuteJS(${1:script: string})"
+		],
+		"description": "WebUI:ExecuteJS"
+	},
+	"WebUI:QuoteString(string: string)": {
+		"prefix": "WebUI:QuoteString",
+		"body": [
+			"WebUI:QuoteString(${1:script: string})"
+		],
+		"description": "WebUI:QuoteString"
+	},
+	"WebUI:GetScreenWidth()": {
+		"prefix": "WebUI:GetScreenWidth()",
+		"body": [
+			"WebUI:GetScreenWidth()"
+		],
+		"description": "WebUI:GetScreenWidth()"
+	},
+	"WebUI:GetScreenHeight()": {
+		"prefix": "WebUI:GetScreenHeight()",
+		"body": [
+			"WebUI:GetScreenHeight()"
+		],
+		"description": "WebUI:GetScreenHeight()"
+	},
+	"RCON:SendCommand(command: string)": {
+		"prefix": "RCON:SendCommand",
+		"body": [
+			"RCON:SendCommand(${1:command: string})"
+		],
+		"description": "RCON:SendCommand"
+	},
+	"RCON:SendCommand(command: string, args: string{})": {
+		"prefix": "RCON:SendCommand",
+		"body": [
+			"RCON:SendCommand(${1:command: string}, ${2:args: string})"
+		],
+		"description": "RCON:SendCommand"
+	},
+	"RCON:RegisterCommand(command: string, flags: RemoteCommandFlag, callback: callable)": {
+		"prefix": "RCON:RegisterCommand",
+		"body": [
+			"RCON:RegisterCommand(${1:command: string}, ${2:flags: RemoteCommandFlag}, ${3:callback: callable})"
+		],
+		"description": "RCON:RegisterCommand"
+	},
+	"RCON:RegisterCommand(command: string, flags: RemoteCommandFlag, context: any, callback: callable)": {
+		"prefix": "RCON:RegisterCommand",
+		"body": [
+			"RCON:RegisterCommand(${1:command: string}, ${2:flags: RemoteCommandFlag}, ${3:context: any}, ${4:callback: callable})"
+		],
+		"description": "RCON:RegisterCommand"
+	},
+	"RCON:DeregisterCommand(handle: int)": {
+		"prefix": "RCON:DeregisterCommand",
+		"body": [
+			"RCON:DeregisterCommand(${1:handle: int})"
+		],
+		"description": "RCON:DeregisterCommand"
+	},
+	"RCON:GetServerGuid()": {
+		"prefix": "RCON:GetServerGuid()",
+		"body": [
+			"RCON:GetServerGuid()"
+		],
+		"description": "RCON:GetServerGuid()"
+	},
+	"RCON:TriggerEvent(event: string)": {
+		"prefix": "RCON:TriggerEvent",
+		"body": [
+			"RCON:TriggerEvent(${1:event: string})"
+		],
+		"description": "RCON:TriggerEvent"
+	},
+	"RCON:TriggerEvent(event: string, args: string{})": {
+		"prefix": "RCON:TriggerEvent",
+		"body": [
+			"RCON:TriggerEvent(${1:event: string}, ${2:args: string})"
+		],
+		"description": "RCON:TriggerEvent"
+	},
+	"SQL:Open()": {
+		"prefix": "SQL:Open()",
+		"body": [
+			"SQL:Open()"
+		],
+		"description": "SQL:Open()"
+	},
+	"SQL:Close()": {
+		"prefix": "SQL:Close()",
+		"body": [
+			"SQL:Close()"
+		],
+		"description": "SQL:Close()"
+	},
+	"SQL:Query(query: string, …args: any)": {
+		"prefix": "SQL:Query",
+		"body": [
+			"SQL:Query(${1:query: string}, ${2:…args: any})"
+		],
+		"description": "SQL:Query"
+	},
+	"SQL:Escape(text: string)": {
+		"prefix": "SQL:Escape",
+		"body": [
+			"SQL:Escape(${1:text: string})"
+		],
+		"description": "SQL:Escape"
+	},
+	"SQL:Blob(data: string)": {
+		"prefix": "SQL:Blob",
+		"body": [
+			"SQL:Blob(${1:data: string})"
+		],
+		"description": "SQL:Blob"
+	},
+	"SQL:Error()": {
+		"prefix": "SQL:Error()",
+		"body": [
+			"SQL:Error()"
+		],
+		"description": "SQL:Error()"
+	},
+	"SQL:AffectedRows()": {
+		"prefix": "SQL:AffectedRows()",
+		"body": [
+			"SQL:AffectedRows()"
+		],
+		"description": "SQL:AffectedRows()"
+	},
+	"SQL:LastInsertId()": {
+		"prefix": "SQL:LastInsertId()",
+		"body": [
+			"SQL:LastInsertId()"
+		],
+		"description": "SQL:LastInsertId()"
+	},
+	"ServerUtils:SetCustomMapName(name: string)": {
+		"prefix": "ServerUtils:SetCustomMapName",
+		"body": [
+			"ServerUtils:SetCustomMapName(${1:name: string})"
+		],
+		"description": "ServerUtils:SetCustomMapName"
+	},
+	"ServerUtils:GetCustomMapName()": {
+		"prefix": "ServerUtils:GetCustomMapName()",
+		"body": [
+			"ServerUtils:GetCustomMapName()"
+		],
+		"description": "ServerUtils:GetCustomMapName()"
+	},
+	"ServerUtils:ClearCustomMapName()": {
+		"prefix": "ServerUtils:ClearCustomMapName()",
+		"body": [
+			"ServerUtils:ClearCustomMapName()"
+		],
+		"description": "ServerUtils:ClearCustomMapName()"
+	},
+	"ServerUtils:SetCustomGameModeName(name: string)": {
+		"prefix": "ServerUtils:SetCustomGameModeName",
+		"body": [
+			"ServerUtils:SetCustomGameModeName(${1:name: string})"
+		],
+		"description": "ServerUtils:SetCustomGameModeName"
+	},
+	"ServerUtils:GetCustomGameModeName()": {
+		"prefix": "ServerUtils:GetCustomGameModeName()",
+		"body": [
+			"ServerUtils:GetCustomGameModeName()"
+		],
+		"description": "ServerUtils:GetCustomGameModeName()"
+	},
+	"ServerUtils:ClearCustomGameModeName()": {
+		"prefix": "ServerUtils:ClearCustomGameModeName()",
+		"body": [
+			"ServerUtils:ClearCustomGameModeName()"
+		],
+		"description": "ServerUtils:ClearCustomGameModeName()"
+	},
+	"TeamSquadManager:GetSquadPlayerCount(team: TeamId, squad: SquadId)": {
+		"prefix": "TeamSquadManager:GetSquadPlayerCount",
+		"body": [
+			"TeamSquadManager:GetSquadPlayerCount(${1:team: TeamId}, ${2:squad: SquadId})"
+		],
+		"description": "TeamSquadManager:GetSquadPlayerCount"
+	},
+	"TeamSquadManager:GetTeamPlayerCount(team: TeamId)": {
+		"prefix": "TeamSquadManager:GetTeamPlayerCount",
+		"body": [
+			"TeamSquadManager:GetTeamPlayerCount(${1:team: TeamId})"
+		],
+		"description": "TeamSquadManager:GetTeamPlayerCount"
+	},
+	"TicketManager:SetTicketCount(team: TeamId, ticketCount: int)": {
+		"prefix": "TicketManager:SetTicketCount",
+		"body": [
+			"TicketManager:SetTicketCount(${1:team: TeamId}, ${2:ticketCount: int})"
+		],
+		"description": "TicketManager:SetTicketCount"
+	},
+	"TicketManager:GetTicketCount(team: TeamId)": {
+		"prefix": "TicketManager:GetTicketCount",
+		"body": [
+			"TicketManager:GetTicketCount${1:team: TeamId})"
+		],
+		"description": "TicketManager:GetTicketCount"
+	},
+	"TicketManager:GetCurrentRound()": {
+		"prefix": "TicketManager:GetCurrentRound()",
+		"body": [
+			"TicketManager:GetCurrentRound()"
+		],
+		"description": "TicketManager:GetCurrentRound()"
+	},
+	"TicketManager:GetRoundCount()": {
+		"prefix": "TicketManager:GetRoundCount()",
+		"body": [
+			"TicketManager:GetRoundCount()"
+		],
+		"description": "TicketManager:GetRoundCount()"
+	},
+	"ResourceManager:MountSuperBundle(superbundle: string, mediaHint: MediaHint = MediaHint.MediaHint_Default, optional: bool = false)": {
+		"prefix": "ResourceManager:MountSuperBundle",
+		"body": [
+			"ResourceManager:MountSuperBundle(${1:superbundle: string}, ${2:mediaHint: MediaHint = MediaHint.MediaHint_Default}, ${3:optional: bool = false})"
+		],
+		"description": "ResourceManager:MountSuperBundle"
+	},
+	"ResourceManager:UnmountSuperBundle(superbundle: string)": {
+		"prefix": "ResourceManager:UnmountSuperBundle",
+		"body": [
+			"ResourceManager:UnmountSuperBundle(${1:superbundle: string})"
+		],
+		"description": "ResourceManager:UnmountSuperBundle"
+	},
+	"ResourceManager:GetSettings(settingsType: string)": {
+		"prefix": "ResourceManager:GetSettings",
+		"body": [
+			"ResourceManager:GetSettings(${1:settingsType: string})"
+		],
+		"description": "ResourceManager:GetSettings"
+	},
+	"ResourceManager:LookupDataContainer(compartment: ResourceCompartment, name: string)": {
+		"prefix": "ResourceManager:LookupDataContainer",
+		"body": [
+			"ResourceManager:LookupDataContainer(${1:compartment: ResourceCompartment}, ${2:name: string})"
+		],
+		"description": "ResourceManager:LookupDataContainer"
+	},
+	"ResourceManager:SearchForDataContainer(name: string)": {
+		"prefix": "ResourceManager:SearchForDataContainer",
+		"body": [
+			"ResourceManager:SearchForDataContainer(${1:name: string})"
+		],
+		"description": "ResourceManager:SearchForDataContainer"
+	},
+	"ResourceManager:FindInstanceByGuid(partitionGuid: Guid, instanceGuid: Guid)": {
+		"prefix": "ResourceManager:FindInstanceByGuid",
+		"body": [
+			"ResourceManager:FindInstanceByGuid(${1:partitionGuid: Guid}, ${2:instanceGuid: Guid})"
+		],
+		"description": "ResourceManager:FindInstanceByGuid"
+	},
+	"ResourceManager:SearchForInstanceByGuid(instanceGuid: Guid)": {
+		"prefix": "ResourceManager:SearchForInstanceByGuid",
+		"body": [
+			"ResourceManager:SearchForInstanceByGuid(${1:instanceGuid: Guid})"
+		],
+		"description": "ResourceManager:SearchForInstanceByGuid"
+	},
+	"ResourceManager:FindDatabasePartition(partitionGuid: Guid)": {
+		"prefix": "ResourceManager:FindDatabasePartition",
+		"body": [
+			"ResourceManager:FindDatabasePartition(${1:partitionGuid: Guid})"
+		],
+		"description": "ResourceManager:FindDatabasePartition"
+	},
+	"ResourceManager:FindPartitionForInstance(instance: DataContainer)": {
+		"prefix": "ResourceManager:FindPartitionForInstance",
+		"body": [
+			"ResourceManager:FindPartitionForInstance(${1:instance: DataContainer})"
+		],
+		"description": "ResourceManager:FindPartitionForInstance"
+	},
+	"ResourceManager:RegisterInstanceLoadHandler(partitionGuid: Guid, instanceGuid: Guid, callback: callable)": {
+		"prefix": "ResourceManager:RegisterInstanceLoadHandler",
+		"body": [
+			"ResourceManager:RegisterInstanceLoadHandler(${1:partitionGuid: Guid}, ${2:instanceGuid: Guid}), ${3:callback: callable})"
+		],
+		"description": "ResourceManager:RegisterInstanceLoadHandler"
+	},
+	"ResourceManager:RegisterInstanceLoadHandler(partitionGuid: Guid, instanceGuid: Guid, context: any, callback: callable)": {
+		"prefix": "ResourceManager:RegisterInstanceLoadHandler",
+		"body": [
+			"ResourceManager:RegisterInstanceLoadHandler(${1:partitionGuid: Guid}, ${2:instanceGuid: Guid}), ${3:context: any}), ${4:callback: callable})"
+		],
+		"description": "ResourceManager:RegisterInstanceLoadHandler"
+	},
+	"ResourceManager:RegisterInstanceLoadHandlerOnce(partitionGuid: Guid, instanceGuid: Guid, callback: callable)": {
+		"prefix": "ResourceManager:RegisterInstanceLoadHandlerOnce",
+		"body": [
+			"ResourceManager:RegisterInstanceLoadHandlerOnce(${1:partitionGuid: Guid}, ${2:instanceGuid: Guid}), ${3:callback: callable})"
+		],
+		"description": "ResourceManager:RegisterInstanceLoadHandlerOnce"
+	},
+	"ResourceManager:RegisterInstanceLoadHandlerOnce(partitionGuid: Guid, instanceGuid: Guid, context: any, callback: callable)": {
+		"prefix": "ResourceManager:RegisterInstanceLoadHandlerOnce",
+		"body": [
+			"ResourceManager:RegisterInstanceLoadHandlerOnce(${1:partitionGuid: Guid}, ${2:instanceGuid: Guid}), ${3:context: any}), ${4:callback: callable})"
+		],
+		"description": "ResourceManager:RegisterInstanceLoadHandlerOnce"
+	},
+	"ResourceManager:AddRegistry(registry: DataContainer, compartment: ResourceCompartment)": {
+		"prefix": "ResourceManager:AddRegistry",
+		"body": [
+			"ResourceManager:AddRegistry(${1:registry: DataContainer}, ${2:compartment: ResourceCompartment})"
+		],
+		"description": "ResourceManager:AddRegistry"
+	},
+	"ResourceManager:BeginLoadData(compartment: ResourceCompartment, bundles: string{})": {
+		"prefix": "ResourceManager:BeginLoadData",
+		"body": [
+			"ResourceManager:BeginLoadData(${1:compartment: ResourceCompartment}, ${2:bundles: string})"
+		],
+		"description": "ResourceManager:BeginLoadData"
+	},
+	"ResourceManager:EndLoadData(handle: int)": {
+		"prefix": "ResourceManager:EndLoadData",
+		"body": [
+			"ResourceManager:EndLoadData(${1:handle: int})"
+		],
+		"description": "ResourceManager:EndLoadData"
+	},
+	"ResourceManager:PollBundleOperation(handle: int)": {
+		"prefix": "ResourceManager:PollBundleOperation",
+		"body": [
+			"ResourceManager:PollBundleOperation(${1:handle: int})"
+		],
+		"description": "ResourceManager:PollBundleOperation"
+	},
+	"ResourceManager:CancelBundleOperation(handle: int)": {
+		"prefix": "ResourceManager:CancelBundleOperation",
+		"body": [
+			"ResourceManager:CancelBundleOperation(${1:handle: int})"
+		],
+		"description": "ResourceManager:CancelBundleOperation"
+	},
+	"ResourceManager:BeginClear(compartment: ResourceCompartment)": {
+		"prefix": "ResourceManager:BeginClear",
+		"body": [
+			"ResourceManager:BeginClear(${1:compartment: ResourceCompartment})"
+		],
+		"description": "ResourceManager:BeginClear"
+	},
+	"ResourceManager:EndClear(handle: int)": {
+		"prefix": "ResourceManager:EndClear",
+		"body": [
+			"ResourceManager:EndClear(${1:handle: int})"
+		],
+		"description": "ResourceManager:EndClear"
+	},
+	"ResourceManager:AllocateDynamicCompartment(name: string, parent: ResourceCompartment, clientOnly: bool)": {
+		"prefix": "ResourceManager:AllocateDynamicCompartment",
+		"body": [
+			"ResourceManager:AllocateDynamicCompartment(${1:name: string}, ${2:parent: ResourceCompartment}), ${3:clientOnly: bool})"
+		],
+		"description": "ResourceManager:AllocateDynamicCompartment"
+	},
+	"ResourceManager:DestroyDynamicCompartment(compartment: ResourceCompartment)": {
+		"prefix": "ResourceManager:DestroyDynamicCompartment",
+		"body": [
+			"ResourceManager:DestroyDynamicCompartment(${1:compartment: ResourceCompartment})"
+		],
+		"description": "ResourceManager:DestroyDynamicCompartment"
+	},
+
+	// typical used types
+	"LinearTransform": {
+		"prefix": "LinearTransform",
+		"body": [
+			"LinearTransform"
+		],
+		"description": "LinearTransform"
+	},
+	"Vec2": {
+		"prefix": "Vec2",
+		"body": [
+			"Vec2"
+		],
+		"description": "Vec2"
+	},
+	"Vec3": {
+		"prefix": "Vec3",
+		"body": [
+			"Vec3"
+		],
+		"description": "Vec3"
+	},
+	"Vec4": {
+		"prefix": "Vec4",
+		"body": [
+			"Vec4"
+		],
+		"description": "Vec4"
+	},
+}
