@@ -2360,12 +2360,12 @@
 		],
 		"description": "MathUtils:Lerp"
 	},
-	"MathUtils:RandomGuid()": {
-		"prefix": "MathUtils:RandomGuid()",
+	"MathUtils:RandomGuid": {
+		"prefix": "MathUtils:RandomGuid",
 		"body": [
-			"MathUtils:RandomGuid()"
+			"MathUtils:RandomGuid"
 		],
-		"description": "MathUtils:RandomGuid()"
+		"description": "MathUtils:RandomGuid"
 	},
 	"Net:GetHTTP(url: string)": {
 		"prefix": "Net:GetHTTP",
@@ -2675,33 +2675,33 @@
 		],
 		"description": "SharedUtils:Print"
 	},
-	"SharedUtils:GetTime()": {
-		"prefix": "SharedUtils:GetTime()",
+	"SharedUtils:GetTime": {
+		"prefix": "SharedUtils:GetTime",
 		"body": [
-			"SharedUtils:GetTime()"
+			"SharedUtils:GetTime"
 		],
-		"description": "SharedUtils:GetTime()"
+		"description": "SharedUtils:GetTime"
 	},
-	"SharedUtils:GetTimeMS()": {
-		"prefix": "SharedUtils:GetTimeMS()",
+	"SharedUtils:GetTimeMS": {
+		"prefix": "SharedUtils:GetTimeMS",
 		"body": [
-			"SharedUtils:GetTimeMS()"
+			"SharedUtils:GetTimeMS"
 		],
-		"description": "SharedUtils:GetTimeMS()"
+		"description": "SharedUtils:GetTimeMS"
 	},
-	"SharedUtils:IsClientModule()": {
-		"prefix": "SharedUtils:IsClientModule()",
+	"SharedUtils:IsClientModule": {
+		"prefix": "SharedUtils:IsClientModule",
 		"body": [
-			"SharedUtils:IsClientModule()"
+			"SharedUtils:IsClientModule"
 		],
-		"description": "SharedUtils:IsClientModule()"
+		"description": "SharedUtils:IsClientModule"
 	},
-	"SharedUtils:IsServerModule()": {
-		"prefix": "SharedUtils:IsServerModule()",
+	"SharedUtils:IsServerModule": {
+		"prefix": "SharedUtils:IsServerModule",
 		"body": [
-			"SharedUtils:IsServerModule()"
+			"SharedUtils:IsServerModule"
 		],
-		"description": "SharedUtils:IsServerModule()"
+		"description": "SharedUtils:IsServerModule"
 	},
 	"SharedUtils:SerializeTable(table: table)": {
 		"prefix": "SharedUtils:SerializeTable",
@@ -2710,33 +2710,33 @@
 		],
 		"description": "SharedUtils:SerializeTable"
 	},
-	"SharedUtils:GetContentPackages()": {
-		"prefix": "SharedUtils:GetContentPackages()",
+	"SharedUtils:GetContentPackages": {
+		"prefix": "SharedUtils:GetContentPackages",
 		"body": [
-			"SharedUtils:GetContentPackages()"
+			"SharedUtils:GetContentPackages"
 		],
-		"description": "SharedUtils:GetContentPackages()"
+		"description": "SharedUtils:GetContentPackages"
 	},
-	"SharedUtils:GetLevelName()": {
-		"prefix": "SharedUtils:GetLevelName()",
+	"SharedUtils:GetLevelName": {
+		"prefix": "SharedUtils:GetLevelName",
 		"body": [
-			"SharedUtils:GetLevelName()"
+			"SharedUtils:GetLevelName"
 		],
-		"description": "SharedUtils:GetLevelName()"
+		"description": "SharedUtils:GetLevelName"
 	},
-	"SharedUtils:GetCurrentGameMode()": {
-		"prefix": "SharedUtils:GetCurrentGameMode()",
+	"SharedUtils:GetCurrentGameMode": {
+		"prefix": "SharedUtils:GetCurrentGameMode",
 		"body": [
-			"SharedUtils:GetCurrentGameMode()"
+			"SharedUtils:GetCurrentGameMode"
 		],
-		"description": "SharedUtils:GetCurrentGameMode()"
+		"description": "SharedUtils:GetCurrentGameMode"
 	},
-	"SharedUtils:GetTickrate()": {
-		"prefix": "SharedUtils:GetTickrate()",
+	"SharedUtils:GetTickrate": {
+		"prefix": "SharedUtils:GetTickrate",
 		"body": [
-			"SharedUtils:GetTickrate()"
+			"SharedUtils:GetTickrate"
 		],
-		"description": "SharedUtils:GetTickrate()"
+		"description": "SharedUtils:GetTickrate"
 	},
 	"ChatManager:SendMessage(message: string)": {
 		"prefix": "ChatManager:SendMessage",
@@ -2808,12 +2808,12 @@
 		],
 		"description": "ChatManager:Yell"
 	},
-	"ClientUtils:GetCameraTransform()": {
-		"prefix": "ClientUtils:GetCameraTransform()",
+	"ClientUtils:GetCameraTransform": {
+		"prefix": "ClientUtils:GetCameraTransform",
 		"body": [
-			"ClientUtils:GetCameraTransform()"
+			"ClientUtils:GetCameraTransform"
 		],
-		"description": "ClientUtils:GetCameraTransform()"
+		"description": "ClientUtils:GetCameraTransform"
 	},
 	"ClientUtils:WorldToScreen(worldPos: Vec3)": {
 		"prefix": "ClientUtils:WorldToScreen",
@@ -2829,7 +2829,7 @@
 		],
 		"description": "ClientUtils:ScreenToWorld"
 	},
-	"ClientUtils:GetWindowSize()": {
+	"ClientUtils:GetWindowSize": {
 		"prefix": "ClientUtils:GetWindowSize",
 		"body": [
 			"ClientUtils:GetWindowSize"
@@ -2871,12 +2871,12 @@
 		],
 		"description": "Console:Deregister"
 	},
-	"Console:DeregisterAll()": {
-		"prefix": "Console:DeregisterAll()",
+	"Console:DeregisterAll": {
+		"prefix": "Console:DeregisterAll",
 		"body": [
-			"Console:DeregisterAll()"
+			"Console:DeregisterAll"
 		],
-		"description": "Console:DeregisterAll()"
+		"description": "Console:DeregisterAll"
 	},
 	"DebugRenderer:DrawLine(from: Vec3, to: Vec3, colorFrom: Vec4, colorTo: Vec4)": {
 		"prefix": "DebugRenderer:DrawLine",
@@ -2997,12 +2997,12 @@
 		],
 		"description": "EffectManager:DisableEffects"
 	},
-	"EffectManager:Clear()": {
-		"prefix": "EffectManager:Clear()",
+	"EffectManager:Clear": {
+		"prefix": "EffectManager:Clear",
 		"body": [
-			"EffectManager:Clear()"
+			"EffectManager:Clear"
 		],
-		"description": "EffectManager:Clear()"
+		"description": "EffectManager:Clear"
 	},
 	"InputManager:GetLevel(concept: InputConceptIdentifiers)": {
 		"prefix": "InputManager:GetLevel",
@@ -3081,12 +3081,12 @@
 		],
 		"description": "InputManager:GetMouseLevel"
 	},
-	"InputManager:GetCursorPosition()": {
-		"prefix": "InputManager:GetCursorPosition()",
+	"InputManager:GetCursorPosition": {
+		"prefix": "InputManager:GetCursorPosition",
 		"body": [
-			"InputManager:GetCursorPosition()"
+			"InputManager:GetCursorPosition"
 		],
-		"description": "InputManager:GetCursorPosition()"
+		"description": "InputManager:GetCursorPosition"
 	},
 	"InputManager:SetCursorPosition(x: int, y: int)": {
 		"prefix": "InputManager:SetCursorPosition",
@@ -3095,19 +3095,19 @@
 		],
 		"description": "InputManager:SetCursorPosition"
 	},
-	"InputManager:IsMouseActive()": {
-		"prefix": "InputManager:IsMouseActive()",
+	"InputManager:IsMouseActive": {
+		"prefix": "InputManager:IsMouseActive",
 		"body": [
-			"InputManager:IsMouseActive()"
+			"InputManager:IsMouseActive"
 		],
-		"description": "InputManager:IsMouseActive()"
+		"description": "InputManager:IsMouseActive"
 	},
-	"InputManager:GetMouseSensitivity()": {
-		"prefix": "InputManager:GetMouseSensitivity()",
+	"InputManager:GetMouseSensitivity": {
+		"prefix": "InputManager:GetMouseSensitivity",
 		"body": [
-			"InputManager:GetMouseSensitivity()"
+			"InputManager:GetMouseSensitivity"
 		],
-		"description": "InputManager:GetMouseSensitivity()"
+		"description": "InputManager:GetMouseSensitivity"
 	},
 	"InputManager:SetMouseSensitivity(sensitivity: float)": {
 		"prefix": "InputManager:SetMouseSensitivity",
@@ -3172,19 +3172,19 @@
 		],
 		"description": "NetEvents:SendUnreliableOrderedLocal"
 	},
-	"NetEvents:Unsubscribe()": {
-		"prefix": "NetEvents:Unsubscribe()",
+	"NetEvents:Unsubscribe": {
+		"prefix": "NetEvents:Unsubscribe",
 		"body": [
-			"NetEvents:Unsubscribe()"
+			"NetEvents:Unsubscribe"
 		],
-		"description": "NetEvents:Unsubscribe()"
+		"description": "NetEvents:Unsubscribe"
 	},
 	"NetEvents:Unsubscribe(eventName: string)": {
-		"prefix": "NetEvents:Unsubscribe()",
+		"prefix": "NetEvents:Unsubscribe",
 		"body": [
 			"NetEvents:Unsubscribe(${1:eventName: string})"
 		],
-		"description": "NetEvents:Unsubscribe()"
+		"description": "NetEvents:Unsubscribe"
 	},
 	"NetEvents:SendTo(eventName: string, player: Player, …args: any)": {
 		"prefix": "NetEvents:SendTo",
@@ -3270,12 +3270,12 @@
 		],
 		"description": "NetEvents:BroadcastUnreliableOrderedLocal"
 	},
-	"PlayerManager:GetPlayers()": {
-		"prefix": "PlayerManager:GetPlayers()",
+	"PlayerManager:GetPlayers": {
+		"prefix": "PlayerManager:GetPlayers",
 		"body": [
-			"PlayerManager:GetPlayers()"
+			"PlayerManager:GetPlayers"
 		],
-		"description": "PlayerManager:GetPlayers()"
+		"description": "PlayerManager:GetPlayers"
 	},
 	"PlayerManager:GetPlayersByTeam(team: TeamId)": {
 		"prefix": "PlayerManager:GetPlayersByTeam",
@@ -3319,26 +3319,26 @@
 		],
 		"description": "PlayerManager:GetPlayersByName"
 	},
-	"PlayerManager:GetPlayerCount()": {
-		"prefix": "PlayerManager:GetPlayerCount()",
+	"PlayerManager:GetPlayerCount": {
+		"prefix": "PlayerManager:GetPlayerCount",
 		"body": [
-			"PlayerManager:GetPlayerCount()"
+			"PlayerManager:GetPlayerCount"
 		],
-		"description": "PlayerManager:GetPlayerCount()"
+		"description": "PlayerManager:GetPlayerCount"
 	},
-	"PlayerManager:GetLocalPlayer()": {
-		"prefix": "PlayerManager:GetLocalPlayer()",
+	"PlayerManager:GetLocalPlayer": {
+		"prefix": "PlayerManager:GetLocalPlayer",
 		"body": [
-			"PlayerManager:GetLocalPlayer()"
+			"PlayerManager:GetLocalPlayer"
 		],
-		"description": "PlayerManager:GetLocalPlayer()"
+		"description": "PlayerManager:GetLocalPlayer"
 	},
-	"PlayerManager:GetSpectatorCount()": {
-		"prefix": "PlayerManager:GetSpectatorCount()",
+	"PlayerManager:GetSpectatorCount": {
+		"prefix": "PlayerManager:GetSpectatorCount",
 		"body": [
-			"PlayerManager:GetSpectatorCount()"
+			"PlayerManager:GetSpectatorCount"
 		],
-		"description": "PlayerManager:GetSpectatorCount()"
+		"description": "PlayerManager:GetSpectatorCount"
 	},
 	"PlayerManager:GetPlayerByGuid(guid: Guid)": {
 		"prefix": "PlayerManager:GetPlayerByGuid",
@@ -3375,12 +3375,12 @@
 		],
 		"description": "PlayerManager:SetSpectatorEnabled"
 	},
-	"PlayerManager:IsSpectatorEnabled()": {
-		"prefix": "PlayerManager:IsSpectatorEnabled()",
+	"PlayerManager:IsSpectatorEnabled": {
+		"prefix": "PlayerManager:IsSpectatorEnabled",
 		"body": [
-			"PlayerManager:IsSpectatorEnabled()"
+			"PlayerManager:IsSpectatorEnabled"
 		],
-		"description": "PlayerManager:IsSpectatorEnabled()"
+		"description": "PlayerManager:IsSpectatorEnabled"
 	},
 	"PlayerManager:FadeInAll(fadeTime: float)": {
 		"prefix": "PlayerManager:FadeInAll",
@@ -3390,9 +3390,9 @@
 		"description": "PlayerManager:FadeInAll"
 	},
 	"PlayerManager:FadeOutAll(fadeTime: float)": {
-		"prefix": "PlayerManager:FadeOutAll(${1:fadeTime: float})",
+		"prefix": "PlayerManager:FadeOutAll",
 		"body": [
-			"PlayerManager:FadeOutAll"
+			"PlayerManager:FadeOutAll(${1:fadeTime: float})"
 		],
 		"description": "PlayerManager:FadeOutAll"
 	},
@@ -3424,12 +3424,12 @@
 		],
 		"description": "RaycastManager:DetailedRaycast"
 	},
-	"SpectatorManager:GetSpectating()": {
-		"prefix": "SpectatorManager:GetSpectating()",
+	"SpectatorManager:GetSpectating": {
+		"prefix": "SpectatorManager:GetSpectating",
 		"body": [
-			"SpectatorManager:GetSpectating()"
+			"SpectatorManager:GetSpectating"
 		],
-		"description": "SpectatorManager:GetSpectating()"
+		"description": "SpectatorManager:GetSpectating"
 	},
 	"SpectatorManager:SetSpectating(spectating: bool)": {
 		"prefix": "SpectatorManager:SetSpectating",
@@ -3445,19 +3445,19 @@
 		],
 		"description": "SpectatorManager:SpectatePlayer"
 	},
-	"SpectatorManager:GetSpectatedPlayer()": {
-		"prefix": "SpectatorManager:GetSpectatedPlayer()",
+	"SpectatorManager:GetSpectatedPlayer": {
+		"prefix": "SpectatorManager:GetSpectatedPlayer",
 		"body": [
-			"SpectatorManager:GetSpectatedPlayer()"
+			"SpectatorManager:GetSpectatedPlayer"
 		],
-		"description": "SpectatorManager:GetSpectatedPlayer()"
+		"description": "SpectatorManager:GetSpectatedPlayer"
 	},
-	"SpectatorManager:GetCameraMode()": {
-		"prefix": "SpectatorManager:GetCameraMode()",
+	"SpectatorManager:GetCameraMode": {
+		"prefix": "SpectatorManager:GetCameraMode",
 		"body": [
-			"SpectatorManager:GetCameraMode()"
+			"SpectatorManager:GetCameraMode"
 		],
-		"description": "SpectatorManager:GetCameraMode()"
+		"description": "SpectatorManager:GetCameraMode"
 	},
 	"SpectatorManager:SetCameraMode(mode: SpectatorCameraMode)": {
 		"prefix": "SpectatorManager:SetCameraMode",
@@ -3466,12 +3466,12 @@
 		],
 		"description": "SpectatorManager:SetCameraMode"
 	},
-	"SpectatorManager:GetFreecameraTransform()": {
-		"prefix": "SpectatorManager:GetFreecameraTransform()",
+	"SpectatorManager:GetFreecameraTransform": {
+		"prefix": "SpectatorManager:GetFreecameraTransform",
 		"body": [
-			"SpectatorManager:GetFreecameraTransform()"
+			"SpectatorManager:GetFreecameraTransform"
 		],
-		"description": "SpectatorManager:GetFreecameraTransform()"
+		"description": "SpectatorManager:GetFreecameraTransform"
 	},
 	"SpectatorManager:SetFreecameraTransform(transform: LinearTransform)": {
 		"prefix": "SpectatorManager:SetFreecameraTransform",
@@ -3480,19 +3480,19 @@
 		],
 		"description": "SpectatorManager:SetFreecameraTransform"
 	},
-	"VisualEnvironmentManager:GetStates()": {
-		"prefix": "VisualEnvironmentManager:GetStates()",
+	"VisualEnvironmentManager:GetStates": {
+		"prefix": "VisualEnvironmentManager:GetStates",
 		"body": [
-			"VisualEnvironmentManager:GetStates()"
+			"VisualEnvironmentManager:GetStates"
 		],
-		"description": "VisualEnvironmentManager:GetStates()"
+		"description": "VisualEnvironmentManager:GetStates"
 	},
-	"VisualEnvironmentManager:GetDirty()": {
-		"prefix": "VisualEnvironmentManager:GetDirty()",
+	"VisualEnvironmentManager:GetDirty": {
+		"prefix": "VisualEnvironmentManager:GetDirty",
 		"body": [
-			"VisualEnvironmentManager:GetDirty()"
+			"VisualEnvironmentManager:GetDirty"
 		],
-		"description": "VisualEnvironmentManager:GetDirty()"
+		"description": "VisualEnvironmentManager:GetDirty"
 	},
 	"VisualEnvironmentManager:SetDirty(dirty: bool)": {
 		"prefix": "VisualEnvironmentManager:SetDirty",
@@ -3501,12 +3501,12 @@
 		],
 		"description": "VisualEnvironmentManager:SetDirty"
 	},
-	"VisualEnvironmentManager:GetSunRotationX()": {
-		"prefix": "VisualEnvironmentManager:GetSunRotationX()",
+	"VisualEnvironmentManager:GetSunRotationX": {
+		"prefix": "VisualEnvironmentManager:GetSunRotationX",
 		"body": [
-			"VisualEnvironmentManager:GetSunRotationX()"
+			"VisualEnvironmentManager:GetSunRotationX"
 		],
-		"description": "VisualEnvironmentManager:GetSunRotationX()"
+		"description": "VisualEnvironmentManager:GetSunRotationX"
 	},
 	"VisualEnvironmentManager:SetSunRotationX(rotation: float)": {
 		"prefix": "VisualEnvironmentManager:SetSunRotationX",
@@ -3515,12 +3515,12 @@
 		],
 		"description": "VisualEnvironmentManager:SetSunRotationX"
 	},
-	"VisualEnvironmentManager:GetSunRotationY()": {
-		"prefix": "VisualEnvironmentManager:GetSunRotationY()",
+	"VisualEnvironmentManager:GetSunRotationY": {
+		"prefix": "VisualEnvironmentManager:GetSunRotationY",
 		"body": [
-			"VisualEnvironmentManager:GetSunRotationY()"
+			"VisualEnvironmentManager:GetSunRotationY"
 		],
-		"description": "VisualEnvironmentManager:GetSunRotationY()"
+		"description": "VisualEnvironmentManager:GetSunRotationY"
 	},
 	"VisualEnvironmentManager:SetSunRotationY(rotation: float)": {
 		"prefix": "VisualEnvironmentManager:SetSunRotationY",
@@ -3529,12 +3529,12 @@
 		],
 		"description": "VisualEnvironmentManager:SetSunRotationY"
 	},
-	"VisualEnvironmentManager:GetSunRotationOffsetX()": {
-		"prefix": "VisualEnvironmentManager:GetSunRotationOffsetX()",
+	"VisualEnvironmentManager:GetSunRotationOffsetX": {
+		"prefix": "VisualEnvironmentManager:GetSunRotationOffsetX",
 		"body": [
-			"VisualEnvironmentManager:GetSunRotationOffsetX()"
+			"VisualEnvironmentManager:GetSunRotationOffsetX"
 		],
-		"description": "VisualEnvironmentManager:GetSunRotationOffsetX()"
+		"description": "VisualEnvironmentManager:GetSunRotationOffsetX"
 	},
 	"VisualEnvironmentManager:SetSunRotationOffsetX(rotation: float)": {
 		"prefix": "VisualEnvironmentManager:SetSunRotationOffsetX",
@@ -3543,12 +3543,12 @@
 		],
 		"description": "VisualEnvironmentManager:SetSunRotationOffsetX"
 	},
-	"VisualEnvironmentManager:GetSunRotationOffsetY()": {
-		"prefix": "VisualEnvironmentManager:GetSunRotationOffsetY()",
+	"VisualEnvironmentManager:GetSunRotationOffsetY": {
+		"prefix": "VisualEnvironmentManager:GetSunRotationOffsetY",
 		"body": [
-			"VisualEnvironmentManager:GetSunRotationOffsetY()"
+			"VisualEnvironmentManager:GetSunRotationOffsetY"
 		],
-		"description": "VisualEnvironmentManager:GetSunRotationOffsetY()"
+		"description": "VisualEnvironmentManager:GetSunRotationOffsetY"
 	},
 	"VisualEnvironmentManager:SetSunRotationOffsetY(rotation: float)": {
 		"prefix": "VisualEnvironmentManager:SetSunRotationOffsetY",
@@ -3571,82 +3571,82 @@
 		],
 		"description": "VisualEnvironmentManager:RemoveState"
 	},
-	"WebUI:Init()": {
-		"prefix": "WebUI:Init()",
+	"WebUI:Init": {
+		"prefix": "WebUI:Init",
 		"body": [
-			"WebUI:Init()"
+			"WebUI:Init"
 		],
-		"description": "WebUI:Init()"
+		"description": "WebUI:Init"
 	},
-	"WebUI:Show()": {
-		"prefix": "WebUI:Show()",
+	"WebUI:Show": {
+		"prefix": "WebUI:Show",
 		"body": [
-			"WebUI:Show()"
+			"WebUI:Show"
 		],
-		"description": "WebUI:Show()"
+		"description": "WebUI:Show"
 	},
-	"WebUI:Hide()": {
-		"prefix": "WebUI:Hide()",
+	"WebUI:Hide": {
+		"prefix": "WebUI:Hide",
 		"body": [
-			"WebUI:Hide()"
+			"WebUI:Hide"
 		],
-		"description": "WebUI:Hide()"
+		"description": "WebUI:Hide"
 	},
-	"WebUI:BringToFront()": {
-		"prefix": "WebUI:BringToFront()",
+	"WebUI:BringToFront": {
+		"prefix": "WebUI:BringToFront",
 		"body": [
-			"WebUI:BringToFront()"
+			"WebUI:BringToFront"
 		],
-		"description": "WebUI:BringToFront()"
+		"description": "WebUI:BringToFront"
 	},
-	"WebUI:SendToBack()": {
-		"prefix": "WebUI:SendToBack()",
+	"WebUI:SendToBack": {
+		"prefix": "WebUI:SendToBack",
 		"body": [
-			"WebUI:SendToBack()"
+			"WebUI:SendToBack"
 		],
-		"description": "WebUI:SendToBack()"
+		"description": "WebUI:SendToBack"
 	},
-	"WebUI:EnableKeyboard()": {
-		"prefix": "WebUI:EnableKeyboard()",
+	"WebUI:EnableKeyboard": {
+		"prefix": "WebUI:EnableKeyboard",
 		"body": [
-			"WebUI:EnableKeyboard()"
+			"WebUI:EnableKeyboard"
 		],
-		"description": "WebUI:EnableKeyboard()"
+		"description": "WebUI:EnableKeyboard"
 	},
-	"WebUI:EnableMouse()": {
-		"prefix": "WebUI:EnableMouse()",
+	"WebUI:EnableMouse": {
+		"prefix": "WebUI:EnableMouse",
 		"body": [
-			"WebUI:EnableMouse()"
+			"WebUI:EnableMouse"
 		],
-		"description": "WebUI:EnableMouse()"
+		"description": "WebUI:EnableMouse"
 	},
-	"WebUI:DisableKeyboard()": {
-		"prefix": "WebUI:DisableKeyboard()",
+	"WebUI:DisableKeyboard": {
+		"prefix": "WebUI:DisableKeyboard",
 		"body": [
-			"WebUI:DisableKeyboard()"
+			"WebUI:DisableKeyboard"
 		],
-		"description": "WebUI:DisableKeyboard()"
+		"description": "WebUI:DisableKeyboard"
 	},
-	"WebUI:DisableMouse()": {
-		"prefix": "WebUI:DisableMouse()",
+	"WebUI:DisableMouse": {
+		"prefix": "WebUI:DisableMouse",
 		"body": [
-			"WebUI:DisableMouse()"
+			"WebUI:DisableMouse"
 		],
-		"description": "WebUI:DisableMouse()"
+		"description": "WebUI:DisableMouse"
 	},
-	"WebUI:ResetKeyboard()": {
-		"prefix": "WebUI:ResetKeyboard()",
+	"WebUI:ResetKeyboard": {
+		"prefix": "WebUI:ResetKeyboard",
 		"body": [
-			"WebUI:ResetKeyboard()"
+			"WebUI:ResetKeyboard"
 		],
-		"description": "WebUI:ResetKeyboard()"
+		"description": "WebUI:ResetKeyboard"
 	},
-	"WebUI:ResetMouse()": {
-		"prefix": "WebUI:ResetMouse()",
+	"WebUI:ResetMouse": {
+		"prefix": "WebUI:ResetMouse",
 		"body": [
-			"WebUI:ResetMouse()"
+			"WebUI:ResetMouse"
 		],
-		"description": "WebUI:ResetMouse()"
+		"description": "WebUI:ResetMouse"
 	},
 	"WebUI:ExecuteJS(script: string)": {
 		"prefix": "WebUI:ExecuteJS",
@@ -3662,19 +3662,19 @@
 		],
 		"description": "WebUI:QuoteString"
 	},
-	"WebUI:GetScreenWidth()": {
-		"prefix": "WebUI:GetScreenWidth()",
+	"WebUI:GetScreenWidth": {
+		"prefix": "WebUI:GetScreenWidth",
 		"body": [
-			"WebUI:GetScreenWidth()"
+			"WebUI:GetScreenWidth"
 		],
-		"description": "WebUI:GetScreenWidth()"
+		"description": "WebUI:GetScreenWidth"
 	},
-	"WebUI:GetScreenHeight()": {
-		"prefix": "WebUI:GetScreenHeight()",
+	"WebUI:GetScreenHeight": {
+		"prefix": "WebUI:GetScreenHeight",
 		"body": [
-			"WebUI:GetScreenHeight()"
+			"WebUI:GetScreenHeight"
 		],
-		"description": "WebUI:GetScreenHeight()"
+		"description": "WebUI:GetScreenHeight"
 	},
 	"RCON:SendCommand(command: string)": {
 		"prefix": "RCON:SendCommand",
@@ -3711,12 +3711,12 @@
 		],
 		"description": "RCON:DeregisterCommand"
 	},
-	"RCON:GetServerGuid()": {
-		"prefix": "RCON:GetServerGuid()",
+	"RCON:GetServerGuid": {
+		"prefix": "RCON:GetServerGuid",
 		"body": [
-			"RCON:GetServerGuid()"
+			"RCON:GetServerGuid"
 		],
-		"description": "RCON:GetServerGuid()"
+		"description": "RCON:GetServerGuid"
 	},
 	"RCON:TriggerEvent(event: string)": {
 		"prefix": "RCON:TriggerEvent",
@@ -3732,19 +3732,19 @@
 		],
 		"description": "RCON:TriggerEvent"
 	},
-	"SQL:Open()": {
-		"prefix": "SQL:Open()",
+	"SQL:Open": {
+		"prefix": "SQL:Open",
 		"body": [
-			"SQL:Open()"
+			"SQL:Open"
 		],
-		"description": "SQL:Open()"
+		"description": "SQL:Open"
 	},
-	"SQL:Close()": {
-		"prefix": "SQL:Close()",
+	"SQL:Close": {
+		"prefix": "SQL:Close",
 		"body": [
-			"SQL:Close()"
+			"SQL:Close"
 		],
-		"description": "SQL:Close()"
+		"description": "SQL:Close"
 	},
 	"SQL:Query(query: string, …args: any)": {
 		"prefix": "SQL:Query",
@@ -3767,26 +3767,26 @@
 		],
 		"description": "SQL:Blob"
 	},
-	"SQL:Error()": {
-		"prefix": "SQL:Error()",
+	"SQL:Error": {
+		"prefix": "SQL:Error",
 		"body": [
-			"SQL:Error()"
+			"SQL:Error"
 		],
-		"description": "SQL:Error()"
+		"description": "SQL:Error"
 	},
-	"SQL:AffectedRows()": {
-		"prefix": "SQL:AffectedRows()",
+	"SQL:AffectedRows": {
+		"prefix": "SQL:AffectedRows",
 		"body": [
-			"SQL:AffectedRows()"
+			"SQL:AffectedRows"
 		],
-		"description": "SQL:AffectedRows()"
+		"description": "SQL:AffectedRows"
 	},
-	"SQL:LastInsertId()": {
-		"prefix": "SQL:LastInsertId()",
+	"SQL:LastInsertId": {
+		"prefix": "SQL:LastInsertId",
 		"body": [
-			"SQL:LastInsertId()"
+			"SQL:LastInsertId"
 		],
-		"description": "SQL:LastInsertId()"
+		"description": "SQL:LastInsertId"
 	},
 	"ServerUtils:SetCustomMapName(name: string)": {
 		"prefix": "ServerUtils:SetCustomMapName",
@@ -3795,19 +3795,19 @@
 		],
 		"description": "ServerUtils:SetCustomMapName"
 	},
-	"ServerUtils:GetCustomMapName()": {
-		"prefix": "ServerUtils:GetCustomMapName()",
+	"ServerUtils:GetCustomMapName": {
+		"prefix": "ServerUtils:GetCustomMapName",
 		"body": [
-			"ServerUtils:GetCustomMapName()"
+			"ServerUtils:GetCustomMapName"
 		],
-		"description": "ServerUtils:GetCustomMapName()"
+		"description": "ServerUtils:GetCustomMapName"
 	},
-	"ServerUtils:ClearCustomMapName()": {
-		"prefix": "ServerUtils:ClearCustomMapName()",
+	"ServerUtils:ClearCustomMapName": {
+		"prefix": "ServerUtils:ClearCustomMapName",
 		"body": [
-			"ServerUtils:ClearCustomMapName()"
+			"ServerUtils:ClearCustomMapName"
 		],
-		"description": "ServerUtils:ClearCustomMapName()"
+		"description": "ServerUtils:ClearCustomMapName"
 	},
 	"ServerUtils:SetCustomGameModeName(name: string)": {
 		"prefix": "ServerUtils:SetCustomGameModeName",
@@ -3816,19 +3816,19 @@
 		],
 		"description": "ServerUtils:SetCustomGameModeName"
 	},
-	"ServerUtils:GetCustomGameModeName()": {
-		"prefix": "ServerUtils:GetCustomGameModeName()",
+	"ServerUtils:GetCustomGameModeName": {
+		"prefix": "ServerUtils:GetCustomGameModeName",
 		"body": [
-			"ServerUtils:GetCustomGameModeName()"
+			"ServerUtils:GetCustomGameModeName"
 		],
-		"description": "ServerUtils:GetCustomGameModeName()"
+		"description": "ServerUtils:GetCustomGameModeName"
 	},
-	"ServerUtils:ClearCustomGameModeName()": {
-		"prefix": "ServerUtils:ClearCustomGameModeName()",
+	"ServerUtils:ClearCustomGameModeName": {
+		"prefix": "ServerUtils:ClearCustomGameModeName",
 		"body": [
-			"ServerUtils:ClearCustomGameModeName()"
+			"ServerUtils:ClearCustomGameModeName"
 		],
-		"description": "ServerUtils:ClearCustomGameModeName()"
+		"description": "ServerUtils:ClearCustomGameModeName"
 	},
 	"TeamSquadManager:GetSquadPlayerCount(team: TeamId, squad: SquadId)": {
 		"prefix": "TeamSquadManager:GetSquadPlayerCount",
@@ -3858,19 +3858,19 @@
 		],
 		"description": "TicketManager:GetTicketCount"
 	},
-	"TicketManager:GetCurrentRound()": {
-		"prefix": "TicketManager:GetCurrentRound()",
+	"TicketManager:GetCurrentRound": {
+		"prefix": "TicketManager:GetCurrentRound",
 		"body": [
-			"TicketManager:GetCurrentRound()"
+			"TicketManager:GetCurrentRound"
 		],
-		"description": "TicketManager:GetCurrentRound()"
+		"description": "TicketManager:GetCurrentRound"
 	},
-	"TicketManager:GetRoundCount()": {
-		"prefix": "TicketManager:GetRoundCount()",
+	"TicketManager:GetRoundCount": {
+		"prefix": "TicketManager:GetRoundCount",
 		"body": [
-			"TicketManager:GetRoundCount()"
+			"TicketManager:GetRoundCount"
 		],
-		"description": "TicketManager:GetRoundCount()"
+		"description": "TicketManager:GetRoundCount"
 	},
 	"ResourceManager:MountSuperBundle(superbundle: string, mediaHint: MediaHint = MediaHint.MediaHint_Default, optional: bool = false)": {
 		"prefix": "ResourceManager:MountSuperBundle",
@@ -3889,7 +3889,7 @@
 	"ResourceManager:GetSettings(settingsType: string)": {
 		"prefix": "ResourceManager:GetSettings",
 		"body": [
-			"ResourceManager:GetSettings(${1:settingsType: string})"
+			"ResourceManager:GetSettings(${1|'','AntMemorySettings','AntSettings','AudioSettings','BFServerSettings','ClientMetricsSettings','ClientSettings','DebrisSystemSettings','DebugRenderSettings','DecalSettings','DemoSettings','DyDisplaySettings','EffectManagerSettings','EmitterSystemSettings','EntitySettings','GameAnimationSettings','GameModeSettings','GameRenderSettings','GameSettings','GameTimeSettings','GlobalPostProcessSettings','MeshSettings','MeshStreamingSettings','NetworkSettings','OnlineSettings','PathfindingSettings','PerformanceTrackerSettings','PersistenceSettings','PhysicsDebugSettings','PhysicsRenderSettings','PhysicsSettings','ResourceManagerSettings','ServerMetricsSettings','ServerSettings','ShaderSystemSettings','SoundSettings','SyncedBFSettings','SyncedGameSettings','TerrainSettings','TerrainStreamingSettings','TextureCompressSettings','TextureSettings','TextureStreamingSettings','UISettings','VegetationSystemSettings','VeniceOnlineSettings','VeniceUISettings','VisualEnviromentSettings','VisualTerrainSettings','WindowSettings','WorldRenderSettings'|})"
 		],
 		"description": "ResourceManager:GetSettings"
 	},
