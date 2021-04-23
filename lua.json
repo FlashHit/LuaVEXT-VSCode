@@ -426,7 +426,7 @@
 	"Player:Connected": {
 	 	"prefix": "Player:Connected",
 	 	"body": [
-			"Events:Subscribe('Player:Connected', function(p_LevelName, p_GameMode)",
+			"Events:Subscribe('Player:Connected', function(p_Player)",
 			"\t",
 			"end)"
 	 	],
@@ -437,7 +437,7 @@
 	 	"body": [
 			"Events:Subscribe('Player:Connected', self, self.OnPlayerConnected)",
 			"",
-			"function $TM_FILENAME_BASE:OnPlayerConnected(p_LevelName, p_GameMode)" ,
+			"function $TM_FILENAME_BASE:OnPlayerConnected(p_Player)" ,
 			"\t",
 			"end"
 	 	],
@@ -446,7 +446,7 @@
 	"Player:Deleted": {
 	 	"prefix": "Player:Deleted",
 	 	"body": [
-			"Events:Subscribe('Player:Deleted', function(p_LevelName, p_GameMode)",
+			"Events:Subscribe('Player:Deleted', function(p_Player)",
 			"\t",
 			"end)"
 	 	],
@@ -457,7 +457,7 @@
 	 	"body": [
 			"Events:Subscribe('Player:Deleted', self, self.OnPlayerDeleted)",
 			"",
-			"function $TM_FILENAME_BASE:OnPlayerDeleted(p_LevelName, p_GameMode)" ,
+			"function $TM_FILENAME_BASE:OnPlayerDeleted(p_Player)" ,
 			"\t",
 			"end"
 	 	],
