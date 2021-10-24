@@ -3581,6 +3581,27 @@
 		],
 		"description": "RaycastManager:DetailedRaycast"
 	},
+	"RaycastManager:CollisionRaycast(from: Vec3, to: Vec3, maxHits: int, materialFlags: MaterialFlags, flags: RayCastFlags)": {
+		"prefix": "RaycastManager:CollisionRaycast",
+		"body": [
+			"RaycastManager:CollisionRaycast(${1:from: Vec3}, ${2:to: Vec3}, ${3:maxHits: int}, ${4:materialFlags: MaterialFlags}, ${5:flags: RayCastFlags})"
+		],
+		"description": "RaycastManager:CollisionRaycast"
+	},
+	"RaycastManager:DetailedLatencyRaycast(latency: float, from: Vec3, to: Vec3, maxHits: int, materialFlags: MaterialFlags, flags: RayCastFlags)": {
+		"prefix": "RaycastManager:DetailedLatencyRaycast",
+		"body": [
+			"RaycastManager:DetailedLatencyRaycast(${1:latency: float}, ${2:from: Vec3}, ${3:to: Vec3}, ${4:maxHits: int}, ${5:materialFlags: MaterialFlags}, ${6:flags: RayCastFlags})"
+		],
+		"description": "RaycastManager:DetailedLatencyRaycast"
+	},
+	"RaycastManager:CollisionLatencyRaycast(latency: float, from: Vec3, to: Vec3, maxHits: int, materialFlags: MaterialFlags, flags: RayCastFlags)": {
+		"prefix": "RaycastManager:CollisionLatencyRaycast",
+		"body": [
+			"RaycastManager:CollisionLatencyRaycast(${1:latency: float}, ${2:from: Vec3}, ${3:to: Vec3}, ${4:maxHits: int}, ${5:materialFlags: MaterialFlags}, ${6:flags: RayCastFlags})"
+		],
+		"description": "RaycastManager:CollisionLatencyRaycast"
+	},
 	"SpectatorManager:GetSpectating": {
 		"prefix": "SpectatorManager:GetSpectating",
 		"body": [
