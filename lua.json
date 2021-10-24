@@ -800,6 +800,106 @@
 	 	],
 		"description": "Client Event for VU:Spec:PreUpdate"
 	},
+	"Voip:ChannelClosed Client": {
+	 	"prefix": "Voip:ChannelClosed",
+	 	"body": [
+			"Events:Subscribe('Voip:ChannelClosed', function(p_Channel)",
+			"\t",
+			"end)"
+	 	],
+		"description": "Client Event for Voip:ChannelClosed"
+	},
+	"Class Voip:ChannelClosed Client": {
+	 	"prefix": "Voip:ChannelClosed",
+	 	"body": [
+			"Events:Subscribe('Voip:ChannelClosed', self, self.OnVoipChannelClosed)",
+			"",
+			"function $TM_FILENAME_BASE:OnVoipChannelClosed(p_Channel)" ,
+			"\t",
+			"end"
+	 	],
+		"description": "Client Event for Voip:ChannelClosed"
+	},
+	"Voip:ChannelOpened Client": {
+	 	"prefix": "Voip:ChannelOpened",
+	 	"body": [
+			"Events:Subscribe('Voip:ChannelOpened', function(p_Channel)",
+			"\t",
+			"end)"
+	 	],
+		"description": "Client Event for Voip:ChannelOpened"
+	},
+	"Class Voip:ChannelOpened Client": {
+	 	"prefix": "Voip:ChannelOpened",
+	 	"body": [
+			"Events:Subscribe('Voip:ChannelOpened', self, self.OnVoipChannelOpened)",
+			"",
+			"function $TM_FILENAME_BASE:OnVoipChannelOpened(p_Channel)" ,
+			"\t",
+			"end"
+	 	],
+		"description": "Client Event for Voip:ChannelOpened"
+	},
+	"VoipChannel:PlayerJoined Client": {
+	 	"prefix": "VoipChannel:PlayerJoined",
+	 	"body": [
+			"Events:Subscribe('VoipChannel:PlayerJoined', function(p_Channel, p_Player, p_Emitter)",
+			"\t",
+			"end)"
+	 	],
+		"description": "Client Event for VoipChannel:PlayerJoined"
+	},
+	"Class VoipChannel:PlayerJoined Client": {
+	 	"prefix": "VoipChannel:PlayerJoined",
+	 	"body": [
+			"Events:Subscribe('VoipChannel:PlayerJoined', self, self.OnVoipChannelPlayerJoined)",
+			"",
+			"function $TM_FILENAME_BASE:OnVoipChannelPlayerJoined(p_Channel, p_Player, p_Emitter)" ,
+			"\t",
+			"end"
+	 	],
+		"description": "Client Event for VoipChannel:PlayerJoined"
+	},
+	"VoipChannel:PlayerLeft Client": {
+	 	"prefix": "VoipChannel:PlayerLeft",
+	 	"body": [
+			"Events:Subscribe('VoipChannel:PlayerLeft', function(p_Channel, p_Player)",
+			"\t",
+			"end)"
+	 	],
+		"description": "Client Event for VoipChannel:PlayerLeft"
+	},
+	"Class VoipChannel:PlayerLeft Client": {
+	 	"prefix": "VoipChannel:PlayerLeft",
+	 	"body": [
+			"Events:Subscribe('VoipChannel:PlayerLeft', self, self.OnVoipChannelPlayerLeft)",
+			"",
+			"function $TM_FILENAME_BASE:OnVoipChannelPlayerLeft(p_Channel, p_Player)" ,
+			"\t",
+			"end"
+	 	],
+		"description": "Client Event for VoipChannel:PlayerLeft"
+	},
+	"VoipEmitter:Emitting Client": {
+	 	"prefix": "VoipEmitter:Emitting",
+	 	"body": [
+			"Events:Subscribe('VoipEmitter:Emitting', function(p_Emitter, p_IsEmitting)",
+			"\t",
+			"end)"
+	 	],
+		"description": "Client Event for VoipEmitter:Emitting"
+	},
+	"Class VoipEmitter:Emitting Client": {
+	 	"prefix": "VoipEmitter:Emitting",
+	 	"body": [
+			"Events:Subscribe('VoipEmitter:Emitting', self, self.OnVoipEmitterEmitting)",
+			"",
+			"function $TM_FILENAME_BASE:OnVoipEmitterEmitting(p_Emitter, p_IsEmitting)" ,
+			"\t",
+			"end"
+	 	],
+		"description": "Client Event for VoipEmitter:Emitting"
+	},
 	"CapturePoint:Captured Server": {
 	 	"prefix": "CapturePoint:Captured",
 	 	"body": [
@@ -3628,6 +3728,34 @@
 		],
 		"description": "VisualEnvironmentManager:RemoveState"
 	},
+	"Voip:IsAvailable": {
+		"prefix": "Voip:IsAvailable",
+		"body": [
+			"Voip:IsAvailable"
+		],
+		"description": "Voip:IsAvailable"
+	},
+	"Voip:GetChannel(channelName: string)": {
+		"prefix": "Voip:GetChannel",
+		"body": [
+			"Voip:GetChannel(${1:channelName: string})"
+		],
+		"description": "Voip:GetChannel"
+	},
+	"Voip:GetChannels": {
+		"prefix": "Voip:GetChannels",
+		"body": [
+			"Voip:GetChannels"
+		],
+		"description": "Voip:GetChannels"
+	},
+	"Voip:GetEmitters": {
+		"prefix": "Voip:GetEmitters",
+		"body": [
+			"Voip:GetEmitters"
+		],
+		"description": "Voip:GetEmitters"
+	},
 	"WebUI:Init": {
 		"prefix": "WebUI:Init",
 		"body": [
@@ -3928,6 +4056,13 @@
 			"TicketManager:GetRoundCount"
 		],
 		"description": "TicketManager:GetRoundCount"
+	},
+	"Voip:CreateChannel(channelName: string, defaultEmitterType: VoipEmitterType)": {
+		"prefix": "Voip:CreateChannel",
+		"body": [
+			"Voip:CreateChannel(${1:channelName: string}, ${2:defaultEmitterType: VoipEmitterType})"
+		],
+		"description": "Voip:CreateChannel"
 	},
 	"ResourceManager:MountSuperBundle(superbundle: string, mediaHint: MediaHint = MediaHint.MediaHint_Default, optional: bool = false)": {
 		"prefix": "ResourceManager:MountSuperBundle",
