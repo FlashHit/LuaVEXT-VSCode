@@ -4,241 +4,270 @@
 		"body": [
 			"local s_${1:Name} = ${0}"
 		],
-	   "description": "local s_Name = "
-   },
-   "for .. end": {
+		"description": "local s_Name = "
+	},
+	"for .. end": {
 		"prefix": "for .. end",
 		"body": [
 			"for l_${1:Index}, l_${2:Value} in pairs(${3:Table}) do",
 			"\t${0}",
 			"end"
 		],
-	   "description": "for loop with l_ prefix"
-   },
-   "for i = #": {
+		"description": "for loop with l_ prefix"
+	},
+	"for i = #": {
 		"prefix": "for i = #",
 		"body": [
 			"for i = #${1:Table}, 1, -1 do",
 			"\t${0}",
 			"end"
 		],
-	   "description": "for loop with l_ prefix"
-   },
-   "Create Class": {
+		"description": "for loop with l_ prefix"
+	},
+	"Create Class": {
 		"prefix": "Create Class",
 		"body": [
-		   	"class '$TM_FILENAME_BASE'",
-		   	"",
-		   	"function $TM_FILENAME_BASE:__init()",
-		   	"\t${0}",
+			"---@class $TM_FILENAME_BASE",
+			"$TM_FILENAME_BASE = class '$TM_FILENAME_BASE'",
+			"",
+			"function $TM_FILENAME_BASE:__init()",
+			"\t${0}",
 			"end",
 			"",
 			"return $TM_FILENAME_BASE()",
 			""
 		],
-	   "description": "Create a class structure"
-   },
-   "Create Class (with custom name)": {
+		"description": "Create a class structure"
+	},
+	"Create Class (with custom name)": {
 		"prefix": "Create Class",
 		"body": [
-		   	"class '${1:ClassName}'",
-		   	"",
-		   	"function ${1:ClassName}:__init()",
-		   	"\t${0}",
+			"---@class ${1:ClassName}",
+			"${1:ClassName} = class '${1:ClassName}'",
+			"",
+			"function ${1:ClassName}:__init()",
+			"\t${0}",
 			"end",
 			"",
-			"return $TM_FILENAME_BASE()",
+			"return ${1:ClassName}()",
 			""
 		],
-	   "description": "Create a class structure"
-   },
-   	"Engine:Message Shared": {
+		"description": "Create a class structure"
+	},
+	"Engine:Message Shared": {
 		"prefix": "Engine:Message",
 		"body": [
-		"Events:Subscribe('Engine:Message', function(p_Message)",
-		"\tlocal s_MessageCategory",
-		"\tlocal s_MessageType",
-		"\tfor l_Category, l_Value in pairs(MessageCategory) do",
-		"\t\tif l_Value == p_Message.category then",
-		"\t\t\ts_MessageCategory = l_Category",
-		"\t\tend",
-		"\tend",
-		"\tfor l_Type, l_Value in pairs(MessageType) do",
-		"\t\tif v == p_Message.type then",
-		"\t\t\ts_MessageType = l_Type",
-		"\t\tend",
-		"\tend",
-		"\tprint(s_MessageCategory .. ' | ' .. s_MessageType)",
-		"end)"
+			"---@param p_Message Message",
+			"Events:Subscribe('Engine:Message', function(p_Message)",
+			"\tlocal s_MessageCategory",
+			"\tlocal s_MessageType",
+			"\tfor l_Category, l_Value in pairs(MessageCategory) do",
+			"\t\tif l_Value == p_Message.category then",
+			"\t\t\ts_MessageCategory = l_Category",
+			"\t\tend",
+			"\tend",
+			"\tfor l_Type, l_Value in pairs(MessageType) do",
+			"\t\tif v == p_Message.type then",
+			"\t\t\ts_MessageType = l_Type",
+			"\t\tend",
+			"\tend",
+			"\tprint(s_MessageCategory .. ' | ' .. s_MessageType)",
+			"end)"
 		],
 		"description": "Event for Engine:Message"
 	},
 	"Class Engine:Message Shared": {
 		"prefix": "Engine:Message",
 		"body": [
-		"Events:Subscribe('Engine:Message', self, self.OnEngineMessage)",
-		"",
-		"function $TM_FILENAME_BASE:OnEngineMessage(p_Message)" ,
-		"\tlocal s_MessageCategory",
-		"\tlocal s_MessageType",
-		"\tfor l_Category, l_Value in pairs(MessageCategory) do",
-		"\t\tif l_Value == p_Message.category then",
-		"\t\t\ts_MessageCategory = l_Category",
-		"\t\tend",
-		"\tend",
-		"\tfor l_Type, l_Value in pairs(MessageType) do",
-		"\t\tif v == p_Message.type then",
-		"\t\t\ts_MessageType = l_Type",
-		"\t\tend",
-		"\tend",
-		"\tprint(s_MessageCategory .. ' | ' .. s_MessageType)",
-		"end"
+			"Events:Subscribe('Engine:Message', self, self.OnEngineMessage)",
+			"",
+			"---@param p_Message Message",
+			"function $TM_FILENAME_BASE:OnEngineMessage(p_Message)" ,
+			"\tlocal s_MessageCategory",
+			"\tlocal s_MessageType",
+			"\tfor l_Category, l_Value in pairs(MessageCategory) do",
+			"\t\tif l_Value == p_Message.category then",
+			"\t\t\ts_MessageCategory = l_Category",
+			"\t\tend",
+			"\tend",
+			"\tfor l_Type, l_Value in pairs(MessageType) do",
+			"\t\tif v == p_Message.type then",
+			"\t\t\ts_MessageType = l_Type",
+			"\t\tend",
+			"\tend",
+			"\tprint(s_MessageCategory .. ' | ' .. s_MessageType)",
+			"end"
 		],
 	"description": "Event for Engine:Message"
 	},
 	"Engine:Update Shared": {
-	 	"prefix": "Engine:Update",
-	 	"body": [
+		"prefix": "Engine:Update",
+		"body": [
+			"---@param p_DeltaTime number",
+			"---@param p_SimulationDeltaTime number",
 			"Events:Subscribe('Engine:Update', function(p_DeltaTime, p_SimulationDeltaTime)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Event for Engine:Update"
 	},
 	"Class Engine:Update Shared": {
-	 	"prefix": "Engine:Update",
-	 	"body": [
+		"prefix": "Engine:Update",
+		"body": [
 			"Events:Subscribe('Engine:Update', self, self.OnEngineUpdate)",
 			"",
+			"---@param p_DeltaTime number",
+			"---@param p_SimulationDeltaTime number",
 			"function $TM_FILENAME_BASE:OnEngineUpdate(p_DeltaTime, p_SimulationDeltaTime)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Event for Engine:Update"
 	},
 	"Extension:Loaded Shared": {
-	 	"prefix": "Extension:Loaded",
-	 	"body": [
+		"prefix": "Extension:Loaded",
+		"body": [
 			"Events:Subscribe('Extension:Loaded', function()",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Event for Extension:Loaded"
 	},
 	"Class Extension:Loaded Shared": {
-	 	"prefix": "Extension:Loaded",
-	 	"body": [
+		"prefix": "Extension:Loaded",
+		"body": [
 			"Events:Subscribe('Extension:Loaded', self, self.OnExtensionLoaded)",
 			"",
 			"function $TM_FILENAME_BASE:OnExtensionLoaded()" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Event for Extension:Loaded"
 	},
 	"Extension:Unloading Shared": {
-	 	"prefix": "Extension:Unloading",
-	 	"body": [
+		"prefix": "Extension:Unloading",
+		"body": [
 			"Events:Subscribe('Extension:Unloading', function()",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Event for Extension:Unloading"
 	},
 	"Class Extension:Unloaded Shared": {
-	 	"prefix": "Extension:Unloading",
-	 	"body": [
+		"prefix": "Extension:Unloading",
+		"body": [
 			"Events:Subscribe('Extension:Unloading', self, self.OnExtensionUnloading)",
 			"",
 			"function $TM_FILENAME_BASE:OnExtensionUnloading()" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Event for Extension:Unloading"
 	},
 	"GunSway:Update Shared": {
-	 	"prefix": "GunSway:Update",
-	 	"body": [
+		"prefix": "GunSway:Update",
+		"body": [
+			"---@param p_GunSway GunSway",
+			"---@param p_Weapon Entity|nil|SoldierWeapon @needs to be casted to SoldierWeapon",
+			"---@param p_WeaponFiring WeaponFiring|nil",
+			"---@param p_DeltaTime number",
 			"Events:Subscribe('GunSway:Update', function(p_GunSway, p_Weapon, p_WeaponFiring, p_DeltaTime)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Event for GunSway:Update"
 	},
 	"Class GunSway:Update Shared": {
-	 	"prefix": "GunSway:Update",
-	 	"body": [
+		"prefix": "GunSway:Update",
+		"body": [
 			"Events:Subscribe('GunSway:Update', self, self.OnGunSwayUpdate)",
 			"",
+			"---@param p_GunSway GunSway",
+			"---@param p_Weapon Entity|nil|SoldierWeapon @needs to be casted to SoldierWeapon",
+			"---@param p_WeaponFiring WeaponFiring|nil",
+			"---@param p_DeltaTime number",
 			"function $TM_FILENAME_BASE:OnGunSwayUpdate(p_GunSway, p_Weapon, p_WeaponFiring, p_DeltaTime)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Event for GunSway:Update"
 	},
 	"GunSway:UpdateRecoil Shared": {
-	 	"prefix": "GunSway:UpdateRecoil",
-	 	"body": [
+		"prefix": "GunSway:UpdateRecoil",
+		"body": [
+			"---@param p_GunSway GunSway",
+			"---@param p_Weapon Entity|nil|SoldierWeapon @needs to be casted to SoldierWeapon",
+			"---@param p_WeaponFiring WeaponFiring|nil",
+			"---@param p_DeltaTime number",
 			"Events:Subscribe('GunSway:UpdateRecoil', function(p_GunSway, p_Weapon, p_WeaponFiring, p_DeltaTime)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Event for GunSway:UpdateRecoil"
 	},
 	"Class GunSway:UpdateRecoil Shared": {
-	 	"prefix": "GunSway:UpdateRecoil",
-	 	"body": [
+		"prefix": "GunSway:UpdateRecoil",
+		"body": [
 			"Events:Subscribe('GunSway:UpdateRecoil', self, self.OnGunSwayUpdateRecoil)",
 			"",
+			"---@param p_GunSway GunSway",
+			"---@param p_Weapon Entity|nil|SoldierWeapon @needs to be casted to SoldierWeapon",
+			"---@param p_WeaponFiring WeaponFiring|nil",
+			"---@param p_DeltaTime number",
 			"function $TM_FILENAME_BASE:OnGunSwayUpdateRecoil(p_GunSway, p_Weapon, p_WeaponFiring, p_DeltaTime)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Event for Level:Destroy"
 	},
 	"Level:Destroy Shared": {
-	 	"prefix": "Level:Destroy",
-	 	"body": [
+		"prefix": "Level:Destroy",
+		"body": [
 			"Events:Subscribe('Level:Destroy', function()",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Event for Level:Destroy"
 	},
 	"Class Level:Destroy Shared": {
-	 	"prefix": "Level:Destroy",
-	 	"body": [
+		"prefix": "Level:Destroy",
+		"body": [
 			"Events:Subscribe('Level:Destroy', self, self.OnLevelDestroy)",
 			"",
 			"function $TM_FILENAME_BASE:OnLevelDestroy()" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Event for Level:Destroy"
 	},
 	"Level:LoadingInfo Shared": {
-	 	"prefix": "Level:LoadingInfo",
-	 	"body": [
+		"prefix": "Level:LoadingInfo",
+		"body": [
+			"---@param p_ScreenInfo string",
 			"Events:Subscribe('Level:LoadingInfo', function(p_ScreenInfo)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Event for Level:LoadingInfo"
 	},
 	"Class Level:LoadingInfo Shared": {
-	 	"prefix": "Level:LoadingInfo",
-	 	"body": [
+		"prefix": "Level:LoadingInfo",
+		"body": [
 			"Events:Subscribe('Level:LoadingInfo', self, self.OnLevelLoadingInfo)",
 			"",
+			"---@param p_ScreenInfo string",
 			"function $TM_FILENAME_BASE:OnLevelLoadingInfo(p_ScreenInfo)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Event for Level:LoadingInfo"
 	},
 	"Level:LoadResources Shared": {
 		"prefix": "Level:LoadResources",
 		"body": [
+			"---@param p_LevelName string",
+			"---@param p_GameMode string",
+			"---@param p_IsDedicatedServer boolean",
 			"Events:Subscribe('Level:LoadResources', function(p_LevelName, p_GameMode, p_IsDedicatedServer)",
 			"\t",
 			"end)"
@@ -250,6 +279,9 @@
 		"body": [
 			"Events:Subscribe('Level:LoadResources', self, self.OnLevelLoadResources)",
 			"",
+			"---@param p_LevelName string",
+			"---@param p_GameMode string",
+			"---@param p_IsDedicatedServer boolean",
 			"function $TM_FILENAME_BASE:OnLevelLoadResources(p_LevelName, p_GameMode, p_IsDedicatedServer)" ,
 			"\t",
 			"end"
@@ -257,1132 +289,1340 @@
 		"description": "Event for Level:LoadResources"
 	},
 	"Level:RegisterEntityResources Shared": {
-	 	"prefix": "Level:RegisterEntityResources",
-	 	"body": [
+		"prefix": "Level:RegisterEntityResources",
+		"body": [
+			"---@param p_LevelData DataContainer|LevelData @needs to be upcasted to LevelData",
 			"Events:Subscribe('Level:RegisterEntityResources', function(p_LevelData)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Event for Level:RegisterEntityResources"
 	},
 	"Class Level:RegisterEntityResources Shared": {
-	 	"prefix": "Level:RegisterEntityResources",
-	 	"body": [
+		"prefix": "Level:RegisterEntityResources",
+		"body": [
 			"Events:Subscribe('Level:RegisterEntityResources', self, self.OnLevelRegisterEntityResources)",
 			"",
+			"---@param p_LevelData DataContainer|LevelData @needs to be upcasted to LevelData",
 			"function $TM_FILENAME_BASE:OnLevelRegisterEntityResources(p_LevelData)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Event for Level:RegisterEntityResources"
 	},
 	"Partition:Loaded Shared": {
-	 	"prefix": "Partition:Loaded",
-	 	"body": [
+		"prefix": "Partition:Loaded",
+		"body": [
+			"---@param p_Partition DatabasePartition",
 			"Events:Subscribe('Partition:Loaded', function(p_Partition)",
 			"\tfor _, l_Instance in pairs(p_Partition.instances) do",
 			"\t\t",
 			"\tend",
 			"end)"
-	 	],
+		],
 		"description": "Event for Partition:Loaded"
 	},
 	"Class Partition:Loaded Shared": {
-	 	"prefix": "Partition:Loaded",
-	 	"body": [
+		"prefix": "Partition:Loaded",
+		"body": [
 			"Events:Subscribe('Partition:Loaded', self, self.OnPartitionLoaded)",
 			"",
+			"---@param p_Partition DatabasePartition",
 			"function $TM_FILENAME_BASE:OnPartitionLoaded(p_Partition)" ,
 			"\tfor _, l_Instance in pairs(p_Partition.instances) do",
 			"\t\t",
 			"\tend",
 			"end"
-	 	],
+		],
 		"description": "Event for Partition:Loaded"
 	},
 	"UpdateManager:Update Shared": {
-	 	"prefix": "UpdateManager:Update",
-	 	"body": [
+		"prefix": "UpdateManager:Update",
+		"body": [
+			"---@param p_DeltaTime number",
+			"---@param p_UpdatePass UpdatePass|integer",
 			"Events:Subscribe('UpdateManager:Update', function(p_DeltaTime, p_UpdatePass)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Event for UpdateManager:Update"
 	},
 	"Class UpdateManager:Update Shared": {
-	 	"prefix": "UpdateManager:Update",
-	 	"body": [
+		"prefix": "UpdateManager:Update",
+		"body": [
 			"Events:Subscribe('UpdateManager:Update', self, self.OnUpdateManagerUpdate)",
 			"",
+			"---@param p_DeltaTime number",
+			"---@param p_UpdatePass UpdatePass|integer",
 			"function $TM_FILENAME_BASE:OnUpdateManagerUpdate(p_DeltaTime, p_UpdatePass)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Event for UpdateManager:Update"
 	},
 	"WeaponFiring:Create Shared": {
-	 	"prefix": "WeaponFiring:Create",
-	 	"body": [
+		"prefix": "WeaponFiring:Create",
+		"body": [
+			"---@param p_WeaponFiring WeaponFiring",
 			"Events:Subscribe('WeaponFiring:Create', function(p_WeaponFiring)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Event for WeaponFiring:Create"
 	},
 	"Class WeaponFiring:Create Shared": {
-	 	"prefix": "WeaponFiring:Create",
-	 	"body": [
+		"prefix": "WeaponFiring:Create",
+		"body": [
 			"Events:Subscribe('WeaponFiring:Create', self, self.OnWeaponFiringCreate)",
 			"",
+			"---@param p_WeaponFiring WeaponFiring",
 			"function $TM_FILENAME_BASE:OnWeaponFiringCreate(p_WeaponFiring)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Event for WeaponFiring:Create"
 	},
 	"WeaponFiring:Update Shared": {
-	 	"prefix": "WeaponFiring:Update",
-	 	"body": [
+		"prefix": "WeaponFiring:Update",
+		"body": [
+			"---@param p_WeaponFiring WeaponFiring",
 			"Events:Subscribe('WeaponFiring:Update', function(p_WeaponFiring)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Event for WeaponFiring:Update"
 	},
 	"Class WeaponFiring:Update Shared": {
-	 	"prefix": "WeaponFiring:Update",
-	 	"body": [
+		"prefix": "WeaponFiring:Update",
+		"body": [
 			"Events:Subscribe('WeaponFiring:Update', self, self.OnWeaponFiringUpdate)",
 			"",
+			"---@param p_WeaponFiring WeaponFiring",
 			"function $TM_FILENAME_BASE:OnWeaponFiringUpdate(p_WeaponFiring)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Event for WeaponFiring:Update"
 	},
 	"Client:PostFrameUpdate Client": {
-	 	"prefix": "Client:PostFrameUpdate",
-	 	"body": [
+		"prefix": "Client:PostFrameUpdate",
+		"body": [
+			"---@param p_DeltaTime number",
 			"Events:Subscribe('Client:PostFrameUpdate', function(p_DeltaTime)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Client Event for Client:PostFrameUpdate"
 	},
 	"Class Client:PostFrameUpdate Client": {
-	 	"prefix": "Client:PostFrameUpdate",
-	 	"body": [
+		"prefix": "Client:PostFrameUpdate",
+		"body": [
 			"Events:Subscribe('Client:PostFrameUpdate', self, self.OnClientPostFrameUpdate)",
 			"",
+			"---@param p_DeltaTime number",
 			"function $TM_FILENAME_BASE:OnClientPostFrameUpdate(p_DeltaTime)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Client Event for Client:PostFrameUpdate"
 	},
 	"Client:UpdateInput Client": {
-	 	"prefix": "Client:UpdateInput",
-	 	"body": [
+		"prefix": "Client:UpdateInput",
+		"body": [
+			"---@param p_DeltaTime number",
 			"Events:Subscribe('Client:UpdateInput', function(p_DeltaTime)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Client Event for Client:UpdateInput"
 	},
 	"Class Client:UpdateInput Client": {
-	 	"prefix": "Client:UpdateInput",
-	 	"body": [
+		"prefix": "Client:UpdateInput",
+		"body": [
 			"Events:Subscribe('Client:UpdateInput', self, self.OnClientUpdateInput)",
 			"",
+			"---@param p_DeltaTime number",
 			"function $TM_FILENAME_BASE:OnClientUpdateInput(p_DeltaTime)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Client Event for Client:UpdateInput"
 	},
 	"FPSCamera:Update Client": {
-	 	"prefix": "FPSCamera:Update",
-	 	"body": [
+		"prefix": "FPSCamera:Update",
+		"body": [
+			"---@param p_DeltaTime number",
 			"Events:Subscribe('FPSCamera:Update', function(p_DeltaTime)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Client Event for FPSCamera:Update"
 	},
 	"Class FPSCamera:Update Client": {
-	 	"prefix": "FPSCamera:Update",
-	 	"body": [
+		"prefix": "FPSCamera:Update",
+		"body": [
 			"Events:Subscribe('FPSCamera:Update', self, self.OnFPSCameraUpdate)",
 			"",
+			"---@param p_DeltaTime number",
 			"function $TM_FILENAME_BASE:OnFPSCameraUpdate(p_DeltaTime)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Client Event for FPSCamera:Update"
 	},
 	"FreeCam:PostFrameUpdate Client": {
-	 	"prefix": "FreeCam:PostFrameUpdate",
-	 	"body": [
+		"prefix": "FreeCam:PostFrameUpdate",
+		"body": [
+			"---@param p_DeltaTime number",
 			"Events:Subscribe('FreeCam:PostFrameUpdate', function(p_DeltaTime)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Client Event for FreeCam:PostFrameUpdate"
 	},
 	"Class FreeCam:PostFrameUpdate Client": {
-	 	"prefix": "FreeCam:PostFrameUpdate",
-	 	"body": [
+		"prefix": "FreeCam:PostFrameUpdate",
+		"body": [
 			"Events:Subscribe('FreeCam:PostFrameUpdate', self, self.OnFreeCamPostFrameUpdate)",
 			"",
+			"---@param p_DeltaTime number",
 			"function $TM_FILENAME_BASE:OnFreeCamPostFrameUpdate(p_DeltaTime)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Client Event for FreeCam:PostFrameUpdate"
 	},
 	"Level:Finalized Client": {
-	 	"prefix": "Level:Finalized",
-	 	"body": [
+		"prefix": "Level:Finalized",
+		"body": [
+			"---@param p_LevelName string",
+			"---@param p_GameMode string",
 			"Events:Subscribe('Level:Finalized', function(p_LevelName, p_GameMode)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Client Event for Level:Finalized"
 	},
 	"Class Level:Finalized Client": {
-	 	"prefix": "Level:Finalized",
-	 	"body": [
+		"prefix": "Level:Finalized",
+		"body": [
 			"Events:Subscribe('Level:Finalized', self, self.OnLevelFinalized)",
 			"",
+			"---@param p_LevelName string",
+			"---@param p_GameMode string",
 			"function $TM_FILENAME_BASE:OnLevelFinalized(p_LevelName, p_GameMode)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Client Event for Level:Finalized"
 	},
 	"Level:Loaded Client": {
-	 	"prefix": "Level:Loaded Client",
-	 	"body": [
+		"prefix": "Level:Loaded Client",
+		"body": [
+			"---@param p_LevelName string",
+			"---@param p_GameMode string",
 			"Events:Subscribe('Level:Loaded', function(p_LevelName, p_GameMode)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Client Event for Level:Loaded"
 	},
 	"Class Level:Loaded Client": {
-	 	"prefix": "Level:Loaded Client",
-	 	"body": [
+		"prefix": "Level:Loaded Client",
+		"body": [
 			"Events:Subscribe('Level:Loaded', self, self.OnLevelLoaded)",
 			"",
+			"---@param p_LevelName string",
+			"---@param p_GameMode string",
 			"function $TM_FILENAME_BASE:OnLevelLoaded(p_LevelName, p_GameMode)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Client Event for Level:Loaded"
 	},
 	"Player:Connected Client": {
-	 	"prefix": "Player:Connected",
-	 	"body": [
+		"prefix": "Player:Connected",
+		"body": [
+			"---@param p_Player Player",
 			"Events:Subscribe('Player:Connected', function(p_Player)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Client Event for Player:Connected"
 	},
 	"Class Player:Connected Client": {
-	 	"prefix": "Player:Connected",
-	 	"body": [
+		"prefix": "Player:Connected",
+		"body": [
 			"Events:Subscribe('Player:Connected', self, self.OnPlayerConnected)",
 			"",
+			"---@param p_Player Player",
 			"function $TM_FILENAME_BASE:OnPlayerConnected(p_Player)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Client Event for Player:Connected"
 	},
 	"Player:Deleted Client": {
-	 	"prefix": "Player:Deleted",
-	 	"body": [
+		"prefix": "Player:Deleted",
+		"body": [
+			"---@param p_Player Player",
 			"Events:Subscribe('Player:Deleted', function(p_Player)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Client Event for Player:Deleted"
 	},
 	"Class Player:Deleted Client": {
-	 	"prefix": "Player:Deleted",
-	 	"body": [
+		"prefix": "Player:Deleted",
+		"body": [
 			"Events:Subscribe('Player:Deleted', self, self.OnPlayerDeleted)",
 			"",
+			"---@param p_Player Player",
 			"function $TM_FILENAME_BASE:OnPlayerDeleted(p_Player)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Client Event for Player:Deleted"
 	},
 	"Player:Killed Client": {
-	 	"prefix": "Player:Killed Client",
-	 	"body": [
+		"prefix": "Player:Killed Client",
+		"body": [
+			"---@param p_Player Player",
 			"Events:Subscribe('Player:Killed', function(p_Player)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Client Event for Player:Killed"
 	},
 	"Class Player:Killed Client": {
-	 	"prefix": "Player:Killed Client",
-	 	"body": [
+		"prefix": "Player:Killed Client",
+		"body": [
 			"Events:Subscribe('Player:Killed', self, self.OnPlayerKilled)",
 			"",
+			"---@param p_Player Player",
 			"function $TM_FILENAME_BASE:OnPlayerKilled(p_Player)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Client Event for Player:Killed"
 	},
 	"Player:Respawn Shared": {
-	 	"prefix": "Player:Respawn",
-	 	"body": [
+		"prefix": "Player:Respawn",
+		"body": [
+			"---@param p_Player Player",
 			"Events:Subscribe('Player:Respawn', function(p_Player)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Event for Player:Respawn"
 	},
 	"Class Player:Respawn Shared": {
-	 	"prefix": "Player:Respawn",
-	 	"body": [
+		"prefix": "Player:Respawn",
+		"body": [
 			"Events:Subscribe('Player:Respawn', self, self.OnPlayerRespawn)",
 			"",
+			"---@param p_Player Player",
 			"function $TM_FILENAME_BASE:OnPlayerRespawn(p_Player)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Event for Player:Respawn"
 	},
 	"Player:SetSquadLoader Shared": {
-	 	"prefix": "Player:SetSquadLoader",
-	 	"body": [
+		"prefix": "Player:SetSquadLoader",
+		"body": [
+			"---@param p_Player Player",
 			"Events:Subscribe('Player:SetSquadLoader', function(p_Player)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Event for Player:SetSquadLoader"
 	},
 	"Class Player:SetSquadLoader Shared": {
-	 	"prefix": "Player:SetSquadLoader",
-	 	"body": [
+		"prefix": "Player:SetSquadLoader",
+		"body": [
 			"Events:Subscribe('Player:SetSquadLoader', self, self.OnPlayerSetSquadLoader)",
 			"",
+			"---@param p_Player Player",
 			"function $TM_FILENAME_BASE:OnPlayerSetSquadLoader(p_Player)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Event for Player:SetSquadLoader"
 	},
 	"Player:SquadChange Shared": {
-	 	"prefix": "Player:SquadChange",
-	 	"body": [
+		"prefix": "Player:SquadChange",
+		"body": [
+			"---@param p_Player Player",
+			"---@param p_SquadId SquadId|integer",
 			"Events:Subscribe('Player:SquadChange', function(p_Player, p_SquadId)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Event for Player:SquadChange"
 	},
 	"Class Player:SquadChange Shared": {
-	 	"prefix": "Player:SquadChange",
-	 	"body": [
+		"prefix": "Player:SquadChange",
+		"body": [
 			"Events:Subscribe('Player:SquadChange', self, self.OnPlayerSquadChange)",
 			"",
+			"---@param p_Player Player",
+			"---@param p_SquadId SquadId|integer",
 			"function $TM_FILENAME_BASE:OnPlayerSquadChange(p_Player, p_SquadId)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Event for Player:SquadChange"
 	},
 	"Player:TeamChange Shared": {
-	 	"prefix": "Player:TeamChange",
-	 	"body": [
+		"prefix": "Player:TeamChange",
+		"body": [
+			"---@param p_Player Player",
+			"---@param p_TeamId TeamId|integer",
+			"---@param p_SquadId SquadId|integer",
 			"Events:Subscribe('Player:TeamChange', function(p_Player, p_TeamId, p_SquadId)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Event for Player:TeamChange"
 	},
 	"Class Player:TeamChange Shared": {
-	 	"prefix": "Player:TeamChange",
-	 	"body": [
+		"prefix": "Player:TeamChange",
+		"body": [
 			"Events:Subscribe('Player:TeamChange', self, self.OnPlayerTeamChange)",
 			"",
+			"---@param p_Player Player",
+			"---@param p_TeamId TeamId|integer",
+			"---@param p_SquadId SquadId|integer",
 			"function $TM_FILENAME_BASE:OnPlayerTeamChange(p_Player, p_TeamId, p_SquadId)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Event for Player:TeamChange"
 	},
-	"Player:UpdateInput Shared": {
-	 	"prefix": "Player:UpdateInput",
-	 	"body": [
+	"Player:UpdateInput Client": {
+		"prefix": "Player:UpdateInput",
+		"body": [
+			"---@param p_Player Player",
 			"Events:Subscribe('Player:UpdateInput', function(p_Player)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Event for Player:UpdateInput"
 	},
-	"Class Player:UpdateInput Shared": {
-	 	"prefix": "Player:UpdateInput",
-	 	"body": [
+	"Class Player:UpdateInput Client": {
+		"prefix": "Player:UpdateInput",
+		"body": [
 			"Events:Subscribe('Player:UpdateInput', self, self.OnPlayerUpdateInput)",
 			"",
+			"---@param p_Player Player",
 			"function $TM_FILENAME_BASE:OnPlayerUpdateInput(p_Player)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Event for Player:UpdateInput"
 	},
+	"Player:UpdateInteract Server": {
+		"prefix": "Player:UpdateInteract",
+		"body": [
+			"---@param p_Player Player",
+			"Events:Subscribe('Player:UpdateInteract', function(p_Player)",
+			"\t",
+			"end)"
+		],
+		"description": "Event for Player:UpdateInteract"
+	},
+	"Class Player:UpdateInteract Server": {
+		"prefix": "Player:UpdateInteract",
+		"body": [
+		"Events:Subscribe('Player:UpdateInteract', self, self.OnPlayerUpdateInteract)",
+		"",
+		"---@param p_Player Player",
+		"function $TM_FILENAME_BASE:OnPlayerUpdateInteract(p_Player)" ,
+		"\t",
+		"end"
+	],
+	"description": "Event for Player:UpdateInteract"
+},
 	"Soldier:HealthAction Shared": {
-	 	"prefix": "Soldier:HealthAction",
-	 	"body": [
+		"prefix": "Soldier:HealthAction",
+		"body": [
+			"---@param p_Soldier SoldierEntity",
+			"---@param p_Action HealthStateAction|integer",
 			"Events:Subscribe('Soldier:HealthAction', function(p_Soldier, p_Action)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Event for Soldier:HealthAction"
 	},
 	"Class Soldier:HealthAction Shared": {
-	 	"prefix": "Soldier:HealthAction",
-	 	"body": [
+		"prefix": "Soldier:HealthAction",
+		"body": [
 			"Events:Subscribe('Soldier:HealthAction', self, self.OnSoldierHealthAction)",
 			"",
+			"---@param p_Soldier SoldierEntity",
+			"---@param p_Action HealthStateAction|integer",
 			"function $TM_FILENAME_BASE:OnSoldierHealthAction(p_Soldier, p_Action)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Event for Soldier:HealthAction"
 	},
 	"Soldier:Spawn Client": {
-	 	"prefix": "Soldier:Spawn",
-	 	"body": [
+		"prefix": "Soldier:Spawn",
+		"body": [
+			"---@param p_Soldier SoldierEntity",
 			"Events:Subscribe('Soldier:Spawn', function(p_Soldier)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Client Event for Soldier:Spawn"
 	},
 	"Class Soldier:Spawn Client": {
-	 	"prefix": "Soldier:Spawn",
-	 	"body": [
+		"prefix": "Soldier:Spawn",
+		"body": [
 			"Events:Subscribe('Soldier:Spawn', self, self.OnSoldierSpawn)",
 			"",
+			"---@param p_Soldier SoldierEntity",
 			"function $TM_FILENAME_BASE:OnSoldierSpawn(p_Soldier)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Client Event for Soldier:Spawn"
 	},
 	"UI:DrawHud Client": {
-	 	"prefix": "UI:DrawHud",
-	 	"body": [
+		"prefix": "UI:DrawHud",
+		"body": [
 			"Events:Subscribe('UI:DrawHud', function()",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Client Event for UI:DrawHud"
 	},
 	"Class UI:DrawHud Client": {
-	 	"prefix": "UI:DrawHud",
-	 	"body": [
+		"prefix": "UI:DrawHud",
+		"body": [
 			"Events:Subscribe('UI:DrawHud', self, self.OnUIDrawHud)",
 			"",
 			"function $TM_FILENAME_BASE:OnUIDrawHud()" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Client Event for UI:DrawHud"
 	},
 	"VE:StateAdded Client": {
-	 	"prefix": "VE:StateAdded",
-	 	"body": [
+		"prefix": "VE:StateAdded",
+		"body": [
+			 "---@param p_State VisualEnvironmentState",
 			"Events:Subscribe('VE:StateAdded', function(p_State)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Client Event for VE:StateAdded"
 	},
 	"Class VE:StateAdded Client": {
-	 	"prefix": "VE:StateAdded",
-	 	"body": [
+		"prefix": "VE:StateAdded",
+		"body": [
 			"Events:Subscribe('VE:StateAdded', self, self.OnVEStateAdded)",
 			"",
+			"---@param p_State VisualEnvironmentState",
 			"function $TM_FILENAME_BASE:OnVEStateAdded(p_State)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Client Event for VE:StateAdded"
 	},
 	"VE:StateRemoved Client": {
-	 	"prefix": "VE:StateRemoved",
-	 	"body": [
+		"prefix": "VE:StateRemoved",
+		"body": [
+			"---@param p_State VisualEnvironmentState",
 			"Events:Subscribe('VE:StateRemoved', function(p_State)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Client Event for VE:StateRemoved"
 	},
 	"Class VE:StateRemoved Client": {
-	 	"prefix": "VE:StateRemoved",
-	 	"body": [
+		"prefix": "VE:StateRemoved",
+		"body": [
 			"Events:Subscribe('VE:StateRemoved', self, self.OnVEStateRemoved)",
 			"",
+			"---@param p_State VisualEnvironmentState",
 			"function $TM_FILENAME_BASE:OnVEStateRemoved(p_State)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Client Event for VE:StateRemoved"
 	},
 	"VE:StatesCleared Client": {
-	 	"prefix": "VE:StatesCleared",
-	 	"body": [
+		"prefix": "VE:StatesCleared",
+		"body": [
 			"Events:Subscribe('VE:StatesCleared', function()",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Client Event for VE:StatesCleared"
 	},
 	"Class VE:StatesCleared Client": {
-	 	"prefix": "VE:StatesCleared",
-	 	"body": [
+		"prefix": "VE:StatesCleared",
+		"body": [
 			"Events:Subscribe('VE:StatesCleared', self, self.OnVEStatesCleared)",
 			"",
 			"function $TM_FILENAME_BASE:OnVEStatesCleared()" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Client Event for VE:StatesCleared"
 	},
 	"VU:Spec:PostUpdate Client": {
-	 	"prefix": "VU:Spec:PostUpdate",
-	 	"body": [
+		"prefix": "VU:Spec:PostUpdate",
+		"body": [
+			"---@param p_DeltaTime number",
 			"Events:Subscribe('VU:Spec:PostUpdate', function(p_DeltaTime)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Client Event for VU:Spec:PostUpdate"
 	},
 	"Class VU:Spec:PostUpdate Client": {
-	 	"prefix": "VU:Spec:PostUpdate",
-	 	"body": [
+		"prefix": "VU:Spec:PostUpdate",
+		"body": [
 			"Events:Subscribe('VU:Spec:PostUpdate', self, self.OnVUSpecPostUpdate)",
 			"",
+			"---@param p_DeltaTime number",
 			"function $TM_FILENAME_BASE:OnVUSpecPostUpdate(p_DeltaTime)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Client Event for VU:Spec:PostUpdate"
 	},
 	"VU:Spec:PreUpdate Client": {
-	 	"prefix": "VU:Spec:PreUpdate",
-	 	"body": [
+		"prefix": "VU:Spec:PreUpdate",
+		"body": [
+			"---@param p_DeltaTime number",
 			"Events:Subscribe('VU:Spec:PreUpdate', function(p_DeltaTime)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Client Event for VU:Spec:PreUpdate"
 	},
 	"Class VU:Spec:PreUpdate Client": {
-	 	"prefix": "VU:Spec:PreUpdate",
-	 	"body": [
+		"prefix": "VU:Spec:PreUpdate",
+		"body": [
 			"Events:Subscribe('VU:Spec:PreUpdate', self, self.OnVUSpecPreUpdate)",
 			"",
+			"---@param p_DeltaTime number",
 			"function $TM_FILENAME_BASE:OnVUSpecPreUpdate(p_DeltaTime)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Client Event for VU:Spec:PreUpdate"
 	},
 	"Voip:ChannelClosed Client": {
-	 	"prefix": "Voip:ChannelClosed",
-	 	"body": [
+		"prefix": "Voip:ChannelClosed",
+		"body": [
+			"---@param p_Channel VoipChannel",
 			"Events:Subscribe('Voip:ChannelClosed', function(p_Channel)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Client Event for Voip:ChannelClosed"
 	},
 	"Class Voip:ChannelClosed Client": {
-	 	"prefix": "Voip:ChannelClosed",
-	 	"body": [
+		"prefix": "Voip:ChannelClosed",
+		"body": [
 			"Events:Subscribe('Voip:ChannelClosed', self, self.OnVoipChannelClosed)",
 			"",
+			"---@param p_Channel VoipChannel",
 			"function $TM_FILENAME_BASE:OnVoipChannelClosed(p_Channel)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Client Event for Voip:ChannelClosed"
 	},
 	"Voip:ChannelOpened Client": {
-	 	"prefix": "Voip:ChannelOpened",
-	 	"body": [
+		"prefix": "Voip:ChannelOpened",
+		"body": [
+			"---@param p_Channel VoipChannel",
 			"Events:Subscribe('Voip:ChannelOpened', function(p_Channel)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Client Event for Voip:ChannelOpened"
 	},
 	"Class Voip:ChannelOpened Client": {
-	 	"prefix": "Voip:ChannelOpened",
-	 	"body": [
+		"prefix": "Voip:ChannelOpened",
+		"body": [
 			"Events:Subscribe('Voip:ChannelOpened', self, self.OnVoipChannelOpened)",
 			"",
+			"---@param p_Channel VoipChannel",
 			"function $TM_FILENAME_BASE:OnVoipChannelOpened(p_Channel)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Client Event for Voip:ChannelOpened"
 	},
 	"VoipChannel:PlayerJoined Client": {
-	 	"prefix": "VoipChannel:PlayerJoined",
-	 	"body": [
+		"prefix": "VoipChannel:PlayerJoined",
+		"body": [
+			"---@param p_Channel VoipChannel",
+			"---@param p_Player Player",
+			"---@param p_Emitter VoipEmitter",
 			"Events:Subscribe('VoipChannel:PlayerJoined', function(p_Channel, p_Player, p_Emitter)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Client Event for VoipChannel:PlayerJoined"
 	},
 	"Class VoipChannel:PlayerJoined Client": {
-	 	"prefix": "VoipChannel:PlayerJoined",
-	 	"body": [
+		"prefix": "VoipChannel:PlayerJoined",
+		"body": [
 			"Events:Subscribe('VoipChannel:PlayerJoined', self, self.OnVoipChannelPlayerJoined)",
 			"",
+			"---@param p_Channel VoipChannel",
+			"---@param p_Player Player",
+			"---@param p_Emitter VoipEmitter",
 			"function $TM_FILENAME_BASE:OnVoipChannelPlayerJoined(p_Channel, p_Player, p_Emitter)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Client Event for VoipChannel:PlayerJoined"
 	},
 	"VoipChannel:PlayerLeft Client": {
-	 	"prefix": "VoipChannel:PlayerLeft",
-	 	"body": [
+		"prefix": "VoipChannel:PlayerLeft",
+		"body": [
+			"---@param p_Channel VoipChannel",
+			"---@param p_Player Player",
 			"Events:Subscribe('VoipChannel:PlayerLeft', function(p_Channel, p_Player)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Client Event for VoipChannel:PlayerLeft"
 	},
 	"Class VoipChannel:PlayerLeft Client": {
-	 	"prefix": "VoipChannel:PlayerLeft",
-	 	"body": [
+		"prefix": "VoipChannel:PlayerLeft",
+		"body": [
 			"Events:Subscribe('VoipChannel:PlayerLeft', self, self.OnVoipChannelPlayerLeft)",
 			"",
+			"---@param p_Channel VoipChannel",
+			"---@param p_Player Player",
 			"function $TM_FILENAME_BASE:OnVoipChannelPlayerLeft(p_Channel, p_Player)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Client Event for VoipChannel:PlayerLeft"
 	},
 	"VoipEmitter:Emitting Client": {
-	 	"prefix": "VoipEmitter:Emitting",
-	 	"body": [
+		"prefix": "VoipEmitter:Emitting",
+		"body": [
+			"---@param p_Emitter VoipEmitter",
+			"---@param p_IsEmitting boolean",
 			"Events:Subscribe('VoipEmitter:Emitting', function(p_Emitter, p_IsEmitting)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Client Event for VoipEmitter:Emitting"
 	},
 	"Class VoipEmitter:Emitting Client": {
-	 	"prefix": "VoipEmitter:Emitting",
-	 	"body": [
+		"prefix": "VoipEmitter:Emitting",
+		"body": [
 			"Events:Subscribe('VoipEmitter:Emitting', self, self.OnVoipEmitterEmitting)",
 			"",
+			"---@param p_Emitter VoipEmitter",
+			"---@param p_IsEmitting boolean",
 			"function $TM_FILENAME_BASE:OnVoipEmitterEmitting(p_Emitter, p_IsEmitting)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Client Event for VoipEmitter:Emitting"
 	},
 	"CapturePoint:Captured Server": {
-	 	"prefix": "CapturePoint:Captured",
-	 	"body": [
+		"prefix": "CapturePoint:Captured",
+		"body": [
+			"---@param p_CapturePoint Entity|CapturePointEntity @needs to be upcasted to CapturePointEntity",
 			"Events:Subscribe('CapturePoint:Captured', function(p_CapturePoint)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Server Event for CapturePoint:Captured"
 	},
 	"Class CapturePoint:Captured Server": {
-	 	"prefix": "CapturePoint:Captured",
-	 	"body": [
+		"prefix": "CapturePoint:Captured",
+		"body": [
 			"Events:Subscribe('CapturePoint:Captured', self, self.OnCapturePointCaptured)",
 			"",
+			"---@param p_CapturePoint Entity|CapturePointEntity @needs to be upcasted to CapturePointEntity",
 			"function $TM_FILENAME_BASE:OnCapturePointCaptured(p_CapturePoint)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Server Event for CapturePoint:Captured"
 	},
 	"CapturePoint:Lost Server": {
-	 	"prefix": "CapturePoint:Lost",
-	 	"body": [
+		"prefix": "CapturePoint:Lost",
+		"body": [
+			"---@param p_CapturePoint Entity|CapturePointEntity @needs to be upcasted to CapturePointEntity",
 			"Events:Subscribe('CapturePoint:Lost', function(p_CapturePoint)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Server Event for CapturePoint:Lost"
 	},
 	"Class CapturePoint:Lost Server": {
-	 	"prefix": "CapturePoint:Lost",
-	 	"body": [
+		"prefix": "CapturePoint:Lost",
+		"body": [
 			"Events:Subscribe('CapturePoint:Lost', self, self.OnCapturePointLost)",
 			"",
+			"---@param p_CapturePoint Entity|CapturePointEntity @needs to be upcasted to CapturePointEntity",
 			"function $TM_FILENAME_BASE:OnCapturePointLost(p_CapturePoint)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Server Event for CapturePoint:Lost"
 	},
 	"Engine:Init Server": {
-	 	"prefix": "Engine:Init",
-	 	"body": [
+		"prefix": "Engine:Init",
+		"body": [
 			"Events:Subscribe('Engine:Init', function()",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Server Event for Engine:Init"
 	},
 	"Class Engine:Init Server": {
-	 	"prefix": "Engine:Init",
-	 	"body": [
+		"prefix": "Engine:Init",
+		"body": [
 			"Events:Subscribe('Engine:Init', self, self.OnEngineInit)",
 			"",
 			"function $TM_FILENAME_BASE:OnEngineInit()" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Server Event for Engine:Init"
 	},
 	"Level:Loaded Server": {
-	 	"prefix": "Level:Loaded Server",
-	 	"body": [
+		"prefix": "Level:Loaded Server",
+		"body": [
+			"---@param p_LevelName string",
+			"---@param p_GameMode string",
+			"---@param p_Round integer",
+			"---@param p_RoundsPerMap integer",
 			"Events:Subscribe('Level:Loaded', function(p_LevelName, p_GameMode, p_Round, p_RoundsPerMap)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Server Event for Level:Loaded"
 	},
 	"Class Level:Loaded Server": {
-	 	"prefix": "Level:Loaded Server",
-	 	"body": [
+		"prefix": "Level:Loaded Server",
+		"body": [
 			"Events:Subscribe('Level:Loaded', self, self.OnLevelLoaded)",
 			"",
+			"---@param p_LevelName string",
+			"---@param p_GameMode string",
+			"---@param p_Round integer",
+			"---@param p_RoundsPerMap integer",
 			"function $TM_FILENAME_BASE:OnLevelLoaded(p_LevelName, p_GameMode, p_Round, p_RoundsPerMap)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Server Event for Level:Loaded"
 	},
 	"Player:Authenticated Server": {
-	 	"prefix": "Player:Authenticated",
-	 	"body": [
+		"prefix": "Player:Authenticated",
+		"body": [
+			"---@param p_Player Player",
 			"Events:Subscribe('Player:Authenticated', function(p_Player)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Server Event for Player:Authenticated"
 	},
 	"Class Player:Authenticated Server": {
-	 	"prefix": "Player:Authenticated",
-	 	"body": [
+		"prefix": "Player:Authenticated",
+		"body": [
 			"Events:Subscribe('Player:Authenticated', self, self.OnPlayerAuthenticated)",
 			"",
+			"---@param p_Player Player",
 			"function $TM_FILENAME_BASE:OnPlayerAuthenticated(p_Player)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Server Event for Player:Authenticated"
 	},
 	"Player:ChangingWeapon Server": {
-	 	"prefix": "Player:ChangingWeapon",
-	 	"body": [
+		"prefix": "Player:ChangingWeapon",
+		"body": [
+			"---@param p_Player Player",
 			"Events:Subscribe('Player:ChangingWeapon', function(p_Player)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Server Event for Player:ChangingWeapon"
 	},
 	"Class Player:ChangingWeapon Server": {
-	 	"prefix": "Player:ChangingWeapon",
-	 	"body": [
+		"prefix": "Player:ChangingWeapon",
+		"body": [
 			"Events:Subscribe('Player:ChangingWeapon', self, self.OnPlayerChangingWeapon)",
 			"",
+			"---@param p_Player Player",
 			"function $TM_FILENAME_BASE:OnPlayerChangingWeapon(p_Player)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Server Event for Player:ChangingWeapon"
 	},
 	"Player:Chat Server": {
-	 	"prefix": "Player:Chat",
-	 	"body": [
+		"prefix": "Player:Chat",
+		"body": [
+			"---@param p_Player Player|nil",
+			"---@param p_RecipientMask integer",
+			"---@param p_Message string",
 			"Events:Subscribe('Player:Chat', function(p_Player, p_RecipientMask, p_Message)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Server Event for Player:Chat"
 	},
 	"Class Player:Chat Server": {
-	 	"prefix": "Player:Chat",
-	 	"body": [
+		"prefix": "Player:Chat",
+		"body": [
 			"Events:Subscribe('Player:Chat', self, self.OnPlayerChat)",
 			"",
+			"---@param p_Player Player|nil",
+			"---@param p_RecipientMask integer",
+			"---@param p_Message string",
 			"function $TM_FILENAME_BASE:OnPlayerChat(p_Player, p_RecipientMask, p_Message)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Server Event for Player:Chat"
 	},
 	"Player:Created Server": {
-	 	"prefix": "Player:Created",
-	 	"body": [
+		"prefix": "Player:Created",
+		"body": [
+			"---@param p_Player Player",
 			"Events:Subscribe('Player:Created', function(p_Player)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Server Event for Player:Created"
 	},
 	"Class Player:Created Server": {
-	 	"prefix": "Player:Created",
-	 	"body": [
+		"prefix": "Player:Created",
+		"body": [
 			"Events:Subscribe('Player:Created', self, self.OnPlayerCreated)",
 			"",
+			"---@param p_Player Player",
 			"function $TM_FILENAME_BASE:OnPlayerCreated(p_Player)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Server Event for Player:Created"
 	},
 	"Player:Destroyed Server": {
-	 	"prefix": "Player:Destroyed",
-	 	"body": [
+		"prefix": "Player:Destroyed",
+		"body": [
+			"---@param p_Player Player",
 			"Events:Subscribe('Player:Destroyed', function(p_Player)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Server Event for Player:Destroyed"
 	},
 	"Class Player:Destroyed Server": {
-	 	"prefix": "Player:Destroyed",
-	 	"body": [
+		"prefix": "Player:Destroyed",
+		"body": [
 			"Events:Subscribe('Player:Destroyed', self, self.OnPlayerDestroyed)",
 			"",
+			"---@param p_Player Player",
 			"function $TM_FILENAME_BASE:OnPlayerDestroyed(p_Player)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Server Event for Player:Destroyed"
 	},
 	"Player:EnteredCapturePoint Server": {
-	 	"prefix": "Player:EnteredCapturePoint",
-	 	"body": [
+		"prefix": "Player:EnteredCapturePoint",
+		"body": [
+			"---@param p_Player Player",
+			"---@param p_CapturePoint Entity|CapturePointEntity @needs to be upcasted to CapturePointEntity",
 			"Events:Subscribe('Player:EnteredCapturePoint', function(p_Player, p_CapturePoint)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Server Event for Player:EnteredCapturePoint"
 	},
 	"Class Player:EnteredCapturePoint Server": {
-	 	"prefix": "Player:EnteredCapturePoint",
-	 	"body": [
+		"prefix": "Player:EnteredCapturePoint",
+		"body": [
 			"Events:Subscribe('Player:EnteredCapturePoint', self, self.OnPlayerEnteredCapturePoint)",
 			"",
+			"---@param p_Player Player",
+			"---@param p_CapturePoint Entity|CapturePointEntity @needs to be upcasted to CapturePointEntity",
 			"function $TM_FILENAME_BASE:OnPlayerEnteredCapturePoint(p_Player, p_CapturePoint)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Server Event for Player:EnteredCapturePoint"
 	},
 	"Player:ExitedCapturePoint Server": {
-	 	"prefix": "Player:ExitedCapturePoint",
-	 	"body": [
+		"prefix": "Player:ExitedCapturePoint",
+		"body": [
+			"---@param p_Player Player",
+			"---@param p_CapturePoint Entity|CapturePointEntity @needs to be upcasted to CapturePointEntity",
 			"Events:Subscribe('Player:ExitedCapturePoint', function(p_Player, p_CapturePoint)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Server Event for Player:ExitedCapturePoint"
 	},
 	"Class Player:ExitedCapturePoint Server": {
-	 	"prefix": "Player:ExitedCapturePoint",
-	 	"body": [
+		"prefix": "Player:ExitedCapturePoint",
+		"body": [
 			"Events:Subscribe('Player:ExitedCapturePoint', self, self.OnPlayerExitedCapturePoint)",
 			"",
+			"---@param p_Player Player",
+			"---@param p_CapturePoint Entity|CapturePointEntity @needs to be upcasted to CapturePointEntity",
 			"function $TM_FILENAME_BASE:OnPlayerExitedCapturePoint(p_Player, p_CapturePoint)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Server Event for Player:ExitedCapturePoint"
 	},
 	"Player:InstantSuicide Server": {
-	 	"prefix": "Player:InstantSuicide",
-	 	"body": [
+		"prefix": "Player:InstantSuicide",
+		"body": [
+			"---@param p_Player Player",
 			"Events:Subscribe('Player:InstantSuicide', function(p_Player)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Server Event for Player:InstantSuicide"
 	},
 	"Class Player:InstantSuicide Server": {
-	 	"prefix": "Player:InstantSuicide",
-	 	"body": [
+		"prefix": "Player:InstantSuicide",
+		"body": [
 			"Events:Subscribe('Player:InstantSuicide', self, self.OnPlayerInstantSuicide)",
 			"",
+			"---@param p_Player Player",
 			"function $TM_FILENAME_BASE:OnPlayerInstantSuicide(p_Player)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Server Event for Player:InstantSuicide"
 	},
 	"Player:Joining Server": {
-	 	"prefix": "Player:Joining",
-	 	"body": [
+		"prefix": "Player:Joining",
+		"body": [
+			"---@param p_Name string",
+			"---@param p_PlayerGuid Guid",
+			"---@param p_IpAddress string",
+			"---@param p_AccountGuid Guid",
 			"Events:Subscribe('Player:Joining', function(p_Name, p_PlayerGuid, p_IpAddress, p_AccountGuid)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Server Event for Player:Joining"
 	},
 	"Class Player:Joining Server": {
-	 	"prefix": "Player:Joining",
-	 	"body": [
+		"prefix": "Player:Joining",
+		"body": [
 			"Events:Subscribe('Player:Joining', self, self.OnPlayerJoining)",
 			"",
+			"---@param p_Name string",
+			"---@param p_PlayerGuid Guid",
+			"---@param p_IpAddress string",
+			"---@param p_AccountGuid Guid",
 			"function $TM_FILENAME_BASE:OnPlayerJoining(p_Name, p_PlayerGuid, p_IpAddress, p_AccountGuid)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Server Event for Player:Joining"
 	},
 	"Player:KickedFromSquad Server": {
-	 	"prefix": "Player:KickedFromSquad",
-	 	"body": [
+		"prefix": "Player:KickedFromSquad",
+		"body": [
+			"---@param p_Player Player",
+			"---@param p_SquadId SquadId|integer",
 			"Events:Subscribe('Player:KickedFromSquad', function(p_Player, p_SquadId)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Server Event for Player:KickedFromSquad"
 	},
 	"Class Player:KickedFromSquad Server": {
-	 	"prefix": "Player:KickedFromSquad",
-	 	"body": [
+		"prefix": "Player:KickedFromSquad",
+		"body": [
 			"Events:Subscribe('Player:KickedFromSquad', self, self.OnPlayerKickedFromSquad)",
 			"",
+			"---@param p_Player Player",
+			"---@param p_SquadId SquadId|integer",
 			"function $TM_FILENAME_BASE:OnPlayerKickedFromSquad(p_Player, p_SquadId)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Server Event for Player:KickedFromSquad"
 	},
 	"Player:Killed Server": {
-	 	"prefix": "Player:Killed Server",
-	 	"body": [
+		"prefix": "Player:Killed Server",
+		"body": [
+			"---@param p_Player Player",
+			"---@param p_Inflictor Player|nil",
+			"---@param p_Position Vec3",
+			"---@param p_Weapon string",
+			"---@param p_IsRoadKill boolean",
+			"---@param p_IsHeadShot boolean",
+			"---@param p_WasVictimInReviveState boolean",
+			"---@param p_Info DamageGiverInfo",
 			"Events:Subscribe('Player:Killed', function(p_Player, p_Inflictor, p_Position, p_Weapon, p_IsRoadKill, p_IsHeadShot, p_WasVictimInReviveState, p_Info)",
 			"\t",
 			"end)"
-	 	],
+		],
 		"description": "Server Event for Player:Killed"
 	},
 	"Class Player:Killed Server": {
-	 	"prefix": "Player:Killed Server",
-	 	"body": [
+		"prefix": "Player:Killed Server",
+		"body": [
 			"Events:Subscribe('Player:Killed', self, self.OnPlayerKilled)",
 			"",
+			"---@param p_Player Player",
+			"---@param p_Inflictor Player|nil",
+			"---@param p_Position Vec3",
+			"---@param p_Weapon string",
+			"---@param p_IsRoadKill boolean",
+			"---@param p_IsHeadShot boolean",
+			"---@param p_WasVictimInReviveState boolean",
+			"---@param p_Info DamageGiverInfo",
 			"function $TM_FILENAME_BASE:OnPlayerKilled(p_Player, p_Inflictor, p_Position, p_Weapon, p_IsRoadKill, p_IsHeadShot, p_WasVictimInReviveState, p_Info)" ,
 			"\t",
 			"end"
-	 	],
+		],
 		"description": "Server Event for Player:Killed"
 	},
 	"Player:KitPickup Server": {
 		"prefix": "Player:KitPickup",
 		"body": [
-		   "Events:Subscribe('Player:KitPickup', function(p_Player, p_NewCustomization)",
-		   "\t",
-		   "end)"
+			"---@param p_Player Player",
+			"---@param p_NewCustomization DataContainer|VeniceSoldierCustomizationAsset @needs to be upcasted to VeniceSoldierCustomizationAsset",
+			"Events:Subscribe('Player:KitPickup', function(p_Player, p_NewCustomization)",
+			"\t",
+			"end)"
 		],
-	   "description": "Server Event for Player:KitPickup"
-   	},
-   	"Class Player:KitPickup Server": {
+		"description": "Server Event for Player:KitPickup"
+	},
+	"Class Player:KitPickup Server": {
 		"prefix": "Player:KitPickup",
 		"body": [
-		   "Events:Subscribe('Player:KitPickup', self, self.OnPlayerKitPickup)",
-		   "",
-		   "function $TM_FILENAME_BASE:OnPlayerKitPickup(p_Player, p_NewCustomization)" ,
-		   "\t",
-		   "end"
+			"Events:Subscribe('Player:KitPickup', self, self.OnPlayerKitPickup)",
+			"",
+			"---@param p_Player Player",
+			"---@param p_NewCustomization DataContainer|VeniceSoldierCustomizationAsset @needs to be upcasted to VeniceSoldierCustomizationAsset",
+			"function $TM_FILENAME_BASE:OnPlayerKitPickup(p_Player, p_NewCustomization)" ,
+			"\t",
+			"end"
 		],
-	   "description": "Server Event for Player:KitPickup"
-   	},
-   	"Player:Left Server": {
-	   "prefix": "Player:Left",
-	   "body": [
-		  "Events:Subscribe('Player:Left', function(p_Player)",
-		  "\t",
-		  "end)"
-	   ],
-	  "description": "Server Event for Player:Left"
- 	},
-  	"Class Player:Left Server": {
-	   "prefix": "Player:Left",
-	   "body": [
-		  "Events:Subscribe('Player:Left', self, self.OnPlayerLeft)",
-		  "",
-		  "function $TM_FILENAME_BASE:OnPlayerLeft(p_Player)" ,
-		  "\t",
-		  "end"
-	   ],
-	  "description": "Server Event for Player:Left"
-  	},
-  	"Player:ManDownRevived Server": {
-	  	"prefix": "Player:ManDownRevived",
-	  	"body": [
-		 	"Events:Subscribe('Player:ManDownRevived', function(p_Player, p_Reviver, p_IsAdrenalineRevive)",
-		 	"\t",
-		 	"end)"
-	  	],
-	 	"description": "Server Event for Player:ManDownRevived"
- 	},
- 	"Class Player:ManDownRevived Server": {
-	  	"prefix": "Player:ManDownRevived",
-	  	"body": [
-		 	"Events:Subscribe('Player:ManDownRevived', self, self.OnPlayerManDownRevived)",
-		 	"",
-		 	"function $TM_FILENAME_BASE:OnPlayerManDownRevived(p_Player, p_Reviver, p_IsAdrenalineRevive)" ,
-		 	"\t",
-		 	"end"
-	  	],
-	 	"description": "Server Event for Player:ManDownRevived"
- 	},
-	 "Player:Reload Server": {
-		 "prefix": "Player:Reload",
-		 "body": [
+		"description": "Server Event for Player:KitPickup"
+	},
+	"Player:Left Server": {
+		"prefix": "Player:Left",
+		"body": [
+			"---@param p_Player Player",
+			"Events:Subscribe('Player:Left', function(p_Player)",
+			"\t",
+			"end)"
+		],
+		"description": "Server Event for Player:Left"
+	},
+	"Class Player:Left Server": {
+		"prefix": "Player:Left",
+		"body": [
+			"Events:Subscribe('Player:Left', self, self.OnPlayerLeft)",
+			"",
+			"---@param p_Player Player",
+			"function $TM_FILENAME_BASE:OnPlayerLeft(p_Player)" ,
+			"\t",
+			"end"
+		],
+		"description": "Server Event for Player:Left"
+	},
+	"Player:ManDownRevived Server": {
+		"prefix": "Player:ManDownRevived",
+		"body": [
+			"---@param p_Player Player",
+			"---@param p_Reviver Player|nil",
+			"---@param p_IsAdrenalineRevive boolean",
+			"Events:Subscribe('Player:ManDownRevived', function(p_Player, p_Reviver, p_IsAdrenalineRevive)",
+			"\t",
+			"end)"
+		],
+		"description": "Server Event for Player:ManDownRevived"
+	},
+	"Class Player:ManDownRevived Server": {
+		"prefix": "Player:ManDownRevived",
+		"body": [
+			"Events:Subscribe('Player:ManDownRevived', self, self.OnPlayerManDownRevived)",
+			"",
+			"---@param p_Player Player",
+			"---@param p_Reviver Player|nil",
+			"---@param p_IsAdrenalineRevive boolean",
+			"function $TM_FILENAME_BASE:OnPlayerManDownRevived(p_Player, p_Reviver, p_IsAdrenalineRevive)" ,
+			"\t",
+			"end"
+		],
+		"description": "Server Event for Player:ManDownRevived"
+	},
+	"Player:Reload Server": {
+		"prefix": "Player:Reload",
+		"body": [
+			"---@param p_Player Player",
+			"---@param p_WeaponName string",
+			"---@param p_Position Vec3",
 			"Events:Subscribe('Player:Reload', function(p_Player, p_WeaponName, p_Position)",
 			"\t",
 			"end)"
-		 ],
+		],
 		"description": "Server Event for Player:Reload"
 	},
 	"Class Player:Reload Server": {
-		 "prefix": "Player:Reload",
-		 "body": [
+		"prefix": "Player:Reload",
+		"body": [
 			"Events:Subscribe('Player:Reload', self, self.OnPlayerReload)",
 			"",
+			"---@param p_Player Player",
+			"---@param p_WeaponName string",
+			"---@param p_Position Vec3",
 			"function $TM_FILENAME_BASE:OnPlayerReload(p_Player, p_WeaponName, p_Position)" ,
 			"\t",
 			"end"
-		 ],
+		],
 		"description": "Server Event for Player:Reload"
 	},
 	"Player:Resupply Server": {
 		"prefix": "Player:Resupply",
 		"body": [
-		   "Events:Subscribe('Player:Resupply', function(p_Player, p_GivenMagsCount, p_Supplier)",
-		   "\t",
-		   "end)"
+			"---@param p_Player Player",
+			"---@param p_GivenMagsCount integer",
+			"---@param p_Supplier Player|nil",
+			"Events:Subscribe('Player:Resupply', function(p_Player, p_GivenMagsCount, p_Supplier)",
+			"\t",
+			"end)"
 		],
-	   "description": "Server Event for Player:Resupply"
-   	},
-   	"Class Player:Resupply Server": {
+		"description": "Server Event for Player:Resupply"
+	},
+	"Class Player:Resupply Server": {
 		"prefix": "Player:Resupply",
 		"body": [
-		   "Events:Subscribe('Player:Resupply', self, self.OnPlayerResupply)",
-		   "",
-		   "function $TM_FILENAME_BASE:OnPlayerResupply(p_Player, p_GivenMagsCount, p_Supplier)" ,
-		   "\t",
-		   "end"
+			"Events:Subscribe('Player:Resupply', self, self.OnPlayerResupply)",
+			"",
+			"---@param p_Player Player",
+			"---@param p_GivenMagsCount integer",
+			"---@param p_Supplier Player|nil",
+			"function $TM_FILENAME_BASE:OnPlayerResupply(p_Player, p_GivenMagsCount, p_Supplier)" ,
+			"\t",
+			"end"
 		],
-	   "description": "Server Event for Player:Resupply"
-   	},
-   	"Player:ReviveAccepted Server": {
-	   	"prefix": "Player:ReviveAccepted",
-	   	"body": [
-		  	"Events:Subscribe('Player:ReviveAccepted', function(p_Player, p_Reviver)",
-		  	"\t",
-		 	"end)"
-	  	],
-	  	"description": "Server Event for Player:ReviveAccepted"
-  	},
-  	"Class Player:ReviveAccepted Server": {
-	   	"prefix": "Player:ReviveAccepted",
-	   	"body": [
-		  	"Events:Subscribe('Player:ReviveAccepted', self, self.OnPlayerReviveAccepted)",
-		  	"",
-		  	"function $TM_FILENAME_BASE:OnPlayerReviveAccepted(p_Player, p_Reviver)" ,
-		  	"\t",
-		  	"end"
-	   	],
-	  	"description": "Server Event for Player:ReviveAccepted"
-  	},
-  	"Player:ReviveRefused Server": {
-	  	"prefix": "Player:ReviveRefused",
-	  	"body": [
-		 	"Events:Subscribe('Player:ReviveRefused', function(p_Player)",
-		 	"\t",
-		 	"end)"
-	  	],
-	 	"description": "Server Event for Player:ReviveRefused"
- 	},
- 	"Class Player:ReviveRefused Server": {
-	  	"prefix": "Player:ReviveRefused",
-	  	"body": [
-		 	"Events:Subscribe('Player:ReviveRefused', self, self.OnPlayerReviveRefused)",
-		 	"",
-		 	"function $TM_FILENAME_BASE:OnPlayerReviveRefused(p_Player)" ,
-		 	"\t",
-		 	"end"
-	  	],
-	 	"description": "Server Event for Player:ReviveRefused"
- 	},
-	 "Player:SetSquad Server": {
-		 "prefix": "Player:SetSquad",
-		 "body": [
+		"description": "Server Event for Player:Resupply"
+	},
+	"Player:ReviveAccepted Server": {
+		"prefix": "Player:ReviveAccepted",
+		"body": [
+			"---@param p_Player Player",
+			"---@param p_Reviver Player|nil",
+			"Events:Subscribe('Player:ReviveAccepted', function(p_Player, p_Reviver)",
+			"\t",
+			"end)"
+		],
+		"description": "Server Event for Player:ReviveAccepted"
+	},
+	"Class Player:ReviveAccepted Server": {
+		"prefix": "Player:ReviveAccepted",
+		"body": [
+			"Events:Subscribe('Player:ReviveAccepted', self, self.OnPlayerReviveAccepted)",
+			"",
+			"---@param p_Player Player",
+			"---@param p_Reviver Player|nil",
+			"function $TM_FILENAME_BASE:OnPlayerReviveAccepted(p_Player, p_Reviver)" ,
+			"\t",
+			"end"
+		],
+		"description": "Server Event for Player:ReviveAccepted"
+	},
+	"Player:ReviveRefused Server": {
+		"prefix": "Player:ReviveRefused",
+		"body": [
+			"---@param p_Player Player",
+			"Events:Subscribe('Player:ReviveRefused', function(p_Player)",
+			"\t",
+			"end)"
+		],
+		"description": "Server Event for Player:ReviveRefused"
+	},
+	"Class Player:ReviveRefused Server": {
+		"prefix": "Player:ReviveRefused",
+		"body": [
+			"Events:Subscribe('Player:ReviveRefused', self, self.OnPlayerReviveRefused)",
+			"",
+			"---@param p_Player Player",
+			"function $TM_FILENAME_BASE:OnPlayerReviveRefused(p_Player)" ,
+			"\t",
+			"end"
+		],
+		"description": "Server Event for Player:ReviveRefused"
+	},
+	"Player:SetSquad Server": {
+		"prefix": "Player:SetSquad",
+		"body": [
+			"---@param p_Player Player",
+			"---@param p_SquadId SquadId|integer",
 			"Events:Subscribe('Player:SetSquad', function(p_Player, p_SquadId)",
 			"\t",
 			"end)"
-		 ],
+		],
 		"description": "Server Event for Player:SetSquad"
 	},
 	"Class Player:SetSquad Server": {
-		 "prefix": "Player:SetSquad",
-		 "body": [
+		"prefix": "Player:SetSquad",
+		"body": [
 			"Events:Subscribe('Player:SetSquad', self, self.OnPlayerSetSquad)",
 			"",
+			"---@param p_Player Player",
+			"---@param p_SquadId SquadId|integer",
 			"function $TM_FILENAME_BASE:OnPlayerSetSquad(p_Player, p_SquadId)" ,
 			"\t",
 			"end"
-		 ],
+		],
 		"description": "Server Event for Player:SetSquad"
 	},
 	"Player:SpawnAtVehicle Server": {
 		"prefix": "Player:SpawnAtVehicle",
 		"body": [
-		   "Events:Subscribe('Player:SpawnAtVehicle', function(p_Player, p_Vehicle)",
-		   "\t",
-		   "end)"
+			"---@param p_Player Player",
+			"---@param p_Vehicle Entity|ControllableEntity @needs to be upcasted to ControllableEntity",
+			"Events:Subscribe('Player:SpawnAtVehicle', function(p_Player, p_Vehicle)",
+			"\t",
+			"end)"
 		],
-	   "description": "Server Event for Player:SpawnAtVehicle"
-   	},
-   	"Class Player:SpawnAtVehicle Server": {
+		"description": "Server Event for Player:SpawnAtVehicle"
+	},
+	"Class Player:SpawnAtVehicle Server": {
 		"prefix": "Player:SpawnAtVehicle",
 		"body": [
-		   "Events:Subscribe('Player:SpawnAtVehicle', self, self.OnPlayerSpawnAtVehicle)",
-		   "",
-		   "function $TM_FILENAME_BASE:OnPlayerSpawnAtVehicle(p_Player, p_Vehicle)" ,
-		   "\t",
-		   "end"
+			"Events:Subscribe('Player:SpawnAtVehicle', self, self.OnPlayerSpawnAtVehicle)",
+			"",
+			"---@param p_Player Player",
+			"---@param p_Vehicle Entity|ControllableEntity @needs to be upcasted to ControllableEntity",
+			"function $TM_FILENAME_BASE:OnPlayerSpawnAtVehicle(p_Player, p_Vehicle)" ,
+			"\t",
+			"end"
 		],
-	   	"description": "Server Event for Player:SpawnAtVehicle"
-   	},
+		"description": "Server Event for Player:SpawnAtVehicle"
+	},
 	"Player:SpawnOnPlayer Server": {
 		"prefix": "Player:SpawnOnPlayer",
 		"body": [
+			"---@param p_Player Player",
+			"---@param p_PlayerToSpawnOn Player",
 			"Events:Subscribe('Player:SpawnOnPlayer', function(p_Player, p_PlayerToSpawnOn)",
 			"\t",
 			"end)"
@@ -1394,6 +1634,8 @@
 		"body": [
 			"Events:Subscribe('Player:SpawnOnPlayer', self, self.OnPlayerSpawnOnPlayer)",
 			"",
+			"---@param p_Player Player",
+			"---@param p_PlayerToSpawnOn Player",
 			"function $TM_FILENAME_BASE:OnPlayerSpawnOnPlayer(p_Player, p_PlayerToSpawnOn)" ,
 			"\t",
 			"end"
@@ -1403,6 +1645,7 @@
 	"Player:SpawnOnSelectedSpawnPoint Server": {
 		"prefix": "Player:SpawnOnSelectedSpawnPoint",
 		"body": [
+			"---@param p_Player Player",
 			"Events:Subscribe('Player:SpawnOnSelectedSpawnPoint', function(p_Player)",
 			"\t",
 			"end)"
@@ -1414,6 +1657,7 @@
 		"body": [
 			"Events:Subscribe('Player:SpawnOnSelectedSpawnPoint', self, self.OnPlayerSpawnOnSelectedSpawnPoint)",
 			"",
+			"---@param p_Player Player",
 			"function $TM_FILENAME_BASE:OnPlayerSpawnOnSelectedSpawnPoint(p_Player)" ,
 			"\t",
 			"end"
@@ -1423,6 +1667,8 @@
 	"Player:SuppressedEnemy Server": {
 		"prefix": "Player:SuppressedEnemy",
 		"body": [
+			"---@param p_Player Player",
+			"---@param p_Enemy Player",
 			"Events:Subscribe('Player:SuppressedEnemy', function(p_Player, p_Enemy)",
 			"\t",
 			"end)"
@@ -1434,6 +1680,8 @@
 		"body": [
 			"Events:Subscribe('Player:SuppressedEnemy', self, self.OnPlayerSuppressedEnemy)",
 			"",
+			"---@param p_Player Player",
+			"---@param p_Enemy Player",
 			"function $TM_FILENAME_BASE:OnPlayerSuppressedEnemy(p_Player, p_Enemy)" ,
 			"\t",
 			"end"
@@ -1443,6 +1691,8 @@
 	"Player:Update Server": {
 		"prefix": "Player:Update",
 		"body": [
+			"---@param p_Player Player",
+			"---@param p_DeltaTime number",
 			"Events:Subscribe('Player:Update', function(p_Player, p_DeltaTime)",
 			"\t",
 			"end)"
@@ -1454,6 +1704,8 @@
 		"body": [
 			"Events:Subscribe('Player:Update', self, self.OnPlayerUpdate)",
 			"",
+			"---@param p_Player Player",
+			"---@param p_DeltaTime number",
 			"function $TM_FILENAME_BASE:OnPlayerUpdate(p_Player, p_DeltaTime)" ,
 			"\t",
 			"end"
@@ -1463,6 +1715,8 @@
 	"Server:RoundOver Server": {
 		"prefix": "Server:RoundOver",
 		"body": [
+			"---@param p_RoundTime number",
+			"---@param p_WinningTeam TeamId|integer",
 			"Events:Subscribe('Server:RoundOver', function(p_RoundTime, p_WinningTeam)",
 			"\t",
 			"end)"
@@ -1474,6 +1728,8 @@
 		"body": [
 			"Events:Subscribe('Server:RoundOver', self, self.OnServerRoundOver)",
 			"",
+			"---@param p_RoundTime number",
+			"---@param p_WinningTeam TeamId|integer",
 			"function $TM_FILENAME_BASE:OnServerRoundOver(p_RoundTime, p_WinningTeam)" ,
 			"\t",
 			"end"
@@ -1503,6 +1759,8 @@
 	"Soldier:ManDown Server": {
 		"prefix": "Soldier:ManDown",
 		"body": [
+			"---@param p_Soldier SoldierEntity",
+			"---@param p_Inflictor Player|nil",
 			"Events:Subscribe('Soldier:ManDown', function(p_Soldier, p_Inflictor)",
 			"\t",
 			"end)"
@@ -1514,6 +1772,8 @@
 		"body": [
 			"Events:Subscribe('Soldier:ManDown', self, self.OnSoldierManDown)",
 			"",
+			"---@param p_Soldier SoldierEntity",
+			"---@param p_Inflictor Player|nil",
 			"function $TM_FILENAME_BASE:OnSoldierManDown(p_Soldier, p_Inflictor)" ,
 			"\t",
 			"end"
@@ -1523,6 +1783,8 @@
 	"Soldier:PrePhysicsUpdate Server": {
 		"prefix": "Soldier:PrePhysicsUpdate",
 		"body": [
+			"---@param p_Soldier SoldierEntity",
+			"---@param p_DeltaTime number",
 			"Events:Subscribe('Soldier:PrePhysicsUpdate', function(p_Soldier, p_DeltaTime)",
 			"\t",
 			"end)"
@@ -1534,6 +1796,8 @@
 		"body": [
 			"Events:Subscribe('Soldier:PrePhysicsUpdate', self, self.OnSoldierPrePhysicsUpdate)",
 			"",
+			"---@param p_Soldier SoldierEntity",
+			"---@param p_DeltaTime number",
 			"function $TM_FILENAME_BASE:OnSoldierPrePhysicsUpdate(p_Soldier, p_DeltaTime)" ,
 			"\t",
 			"end"
@@ -1543,6 +1807,9 @@
 	"Vehicle:Damage Server": {
 		"prefix": "Vehicle:Damage",
 		"body": [
+			"---@param p_Vehicle Entity|ControllableEntity @needs to be upcasted to ControllableEntity",
+			"---@param p_Damage number",
+			"---@param p_Info DamageGiverInfo|nil",
 			"Events:Subscribe('Vehicle:Damage', function(p_Vehicle, p_Damage, p_Info)",
 			"\t",
 			"end)"
@@ -1554,6 +1821,9 @@
 		"body": [
 			"Events:Subscribe('Vehicle:Damage', self, self.OnVehicleDamage)",
 			"",
+			"---@param p_Vehicle Entity|ControllableEntity @needs to be upcasted to ControllableEntity",
+			"---@param p_Damage number",
+			"---@param p_Info DamageGiverInfo|nil",
 			"function $TM_FILENAME_BASE:OnVehicleDamage(p_Vehicle, p_Damage, p_Info)" ,
 			"\t",
 			"end"
@@ -1563,6 +1833,9 @@
 	"Vehicle:Destroyed Server": {
 		"prefix": "Vehicle:Destroyed",
 		"body": [
+			"---@param p_Vehicle Entity|ControllableEntity @needs to be upcasted to ControllableEntity",
+			"---@param p_VehiclePoints integer",
+			"---@param p_HotTeam TeamId|integer",
 			"Events:Subscribe('Vehicle:Destroyed', function(p_Vehicle, p_VehiclePoints, p_HotTeam)",
 			"\t",
 			"end)"
@@ -1574,6 +1847,9 @@
 		"body": [
 			"Events:Subscribe('Vehicle:Destroyed', self, self.OnVehicleDestroyed)",
 			"",
+			"---@param p_Vehicle Entity|ControllableEntity @needs to be upcasted to ControllableEntity",
+			"---@param p_VehiclePoints integer",
+			"---@param p_HotTeam TeamId|integer",
 			"function $TM_FILENAME_BASE:OnVehicleDestroyed(p_Vehicle, p_VehiclePoints, p_HotTeam)" ,
 			"\t",
 			"end"
@@ -1583,6 +1859,7 @@
 	"Vehicle:Disabled Server": {
 		"prefix": "Vehicle:Disabled",
 		"body": [
+			"---@param p_Vehicle Entity|ControllableEntity @needs to be upcasted to ControllableEntity",
 			"Events:Subscribe('Vehicle:Disabled', function(p_Vehicle)",
 			"\t",
 			"end)"
@@ -1594,6 +1871,7 @@
 		"body": [
 			"Events:Subscribe('Vehicle:Disabled', self, self.OnVehicleDisabled)",
 			"",
+			"---@param p_Vehicle Entity|ControllableEntity @needs to be upcasted to ControllableEntity",
 			"function $TM_FILENAME_BASE:OnVehicleDisabled(p_Vehicle)" ,
 			"\t",
 			"end"
@@ -1603,6 +1881,8 @@
 	"Vehicle:Enter Server": {
 		"prefix": "Vehicle:Enter",
 		"body": [
+			"---@param p_Vehicle Entity|ControllableEntity @needs to be upcasted to ControllableEntity",
+			"---@param p_Player Player",
 			"Events:Subscribe('Vehicle:Enter', function(p_Vehicle, p_Player)",
 			"\t",
 			"end)"
@@ -1614,6 +1894,8 @@
 		"body": [
 			"Events:Subscribe('Vehicle:Enter', self, self.OnVehicleEnter)",
 			"",
+			"---@param p_Vehicle Entity|ControllableEntity @needs to be upcasted to ControllableEntity",
+			"---@param p_Player Player",
 			"function $TM_FILENAME_BASE:OnVehicleEnter(p_Vehicle, p_Player)" ,
 			"\t",
 			"end"
@@ -1623,6 +1905,8 @@
 	"Vehicle:Exit Server": {
 		"prefix": "Vehicle:Exit",
 		"body": [
+			"---@param p_Vehicle Entity|ControllableEntity @needs to be upcasted to ControllableEntity",
+			"---@param p_Player Player",
 			"Events:Subscribe('Vehicle:Exit', function(p_Vehicle, p_Player)",
 			"\t",
 			"end)"
@@ -1634,6 +1918,8 @@
 		"body": [
 			"Events:Subscribe('Vehicle:Exit', self, self.OnVehicleExit)",
 			"",
+			"---@param p_Vehicle Entity|ControllableEntity @needs to be upcasted to ControllableEntity",
+			"---@param p_Player Player",
 			"function $TM_FILENAME_BASE:OnVehicleExit(p_Vehicle, p_Player)" ,
 			"\t",
 			"end"
@@ -1643,6 +1929,7 @@
 	"Vehicle:SpawnDone Server": {
 		"prefix": "Vehicle:SpawnDone",
 		"body": [
+			"---@param p_Vehicle Entity|ControllableEntity @needs to be upcasted to ControllableEntity",
 			"Events:Subscribe('Vehicle:SpawnDone', function(p_Vehicle)",
 			"\t",
 			"end)"
@@ -1654,6 +1941,7 @@
 		"body": [
 			"Events:Subscribe('Vehicle:SpawnDone', self, self.OnVehicleSpawnDone)",
 			"",
+			"---@param p_Vehicle Entity|ControllableEntity @needs to be upcasted to ControllableEntity",
 			"function $TM_FILENAME_BASE:OnVehicleSpawnDone(p_Vehicle)" ,
 			"\t",
 			"end"
@@ -1663,6 +1951,7 @@
 	"Vehicle:Unspawn Server": {
 		"prefix": "Vehicle:Unspawn",
 		"body": [
+			"---@param p_Vehicle Entity|ControllableEntity @needs to be upcasted to ControllableEntity",
 			"Events:Subscribe('Vehicle:Unspawn', function(p_Vehicle)",
 			"\t",
 			"end)"
@@ -1674,6 +1963,7 @@
 		"body": [
 			"Events:Subscribe('Vehicle:Unspawn', self, self.OnVehicleUnspawn)",
 			"",
+			"---@param p_Vehicle Entity|ControllableEntity @needs to be upcasted to ControllableEntity",
 			"function $TM_FILENAME_BASE:OnVehicleUnspawn(p_Vehicle)" ,
 			"\t",
 			"end"
@@ -1683,6 +1973,10 @@
 	"Entity:ShouldCollideWith Shared": {
 		"prefix": "Entity:ShouldCollideWith",
 		"body": [
+			"---@param p_HookCtx HookContext",
+			"---@param p_Entity Entity",
+			"---@param p_ShouldCollideWith Entity",
+			"---@return boolean",
 			"Hooks:Install('Entity:ShouldCollideWith', 1, function(p_HookCtx, p_Entity, p_ShouldCollideWith)",
 			"\t",
 			"end)"
@@ -1694,6 +1988,10 @@
 		"body": [
 			"Hooks:Install('Entity:ShouldCollideWith', 1, self, self.OnEntityShouldCollideWith)",
 			"",
+			"---@param p_HookCtx HookContext",
+			"---@param p_Entity Entity",
+			"---@param p_ShouldCollideWith Entity",
+			"---@return boolean",
 			"function $TM_FILENAME_BASE:OnEntityShouldCollideWith(p_HookCtx, p_Entity, p_ShouldCollideWith)" ,
 			"\t",
 			"end"
@@ -1703,6 +2001,9 @@
 	"ResourceManager:LoadBundles Shared": {
 		"prefix": "ResourceManager:LoadBundles",
 		"body": [
+			"---@param p_HookCtx HookContext",
+			"---@param p_Bundles string[]",
+			"---@param p_Compartment ResourceCompartment|integer",
 			"Hooks:Install('ResourceManager:LoadBundles', 1, function(p_HookCtx, p_Bundles, p_Compartment)",
 			"\t",
 			"end)"
@@ -1714,6 +2015,9 @@
 		"body": [
 			"Hooks:Install('ResourceManager:LoadBundles', 1, self, self.OnResourceManagerLoadBundles)",
 			"",
+			"---@param p_HookCtx HookContext",
+			"---@param p_Bundles string[]",
+			"---@param p_Compartment ResourceCompartment|integer",
 			"function $TM_FILENAME_BASE:OnResourceManagerLoadBundles(p_HookCtx, p_Bundles, p_Compartment)" ,
 			"\t",
 			"end"
@@ -1723,6 +2027,8 @@
 	"Terrain:Load Shared": {
 		"prefix": "Terrain:Load",
 		"body": [
+			"---@param p_HookCtx HookContext",
+			"---@param p_AssetName string @read-only",
 			"Hooks:Install('Terrain:Load', 1, function(p_HookCtx, p_AssetName)",
 			"\t",
 			"end)"
@@ -1734,6 +2040,8 @@
 		"body": [
 			"Hooks:Install('Terrain:Load', 1, self, self.OnTerrainLoad)",
 			"",
+			"---@param p_HookCtx HookContext",
+			"---@param p_AssetName string @read-only",
 			"function $TM_FILENAME_BASE:OnTerrainLoad(p_HookCtx, p_AssetName)" ,
 			"\t",
 			"end"
@@ -1743,6 +2051,8 @@
 	"VisualTerrain:Load Shared": {
 		"prefix": "VisualTerrain:Load",
 		"body": [
+			"---@param p_HookCtx HookContext",
+			"---@param p_AssetName string @read-only",
 			"Hooks:Install('VisualTerrain:Load', 1, function(p_HookCtx, p_AssetName)",
 			"\t",
 			"end)"
@@ -1754,6 +2064,8 @@
 		"body": [
 			"Hooks:Install('VisualTerrain:Load', 1, self, self.OnVisualTerrainLoad)",
 			"",
+			"---@param p_HookCtx HookContext",
+			"---@param p_AssetName string @read-only",
 			"function $TM_FILENAME_BASE:OnVisualTerrainLoad(p_HookCtx, p_AssetName)" ,
 			"\t",
 			"end"
@@ -1763,6 +2075,10 @@
 	"BulletEntity:Collision Client": {
 		"prefix": "BulletEntity:Collision Client",
 		"body": [
+			"---@param p_HookCtx HookContext",
+			"---@param p_Entity Entity",
+			"---@param p_Hit RayCastHit",
+			"---@param p_Shooter Player|nil",
 			"Hooks:Install('BulletEntity:Collision', 1, function(p_HookCtx, p_Entity, p_Hit, p_Shooter)",
 			"\t",
 			"end)"
@@ -1774,6 +2090,10 @@
 		"body": [
 			"Hooks:Install('BulletEntity:Collision', 1, self, self.OnBulletEntityCollision)",
 			"",
+			"---@param p_HookCtx HookContext",
+			"---@param p_Entity Entity",
+			"---@param p_Hit RayCastHit",
+			"---@param p_Shooter Player|nil",
 			"function $TM_FILENAME_BASE:OnBulletEntityCollision(p_HookCtx, p_Entity, p_Hit, p_Shooter)" ,
 			"\t",
 			"end"
@@ -1783,6 +2103,8 @@
 	"Client:UpdateClientGameViewTransform Client": {
 		"prefix": "Client:UpdateClientGameViewTransform",
 		"body": [
+			"---@param p_HookCtx HookContext",
+			"---@param p_Transform LinearTransform",
 			"Hooks:Install('Client:UpdateClientGameViewTransform', 1, function(p_HookCtx, p_Transform)",
 			"\t",
 			"end)"
@@ -1794,6 +2116,8 @@
 		"body": [
 			"Hooks:Install('Client:UpdateClientGameViewTransform', 1, self, self.OnClientUpdateClientGameViewTransform)",
 			"",
+			"---@param p_HookCtx HookContext",
+			"---@param p_Transform LinearTransform",
 			"function $TM_FILENAME_BASE:OnClientUpdateClientGameViewTransform(p_HookCtx, p_Transform)" ,
 			"\t",
 			"end"
@@ -1803,6 +2127,8 @@
 	"Client:UpdateFirstPersonTransform Client": {
 		"prefix": "Client:UpdateFirstPersonTransform",
 		"body": [
+			"---@param p_HookCtx HookContext",
+			"---@param p_Transform LinearTransform",
 			"Hooks:Install('Client:UpdateFirstPersonTransform', 1, function(p_HookCtx, p_Transform)",
 			"\t",
 			"end)"
@@ -1814,6 +2140,8 @@
 		"body": [
 			"Hooks:Install('Client:UpdateFirstPersonTransform', 1, self, self.OnClientUpdateFirstPersonTransform)",
 			"",
+			"---@param p_HookCtx HookContext",
+			"---@param p_Transform LinearTransform",
 			"function $TM_FILENAME_BASE:OnClientUpdateFirstPersonTransform(p_HookCtx, p_Transform)" ,
 			"\t",
 			"end"
@@ -1823,6 +2151,12 @@
 	"ClientChatManager:IncomingMessage Client": {
 		"prefix": "ClientChatManager:IncomingMessage",
 		"body": [
+			"---@param p_HookCtx HookContext",
+			"---@param p_Message string",
+			"---@param p_PlayerId integer",
+			"---@param p_RecipientMask integer",
+			"---@param p_ChannelId ChatChannelType|integer",
+			"---@param p_IsSenderDead boolean",
 			"Hooks:Install('ClientChatManager:IncomingMessage', 1, function(p_HookCtx, p_Message, p_PlayerId, p_RecipientMask, p_ChannelId, p_IsSenderDead)",
 			"\t",
 			"end)"
@@ -1834,6 +2168,12 @@
 		"body": [
 			"Hooks:Install('ClientChatManager:IncomingMessage', 1, self, self.OnClientChatManagerIncomingMessage)",
 			"",
+			"---@param p_HookCtx HookContext",
+			"---@param p_Message string",
+			"---@param p_PlayerId integer",
+			"---@param p_RecipientMask integer",
+			"---@param p_ChannelId ChatChannelType|integer",
+			"---@param p_IsSenderDead boolean",
 			"function $TM_FILENAME_BASE:OnClientChatManagerIncomingMessage(p_HookCtx, p_Message, p_PlayerId, p_RecipientMask, p_ChannelId, p_IsSenderDead)" ,
 			"\t",
 			"end"
@@ -1843,6 +2183,10 @@
 	"EntityFactory:Create Shared": {
 		"prefix": "EntityFactory:Create",
 		"body": [
+			"---@param p_HookCtx HookContext",
+			"---@param p_EntityData DataContainer",
+			"---@param p_Transform LinearTransform",
+			"---@return Entity|nil",
 			"Hooks:Install('EntityFactory:Create', 1, function(p_HookCtx, p_EntityData, p_Transform)",
 			"\t",
 			"end)"
@@ -1854,6 +2198,10 @@
 		"body": [
 			"Hooks:Install('EntityFactory:Create', 1, self, self.OnEntityFactoryCreate)",
 			"",
+			"---@param p_HookCtx HookContext",
+			"---@param p_EntityData DataContainer",
+			"---@param p_Transform LinearTransform",
+			"---@return Entity|nil",
 			"function $TM_FILENAME_BASE:OnEntityFactoryCreate(p_HookCtx, p_EntityData, p_Transform)" ,
 			"\t",
 			"end"
@@ -1863,6 +2211,12 @@
 	"EntityFactory:CreateFromBlueprint Shared": {
 		"prefix": "EntityFactory:CreateFromBlueprint",
 		"body": [
+			"---@param p_HookCtx HookContext",
+			"---@param p_Blueprint DataContainer",
+			"---@param p_Transform LinearTransform",
+			"---@param p_Variation integer",
+			"---@param p_ParentRepresentative DataContainer|nil",
+			"---@return EntityBus|nil",
 			"Hooks:Install('EntityFactory:CreateFromBlueprint', 1, function(p_HookCtx, p_Blueprint, p_Transform, p_Variation, p_ParentRepresentative)",
 			"\t",
 			"end)"
@@ -1874,6 +2228,12 @@
 		"body": [
 			"Hooks:Install('EntityFactory:CreateFromBlueprint', 1, self, self.OnEntityFactoryCreateFromBlueprint)",
 			"",
+			"---@param p_HookCtx HookContext",
+			"---@param p_Blueprint DataContainer",
+			"---@param p_Transform LinearTransform",
+			"---@param p_Variation integer",
+			"---@param p_ParentRepresentative DataContainer|nil",
+			"---@return EntityBus|nil",
 			"function $TM_FILENAME_BASE:OnEntityFactoryCreateFromBlueprint(p_HookCtx, p_Blueprint, p_Transform, p_Variation, p_ParentRepresentative)" ,
 			"\t",
 			"end"
@@ -1883,6 +2243,9 @@
 	"Input:PreUpdate Client": {
 		"prefix": "Input:PreUpdate",
 		"body": [
+			"---@param p_HookCtx HookContext",
+			"---@param p_Cache ConceptCache",
+			"---@param p_DeltaTime number",
 			"Hooks:Install('Input:PreUpdate', 1, function(p_HookCtx, p_Cache, p_DeltaTime)",
 			"\t",
 			"end)"
@@ -1894,6 +2257,9 @@
 		"body": [
 			"Hooks:Install('Input:PreUpdate', 1, self, self.OnInputPreUpdate)",
 			"",
+			"---@param p_HookCtx HookContext",
+			"---@param p_Cache ConceptCache",
+			"---@param p_DeltaTime number",
 			"function $TM_FILENAME_BASE:OnInputPreUpdate(p_HookCtx, p_Cache, p_DeltaTime)" ,
 			"\t",
 			"end"
@@ -1903,6 +2269,8 @@
 	"UI:CreateAction Client": {
 		"prefix": "UI:CreateAction",
 		"body": [
+			"---@param p_HookCtx HookContext",
+			"---@param p_Action UIAction",
 			"Hooks:Install('UI:CreateAction', 1, function(p_HookCtx, p_Action)",
 			"\t",
 			"end)"
@@ -1914,6 +2282,8 @@
 		"body": [
 			"Hooks:Install('UI:CreateAction', 1, self, self.OnUICreateAction)",
 			"",
+			"---@param p_HookCtx HookContext",
+			"---@param p_Action UIAction",
 			"function $TM_FILENAME_BASE:OnUICreateAction(p_HookCtx, p_Action)" ,
 			"\t",
 			"end"
@@ -1923,6 +2293,12 @@
 	"UI:CreateChatMessage Client": {
 		"prefix": "UI:CreateChatMessage",
 		"body": [
+			"---@param p_HookCtx HookContext",
+			"---@param p_Message string",
+			"---@param p_ChannelId ChatChannelType|integer",
+			"---@param p_PlayerId integer",
+			"---@param p_RecipientMask integer",
+			"---@param p_IsSenderDead boolean",
 			"Hooks:Install('UI:CreateChatMessage', 1, function(p_HookCtx, p_Message, p_ChannelId, p_PlayerId, p_RecipientMask, p_IsSenderDead)",
 			"\t",
 			"end)"
@@ -1934,6 +2310,12 @@
 		"body": [
 			"Hooks:Install('UI:CreateChatMessage', 1, self, self.OnUICreateChatMessage)",
 			"",
+			"---@param p_HookCtx HookContext",
+			"---@param p_Message string",
+			"---@param p_ChannelId ChatChannelType|integer",
+			"---@param p_PlayerId integer",
+			"---@param p_RecipientMask integer",
+			"---@param p_IsSenderDead boolean",
 			"function $TM_FILENAME_BASE:OnUICreateChatMessage(p_HookCtx, p_Message, p_ChannelId, p_PlayerId, p_RecipientMask, p_IsSenderDead)" ,
 			"\t",
 			"end"
@@ -1943,6 +2325,7 @@
 	"UI:CreateKillMessage Client": {
 		"prefix": "UI:CreateKillMessage",
 		"body": [
+			"---@param p_HookCtx HookContext",
 			"Hooks:Install('UI:CreateKillMessage', 1, function(p_HookCtx)",
 			"\t",
 			"end)"
@@ -1954,6 +2337,7 @@
 		"body": [
 			"Hooks:Install('UI:CreateKillMessage', 1, self, self.OnUICreateKillMessage)",
 			"",
+			"---@param p_HookCtx HookContext",
 			"function $TM_FILENAME_BASE:OnUICreateKillMessage(p_HookCtx)" ,
 			"\t",
 			"end"
@@ -1963,6 +2347,7 @@
 	"UI:DrawEnemyNametag Client": {
 		"prefix": "UI:DrawEnemyNametag",
 		"body": [
+			"---@param p_HookCtx HookContext",
 			"Hooks:Install('UI:DrawEnemyNametag', 1, function(p_HookCtx)",
 			"\t",
 			"end)"
@@ -1974,6 +2359,7 @@
 		"body": [
 			"Hooks:Install('UI:DrawEnemyNametag', 1, self, self.OnUIDrawEnemyNametag)",
 			"",
+			"---@param p_HookCtx HookContext",
 			"function $TM_FILENAME_BASE:OnUIDrawEnemyNametag(p_HookCtx)" ,
 			"\t",
 			"end"
@@ -1983,6 +2369,7 @@
 	"UI:DrawFriendlyNametag Client": {
 		"prefix": "UI:DrawFriendlyNametag",
 		"body": [
+			"---@param p_HookCtx HookContext",
 			"Hooks:Install('UI:DrawFriendlyNametag', 1, function(p_HookCtx)",
 			"\t",
 			"end)"
@@ -1994,6 +2381,7 @@
 		"body": [
 			"Hooks:Install('UI:DrawFriendlyNametag', 1, self, self.OnUIDrawFriendlyNametag)",
 			"",
+			"---@param p_HookCtx HookContext",
 			"function $TM_FILENAME_BASE:OnUIDrawFriendlyNametag(p_HookCtx)" ,
 			"\t",
 			"end"
@@ -2003,6 +2391,7 @@
 	"UI:DrawMoreNametags Client": {
 		"prefix": "UI:DrawMoreNametags",
 		"body": [
+			"---@param p_HookCtx HookContext",
 			"Hooks:Install('UI:DrawMoreNametags', 1, function(p_HookCtx)",
 			"\t",
 			"end)"
@@ -2014,6 +2403,7 @@
 		"body": [
 			"Hooks:Install('UI:DrawMoreNametags', 1, self, self.OnUIDrawMoreNametags)",
 			"",
+			"---@param p_HookCtx HookContext",
 			"function $TM_FILENAME_BASE:OnUIDrawMoreNametags(p_HookCtx)" ,
 			"\t",
 			"end"
@@ -2023,6 +2413,7 @@
 	"UI:DrawNametags Client": {
 		"prefix": "UI:DrawNametags",
 		"body": [
+			"---@param p_HookCtx HookContext",
 			"Hooks:Install('UI:DrawNametags', 1, function(p_HookCtx)",
 			"\t",
 			"end)"
@@ -2034,6 +2425,7 @@
 		"body": [
 			"Hooks:Install('UI:DrawNametags', 1, self, self.OnUIDrawNametags)",
 			"",
+			"---@param p_HookCtx HookContext",
 			"function $TM_FILENAME_BASE:OnUIDrawNametags(p_HookCtx)" ,
 			"\t",
 			"end"
@@ -2043,6 +2435,7 @@
 	"UI:DrawSquadNametag Client": {
 		"prefix": "UI:DrawSquadNametag",
 		"body": [
+			"---@param p_HookCtx HookContext",
 			"Hooks:Install('UI:DrawSquadNametag', 1, function(p_HookCtx)",
 			"\t",
 			"end)"
@@ -2054,6 +2447,7 @@
 		"body": [
 			"Hooks:Install('UI:DrawSquadNametag', 1, self, self.OnUIDrawSquadNametag)",
 			"",
+			"---@param p_HookCtx HookContext",
 			"function $TM_FILENAME_BASE:OnUIDrawSquadNametag(p_HookCtx)" ,
 			"\t",
 			"end"
@@ -2063,6 +2457,9 @@
 	"UI:EnableCursorMode Client": {
 		"prefix": "UI:EnableCursorMode",
 		"body": [
+			"---@param p_HookCtx HookContext",
+			"---@param p_Enable boolean",
+			"---@param p_Cursor integer",
 			"Hooks:Install('UI:EnableCursorMode', 1, function(p_HookCtx, p_Enable, p_Cursor)",
 			"\t",
 			"end)"
@@ -2074,7 +2471,34 @@
 		"body": [
 			"Hooks:Install('UI:EnableCursorMode', 1, self, self.OnUIEnableCursorMode)",
 			"",
+			"---@param p_HookCtx HookContext",
+			"---@param p_Enable boolean",
+			"---@param p_Cursor integer",
 			"function $TM_FILENAME_BASE:OnUIEnableCursorMode(p_HookCtx, p_Enable, p_Cursor)" ,
+			"\t",
+			"end"
+		],
+		"description": "Client Hook for UI:EnableCursorMode"
+	},
+	"UI:EnableTypingMode Client": {
+		"prefix": "UI:EnableTypingMode",
+		"body": [
+			"---@param p_HookCtx HookContext",
+			"---@param p_Enable boolean",
+			"Hooks:Install('UI:EnableTypingMode', 1, function(p_HookCtx, p_Enable)",
+			"\t",
+			"end)"
+		],
+		"description": "Client Hook for UI:EnableCursorMode"
+		},
+	"Class UI:EnableTypingMode Client": {
+		"prefix": "UI:EnableTypingMode",
+		"body": [
+			"Hooks:Install('UI:EnableTypingMode', 1, self, self.OnUIEnableTypingMode)",
+			"",
+			"---@param p_HookCtx HookContext",
+			"---@param p_Enable boolean",
+			"function $TM_FILENAME_BASE:OnUIEnableTypingMode(p_HookCtx, p_Enable)" ,
 			"\t",
 			"end"
 		],
@@ -2083,6 +2507,9 @@
 	"UI:InputConceptEvent Client": {
 		"prefix": "UI:InputConceptEvent",
 		"body": [
+			"---@param p_HookCtx HookContext",
+			"---@param p_EventType UIInputActionEventType|integer",
+			"---@param p_Action UIInputAction|integer",
 			"Hooks:Install('UI:InputConceptEvent', 1, function(p_HookCtx, p_EventType, p_Action)",
 			"\t",
 			"end)"
@@ -2094,6 +2521,9 @@
 		"body": [
 			"Hooks:Install('UI:InputConceptEvent', 1, self, self.OnUIInputConceptEvent)",
 			"",
+			"---@param p_HookCtx HookContext",
+			"---@param p_EventType UIInputActionEventType|integer",
+			"---@param p_Action UIInputAction|integer",
 			"function $TM_FILENAME_BASE:OnUIInputConceptEvent(p_HookCtx, p_EventType, p_Action)" ,
 			"\t",
 			"end"
@@ -2103,6 +2533,8 @@
 	"UI:NametagsShouldUpdate Client": {
 		"prefix": "UI:NametagsShouldUpdate",
 		"body": [
+			"---@param p_HookCtx HookContext",
+			"---@return boolean",
 			"Hooks:Install('UI:NametagsShouldUpdate', 1, function(p_HookCtx)",
 			"\t",
 			"end)"
@@ -2114,6 +2546,8 @@
 		"body": [
 			"Hooks:Install('UI:NametagsShouldUpdate', 1, self, self.OnUINametagsShouldUpdate)",
 			"",
+			"---@param p_HookCtx HookContext",
+			"---@return boolean",
 			"function $TM_FILENAME_BASE:OnUINametagsShouldUpdate(p_HookCtx)" ,
 			"\t",
 			"end"
@@ -2123,6 +2557,12 @@
 	"UI:PushScreen Client": {
 		"prefix": "UI:PushScreen",
 		"body": [
+			"---@param p_HookCtx HookContext",
+			"---@param p_Screen DataContainer",
+			"---@param p_Priority UIGraphPriority|integer",
+			"---@param p_ParentGraph DataContainer",
+			"---@param p_StateNodeGuid Guid|nil",
+			"---@return boolean",
 			"Hooks:Install('UI:PushScreen', 1, function(p_HookCtx, p_Screen, p_Priority, p_ParentGraph, p_StateNodeGuid)",
 			"\t",
 			"end)"
@@ -2134,6 +2574,12 @@
 		"body": [
 			"Hooks:Install('UI:PushScreen', 1, self, self.OnUIPushScreen)",
 			"",
+			"---@param p_HookCtx HookContext",
+			"---@param p_Screen DataContainer",
+			"---@param p_Priority UIGraphPriority|integer",
+			"---@param p_ParentGraph DataContainer",
+			"---@param p_StateNodeGuid Guid|nil",
+			"---@return boolean",
 			"function $TM_FILENAME_BASE:OnUIPushScreen(p_HookCtx, p_Screen, p_Priority, p_ParentGraph, p_StateNodeGuid)" ,
 			"\t",
 			"end"
@@ -2143,6 +2589,7 @@
 	"UI:RenderMinimap Client": {
 		"prefix": "UI:RenderMinimap",
 		"body": [
+			"---@param p_HookCtx HookContext",
 			"Hooks:Install('UI:RenderMinimap', 1, function(p_HookCtx)",
 			"\t",
 			"end)"
@@ -2154,6 +2601,7 @@
 		"body": [
 			"Hooks:Install('UI:RenderMinimap', 1, self, self.OnUIRenderMinimap)",
 			"",
+			"---@param p_HookCtx HookContext",
 			"function $TM_FILENAME_BASE:OnUIRenderMinimap(p_HookCtx)" ,
 			"\t",
 			"end"
@@ -2163,6 +2611,7 @@
 	"UI:UpdateNametagIcons Client": {
 		"prefix": "UI:UpdateNametagIcons",
 		"body": [
+			"---@param p_HookCtx HookContext",
 			"Hooks:Install('UI:UpdateNametagIcons', 1, function(p_HookCtx)",
 			"\t",
 			"end)"
@@ -2174,6 +2623,7 @@
 		"body": [
 			"Hooks:Install('UI:UpdateNametagIcons', 1, self, self.OnUIUpdateNametagIcons)",
 			"",
+			"---@param p_HookCtx HookContext",
 			"function $TM_FILENAME_BASE:OnUIUpdateNametagIcons(p_HookCtx)" ,
 			"\t",
 			"end"
@@ -2183,6 +2633,10 @@
 	"BulletEntity:Collision Server": {
 		"prefix": "BulletEntity:Collision Server",
 		"body": [
+			"---@param p_HookCtx HookContext",
+			"---@param p_Entity Entity",
+			"---@param p_Hit RayCastHit",
+			"---@param p_GiverInfo DamageGiverInfo",
 			"Hooks:Install('BulletEntity:Collision', 1, function(p_HookCtx, p_Entity, p_Hit, p_GiverInfo)",
 			"\t",
 			"end)"
@@ -2194,6 +2648,10 @@
 		"body": [
 			"Hooks:Install('BulletEntity:Collision', 1, self, self.OnBulletEntityCollision)",
 			"",
+			"---@param p_HookCtx HookContext",
+			"---@param p_Entity Entity",
+			"---@param p_Hit RayCastHit",
+			"---@param p_GiverInfo DamageGiverInfo",
 			"function $TM_FILENAME_BASE:OnBulletEntityCollision(p_HookCtx, p_Entity, p_Hit, p_GiverInfo)" ,
 			"\t",
 			"end"
@@ -2203,6 +2661,9 @@
 	"Player:FindBestSquad Server": {
 		"prefix": "Player:FindBestSquad",
 		"body": [
+			"---@param p_HookCtx HookContext",
+			"---@param p_Player Player",
+			"---@return SquadId|integer",
 			"Hooks:Install('Player:FindBestSquad', 1, function(p_HookCtx, p_Player)",
 			"\t",
 			"end)"
@@ -2214,6 +2675,9 @@
 		"body": [
 			"Hooks:Install('Player:FindBestSquad', 1, self, self.OnPlayerFindBestSquad)",
 			"",
+			"---@param p_HookCtx HookContext",
+			"---@param p_Player Player",
+			"---@return SquadId|integer",
 			"function $TM_FILENAME_BASE:OnPlayerFindBestSquad(p_HookCtx, p_Player)" ,
 			"\t",
 			"end"
@@ -2223,6 +2687,12 @@
 	"Player:RequestJoin Server": {
 		"prefix": "Player:RequestJoin",
 		"body": [
+			"---@param p_HookCtx HookContext",
+			"---@param p_JoinMode string",
+			"---@param p_AccountGuid Guid",
+			"---@param p_PlayerGuid Guid",
+			"---@param p_PlayerName string",
+			"---@return boolean",
 			"Hooks:Install('Player:RequestJoin', 1, function(p_HookCtx, p_JoinMode, p_AccountGuid, p_PlayerGuid, p_PlayerName)",
 			"\t",
 			"end)"
@@ -2234,6 +2704,12 @@
 		"body": [
 			"Hooks:Install('Player:RequestJoin', 1, self, self.OnPlayerRequestJoin)",
 			"",
+			"---@param p_HookCtx HookContext",
+			"---@param p_JoinMode string",
+			"---@param p_AccountGuid Guid",
+			"---@param p_PlayerGuid Guid",
+			"---@param p_PlayerName string",
+			"---@return boolean",
 			"function $TM_FILENAME_BASE:OnPlayerRequestJoin(p_HookCtx, p_JoinMode, p_AccountGuid, p_PlayerGuid, p_PlayerName)" ,
 			"\t",
 			"end"
@@ -2243,6 +2719,9 @@
 	"Player:SelectTeam Server": {
 		"prefix": "Player:SelectTeam",
 		"body": [
+			"---@param p_HookCtx HookContext",
+			"---@param p_Player Player",
+			"---@param p_Team TeamId|integer",
 			"Hooks:Install('Player:SelectTeam', 1, function(p_HookCtx, p_Player, p_Team)",
 			"\t",
 			"end)"
@@ -2254,6 +2733,9 @@
 		"body": [
 			"Hooks:Install('Player:SelectTeam', 1, self, self.OnPlayerSelectTeam)",
 			"",
+			"---@param p_HookCtx HookContext",
+			"---@param p_Player Player",
+			"---@param p_Team TeamId|integer",
 			"function $TM_FILENAME_BASE:OnPlayerSelectTeam(p_HookCtx, p_Player, p_Team)" ,
 			"\t",
 			"end"
@@ -2263,6 +2745,8 @@
 	"Server:SuppressEnemies Server": {
 		"prefix": "Server:SuppressEnemies",
 		"body": [
+			"---@param p_HookCtx HookContext",
+			"---@param p_SuppressionModifier number",
 			"Hooks:Install('Server:SuppressEnemies', 1, function(p_HookCtx, p_SuppressionModifier)",
 			"\t",
 			"end)"
@@ -2274,6 +2758,8 @@
 		"body": [
 			"Hooks:Install('Server:SuppressEnemies', 1, self, self.OnServerSuppressEnemies)",
 			"",
+			"---@param p_HookCtx HookContext",
+			"---@param p_SuppressionModifier number",
 			"function $TM_FILENAME_BASE:OnServerSuppressEnemies(p_HookCtx, p_SuppressionModifier)" ,
 			"\t",
 			"end"
@@ -2283,6 +2769,10 @@
 	"Soldier:Damage Server": {
 		"prefix": "Soldier:Damage",
 		"body": [
+			"---@param p_HookCtx HookContext",
+			"---@param p_Soldier SoldierEntity",
+			"---@param p_Info DamageInfo",
+			"---@param p_GiverInfo DamageGiverInfo|nil",
 			"Hooks:Install('Soldier:Damage', 1, function(p_HookCtx, p_Soldier, p_Info, p_GiverInfo)",
 			"\t",
 			"end)"
@@ -2294,6 +2784,10 @@
 		"body": [
 			"Hooks:Install('Soldier:Damage', 1, self, self.OnSoldierDamage)",
 			"",
+			"---@param p_HookCtx HookContext",
+			"---@param p_Soldier SoldierEntity",
+			"---@param p_Info DamageInfo",
+			"---@param p_GiverInfo DamageGiverInfo|nil",
 			"function $TM_FILENAME_BASE:OnSoldierDamage(p_HookCtx, p_Soldier, p_Info, p_GiverInfo)" ,
 			"\t",
 			"end"
@@ -2408,14 +2902,14 @@
 	"Events:Subscribe(eventName: string, callback: callable)": {
 		"prefix": "Events:Subscribe",
 		"body": [
-			"Events:Subscribe(${1|'','CapturePoint:Captured','CapturePoint:Lost','Client:PostFrameUpdate','Client:UpdateInput','Engine:Init','Engine:Message','Engine:Update','Extension:Loaded','Extension:Unloading','FPSCamera:Update','FreeCam:PostFrameUpdate','GunSway:Update','GunSway:UpdateRecoil','Level:Destroy','Level:Finalized','Level:Loaded','Level:LoadingInfo','Level:LoadResources','Level:RegisterEntityResources','Partition:Loaded','Player:Authenticated','Player:ChangingWeapon','Player:Chat','Player:Connected','Player:Created','Player:Deleted','Player:Destroyed','Player:EnteredCapturePoint','Player:ExitedCapturePoint','Player:InstantSuicide','Player:Joining','Player:KickedFromSquad','Player:Killed','Player:KitPickup','Player:Left','Player:ManDownRevived','Player:Reload','Player:Respawn','Player:Resupply','Player:ReviveAccepted','Player:ReviveRefused','Player:SetSquad','Player:SetSquadLeader','Player:SpawnAtVehicle','Player:SpawnOnPlayer','Player:SpawnOnSelectedSpawnPoint','Player:SquadChange','Player:SuppressedEnemy','Player:TeamChange','Player:Update','Player:UpdateInput','Server:RoundOver','Server:RoundReset','Soldier:HealthAction','Soldier:ManDown','Soldier:PrePhysicsUpdate','Soldier:Spawn','UI:DrawHud','UpdateManager:Update','Vehicle:Damage','Vehicle:Destroyed','Vehicle:Disabled','Vehicle:Enter','Vehicle:Exit','Vehicle:SpawnDone','Vehicle:Unspawn','VE:StateAdded','VE:StateRemoved','VE:StatesCleared','VU:Spec:PostUpdate','VU:Spec:PreUpdate','Voip:ChannelClosed','Voip:ChannelOpened','VoipChannel:PlayerJoined','VoipChannel:PlayerLeft','VoipEmitter:Emitting','WeaponFiring:Create','WeaponFiring:Update'|}, ${2:callback: callable})"
+			"Events:Subscribe(${1|'','CapturePoint:Captured','CapturePoint:Lost','Client:PostFrameUpdate','Client:UpdateInput','Engine:Init','Engine:Message','Engine:Update','Extension:Loaded','Extension:Unloading','FPSCamera:Update','FreeCam:PostFrameUpdate','GunSway:Update','GunSway:UpdateRecoil','Level:Destroy','Level:Finalized','Level:Loaded','Level:LoadingInfo','Level:LoadResources','Level:RegisterEntityResources','Partition:Loaded','Player:Authenticated','Player:ChangingWeapon','Player:Chat','Player:Connected','Player:Created','Player:Deleted','Player:Destroyed','Player:EnteredCapturePoint','Player:ExitedCapturePoint','Player:InstantSuicide','Player:Joining','Player:KickedFromSquad','Player:Killed','Player:KitPickup','Player:Left','Player:ManDownRevived','Player:Reload','Player:Respawn','Player:Resupply','Player:ReviveAccepted','Player:ReviveRefused','Player:SetSquad','Player:SetSquadLeader','Player:SpawnAtVehicle','Player:SpawnOnPlayer','Player:SpawnOnSelectedSpawnPoint','Player:SquadChange','Player:SuppressedEnemy','Player:TeamChange','Player:Update','Player:UpdateInput','Player:UpdateInteract','Server:RoundOver','Server:RoundReset','Soldier:HealthAction','Soldier:ManDown','Soldier:PrePhysicsUpdate','Soldier:Spawn','UI:DrawHud','UpdateManager:Update','Vehicle:Damage','Vehicle:Destroyed','Vehicle:Disabled','Vehicle:Enter','Vehicle:Exit','Vehicle:SpawnDone','Vehicle:Unspawn','VE:StateAdded','VE:StateRemoved','VE:StatesCleared','Voip:ChannelClosed','Voip:ChannelOpened','VoipChannel:PlayerJoined','VoipChannel:PlayerLeft','VoipEmitter:Emitting','VU:Spec:PostUpdate','VU:Spec:PreUpdate','WeaponFiring:Create','WeaponFiring:Update'|}, ${2:callback: callable})"
 		],
 		"description": "Events:Subscribe"
 	},
 	"Events:Subscribe(eventName: string, context: any, callback: callable)": {
 		"prefix": "Events:Subscribe",
 		"body": [
-			"Events:Subscribe(${1|'','CapturePoint:Captured','CapturePoint:Lost','Client:PostFrameUpdate','Client:UpdateInput','Engine:Init','Engine:Message','Engine:Update','Extension:Loaded','Extension:Unloading','FPSCamera:Update','FreeCam:PostFrameUpdate','GunSway:Update','GunSway:UpdateRecoil','Level:Destroy','Level:Finalized','Level:Loaded','Level:LoadingInfo','Level:LoadResources','Level:RegisterEntityResources','Partition:Loaded','Player:Authenticated','Player:ChangingWeapon','Player:Chat','Player:Connected','Player:Created','Player:Deleted','Player:Destroyed','Player:EnteredCapturePoint','Player:ExitedCapturePoint','Player:InstantSuicide','Player:Joining','Player:KickedFromSquad','Player:Killed','Player:KitPickup','Player:Left','Player:ManDownRevived','Player:Reload','Player:Respawn','Player:Resupply','Player:ReviveAccepted','Player:ReviveRefused','Player:SetSquad','Player:SetSquadLeader','Player:SpawnAtVehicle','Player:SpawnOnPlayer','Player:SpawnOnSelectedSpawnPoint','Player:SquadChange','Player:SuppressedEnemy','Player:TeamChange','Player:Update','Player:UpdateInput','Server:RoundOver','Server:RoundReset','Soldier:HealthAction','Soldier:ManDown','Soldier:PrePhysicsUpdate','Soldier:Spawn','UI:DrawHud','UpdateManager:Update','Vehicle:Damage','Vehicle:Destroyed','Vehicle:Disabled','Vehicle:Enter','Vehicle:Exit','Vehicle:SpawnDone','Vehicle:Unspawn','VE:StateAdded','VE:StateRemoved','VE:StatesCleared','VU:Spec:PostUpdate','VU:Spec:PreUpdate','Voip:ChannelClosed','Voip:ChannelOpened','VoipChannel:PlayerJoined','VoipChannel:PlayerLeft','VoipEmitter:Emitting','WeaponFiring:Create','WeaponFiring:Update'|}, ${2:context: any}, ${3:callback: callable})"
+			"Events:Subscribe(${1|'','CapturePoint:Captured','CapturePoint:Lost','Client:PostFrameUpdate','Client:UpdateInput','Engine:Init','Engine:Message','Engine:Update','Extension:Loaded','Extension:Unloading','FPSCamera:Update','FreeCam:PostFrameUpdate','GunSway:Update','GunSway:UpdateRecoil','Level:Destroy','Level:Finalized','Level:Loaded','Level:LoadingInfo','Level:LoadResources','Level:RegisterEntityResources','Partition:Loaded','Player:Authenticated','Player:ChangingWeapon','Player:Chat','Player:Connected','Player:Created','Player:Deleted','Player:Destroyed','Player:EnteredCapturePoint','Player:ExitedCapturePoint','Player:InstantSuicide','Player:Joining','Player:KickedFromSquad','Player:Killed','Player:KitPickup','Player:Left','Player:ManDownRevived','Player:Reload','Player:Respawn','Player:Resupply','Player:ReviveAccepted','Player:ReviveRefused','Player:SetSquad','Player:SetSquadLeader','Player:SpawnAtVehicle','Player:SpawnOnPlayer','Player:SpawnOnSelectedSpawnPoint','Player:SquadChange','Player:SuppressedEnemy','Player:TeamChange','Player:Update','Player:UpdateInput','Player:UpdateInteract','Server:RoundOver','Server:RoundReset','Soldier:HealthAction','Soldier:ManDown','Soldier:PrePhysicsUpdate','Soldier:Spawn','UI:DrawHud','UpdateManager:Update','Vehicle:Damage','Vehicle:Destroyed','Vehicle:Disabled','Vehicle:Enter','Vehicle:Exit','Vehicle:SpawnDone','Vehicle:Unspawn','VE:StateAdded','VE:StateRemoved','VE:StatesCleared','Voip:ChannelClosed','Voip:ChannelOpened','VoipChannel:PlayerJoined','VoipChannel:PlayerLeft','VoipEmitter:Emitting','VU:Spec:PostUpdate','VU:Spec:PreUpdate','WeaponFiring:Create','WeaponFiring:Update'|}, ${2:context: any}, ${3:callback: callable})"
 		],
 		"description": "Events:Subscribe"
 	},
@@ -3749,34 +4243,6 @@
 		],
 		"description": "VisualEnvironmentManager:RemoveState"
 	},
-	"Voip:IsAvailable": {
-		"prefix": "Voip:IsAvailable",
-		"body": [
-			"Voip:IsAvailable"
-		],
-		"description": "Voip:IsAvailable"
-	},
-	"Voip:GetChannel(channelName: string)": {
-		"prefix": "Voip:GetChannel",
-		"body": [
-			"Voip:GetChannel(${1:channelName: string})"
-		],
-		"description": "Voip:GetChannel"
-	},
-	"Voip:GetChannels": {
-		"prefix": "Voip:GetChannels",
-		"body": [
-			"Voip:GetChannels"
-		],
-		"description": "Voip:GetChannels"
-	},
-	"Voip:GetEmitters": {
-		"prefix": "Voip:GetEmitters",
-		"body": [
-			"Voip:GetEmitters"
-		],
-		"description": "Voip:GetEmitters"
-	},
 	"WebUI:Init": {
 		"prefix": "WebUI:Init",
 		"body": [
@@ -4077,13 +4543,6 @@
 			"TicketManager:GetRoundCount"
 		],
 		"description": "TicketManager:GetRoundCount"
-	},
-	"Voip:CreateChannel(channelName: string, defaultEmitterType: VoipEmitterType)": {
-		"prefix": "Voip:CreateChannel",
-		"body": [
-			"Voip:CreateChannel(${1:channelName: string}, ${2:defaultEmitterType: VoipEmitterType})"
-		],
-		"description": "Voip:CreateChannel"
 	},
 	"ResourceManager:MountSuperBundle(superbundle: string, mediaHint: MediaHint = MediaHint.MediaHint_Default, optional: bool = false)": {
 		"prefix": "ResourceManager:MountSuperBundle",
